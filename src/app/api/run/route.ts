@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { getApiUser } from '@/lib/auth/session';
 import { execute } from '@/lib/db';
 import { LANGUAGE_IDS, type LanguageId } from '@/lib/runner/languages';
-import { runCode } from '@/lib/runner/piston';
+import { runCode } from '@/lib/runner/sandbox';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
