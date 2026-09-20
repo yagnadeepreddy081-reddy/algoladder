@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { ROADMAP } from '../data/source/roadmap.mjs';
 import { PATTERNS } from '../data/source/patterns.mjs';
 import { STATEMENTS } from '../data/source/statements.mjs';
+import { TEST_CASES } from '../data/source/test-cases.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, '..', 'data');
@@ -188,6 +189,7 @@ export function buildDataset() {
           ioFormat: statement.ioFormat ?? null,
           examples: statement.examples ?? [],
           constraints: statement.constraints ?? [],
+          testCases: TEST_CASES[slug] ?? statement.testCases ?? [],
 
         });
       });
@@ -219,10 +221,23 @@ export function buildDataset() {
   // Every key in statements.mjs must name a real problem. A typo in a slug
   // would otherwise fail silently, leaving the problem with pattern defaults.
   const slugs = new Set(problems.map((p) => p.slug));
-  const orphans = Object.keys(STATEMENTS).filter((slug) => !slugs.has(slug));
-  if (orphans.length) {
+  for (const [file, table] of [
+    ['statements.mjs', STATEMENTS],
+    ['test-cases.mjs', TEST_CASES],
+  ]) {
+    const orphans = Object.keys(table).filter((slug) => !slugs.has(slug));
+    if (orphans.length) {
+      throw new Error(
+        `${file} has ${orphans.length} key(s) matching no problem:\n  ${orphans.join('\n  ')}`,
+      );
+    }
+  }
+
+  // A test case is useless without a statement to define its output format.
+  const untold = Object.keys(TEST_CASES).filter((slug) => !STATEMENTS[slug]);
+  if (untold.length) {
     throw new Error(
-      `statements.mjs has ${orphans.length} key(s) matching no problem:\n  ${orphans.join('\n  ')}`,
+      `These problems have test cases but no statement:\n  ${untold.join('\n  ')}`,
     );
   }
 

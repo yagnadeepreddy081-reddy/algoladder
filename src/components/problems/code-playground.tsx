@@ -42,6 +42,28 @@ interface RunResponse {
   error?: string;
 }
 
+interface CaseResult {
+  index: number;
+  hidden: boolean;
+  passed: boolean;
+  input?: string;
+  expected?: string;
+  actual: string;
+  stderr: string;
+  timedOut: boolean;
+  wallTimeMs: number;
+}
+
+interface SubmitResponse {
+  mode: 'submit';
+  cases: CaseResult[];
+  passed: number;
+  total: number;
+  compileOutput: string;
+  wallTimeMs: number;
+  error?: string;
+}
+
 export interface PlaygroundDraft {
   source: string;
   stdin: string;
@@ -76,6 +98,12 @@ const PlayIcon = () => (
   </svg>
 );
 
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
+    <path d="m5 13 4 4L19 7" />
+  </svg>
+);
+
 const SpinnerIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 animate-spin" aria-hidden>
     <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2.5" opacity="0.25" />
@@ -88,9 +116,11 @@ const SpinnerIcon = () => (
 export function CodePlayground({
   problemId,
   drafts = {},
+  hasTestCases = false,
 }: {
   problemId: string;
   drafts?: DraftMap;
+  hasTestCases?: boolean;
 }) {
   const isDark = useIsDark();
 
@@ -112,7 +142,9 @@ export function CodePlayground({
   );
 
   const [running, setRunning] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<RunResponse | null>(null);
+  const [submission, setSubmission] = useState<SubmitResponse | null>(null);
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [expanded, setExpanded] = useState(false);
 
@@ -143,6 +175,7 @@ export function CodePlayground({
 
     setRunning(true);
     setResult(null);
+    setSubmission(null);
 
     try {
       const res = await fetch('/api/run', {
@@ -172,6 +205,46 @@ export function CodePlayground({
     }
   }, [language, problemId, running, source, stdin]);
 
+  /* ---------------------------------------------------------- submit --- */
+
+  const submit = useCallback(async () => {
+    if (submitting || running || !source.trim()) return;
+
+    setSubmitting(true);
+    setResult(null);
+    setSubmission(null);
+
+    try {
+      const res = await fetch('/api/run', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ problemId, language, source, mode: 'submit' }),
+      });
+      const body = (await res.json()) as SubmitResponse & { error?: string };
+      setSubmission({
+        mode: 'submit',
+        cases: body.cases ?? [],
+        passed: body.passed ?? 0,
+        total: body.total ?? 0,
+        compileOutput: body.compileOutput ?? '',
+        wallTimeMs: body.wallTimeMs ?? 0,
+        error: body.error,
+      });
+    } catch {
+      setSubmission({
+        mode: 'submit',
+        cases: [],
+        passed: 0,
+        total: 0,
+        compileOutput: '',
+        wallTimeMs: 0,
+        error: 'The request never made it out. Check that you are still online.',
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  }, [language, problemId, running, source, submitting]);
+
   /* Monaco's keybinding closes over `run`, so keep a live reference to it. */
   const runRef = useRef(run);
   useEffect(() => {
@@ -190,6 +263,7 @@ export function CodePlayground({
       if (typeof value !== 'string') return;
       setStdins((prev) => ({ ...prev, [language]: value }));
       setResult(null);
+      setSubmission(null);
     };
     window.addEventListener(USE_INPUT_EVENT, onUseInput);
     return () => window.removeEventListener(USE_INPUT_EVENT, onUseInput);
@@ -253,7 +327,9 @@ export function CodePlayground({
             Write and run your solution
           </h2>
           <p className="text-xs text-[hsl(var(--text-muted))]">
-            Runs in a sandbox. Your draft saves as you type.
+            {hasTestCases
+              ? 'Run against your own input, or Submit to check every test case.'
+              : 'Runs in a sandbox. Your draft saves as you type.'}
           </p>
         </div>
 
@@ -274,6 +350,7 @@ export function CodePlayground({
               onClick={() => {
                 setLanguage(lang.id);
                 setResult(null);
+                setSubmission(null);
               }}
               className={clsx(
                 'rounded-md px-2.5 py-1 text-xs font-medium transition-colors',
@@ -294,13 +371,26 @@ export function CodePlayground({
         <button
           type="button"
           onClick={run}
-          disabled={running}
-          className={buttonClass('primary', 'sm')}
+          disabled={running || submitting}
+          className={buttonClass(hasTestCases ? 'outline' : 'primary', 'sm')}
           data-testid="run-code"
         >
           {running ? <SpinnerIcon /> : <PlayIcon />}
           {running ? 'Running…' : 'Run'}
         </button>
+
+        {hasTestCases ? (
+          <button
+            type="button"
+            onClick={submit}
+            disabled={running || submitting}
+            className={buttonClass('primary', 'sm')}
+            data-testid="submit-code"
+          >
+            {submitting ? <SpinnerIcon /> : <CheckIcon />}
+            {submitting ? 'Checking…' : 'Submit'}
+          </button>
+        ) : null}
       </div>
 
       {/* -------------------------------------------------------- editor */}
@@ -429,6 +519,126 @@ export function CodePlayground({
           </div>
         </div>
       </div>
+
+      {/* ------------------------------------------------- test results */}
+      {submitting || submission ? (
+        <div className="border-t border-[hsl(var(--border))]">
+          <div className="flex flex-wrap items-center gap-2 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-4 py-2.5">
+            <span className="text-xs font-semibold tracking-wide text-[hsl(var(--text-muted))] uppercase">
+              Test cases
+            </span>
+
+            {submission && !submission.error && !submission.compileOutput ? (
+              <span
+                className={clsx(
+                  'rounded-md px-1.5 py-0.5 text-[11px] font-semibold',
+                  submission.passed === submission.total
+                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300'
+                    : 'bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300',
+                )}
+              >
+                {submission.passed === submission.total
+                  ? `All ${submission.total} passed`
+                  : `${submission.passed} of ${submission.total} passed`}
+              </span>
+            ) : null}
+
+            <span className="flex-1" />
+            {submission?.wallTimeMs ? (
+              <span className="tabular text-[11px] text-[hsl(var(--text-subtle))]">
+                {submission.wallTimeMs} ms total
+              </span>
+            ) : null}
+          </div>
+
+          <div className="px-4 py-3">
+            {submitting ? (
+              <p className="font-mono text-xs text-[hsl(var(--text-subtle))]">
+                Running your code against every test case…
+              </p>
+            ) : submission?.error ? (
+              <p className="font-mono text-xs whitespace-pre-wrap text-rose-600 dark:text-rose-400">
+                {submission.error}
+              </p>
+            ) : submission?.compileOutput ? (
+              <>
+                <p className="mb-1.5 text-xs font-medium text-rose-600 dark:text-rose-400">
+                  Your code did not compile, so no case could run.
+                </p>
+                <pre className="font-mono text-xs whitespace-pre-wrap text-rose-600 dark:text-rose-400">
+                  {submission.compileOutput}
+                </pre>
+              </>
+            ) : (
+              <ul className="space-y-2">
+                {submission?.cases.map((c) => (
+                  <li
+                    key={c.index}
+                    className={clsx(
+                      'overflow-hidden rounded-lg border',
+                      c.passed
+                        ? 'border-[hsl(var(--border))]'
+                        : 'border-rose-300 dark:border-rose-900',
+                    )}
+                  >
+                    <div className="flex items-center gap-2 px-3 py-2">
+                      <span
+                        aria-hidden
+                        className={clsx(
+                          'flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white',
+                          c.passed ? 'bg-emerald-500' : 'bg-rose-500',
+                        )}
+                      >
+                        {c.passed ? '✓' : '✕'}
+                      </span>
+                      <span className="text-xs font-medium text-[hsl(var(--text))]">
+                        Case {c.index}
+                        {c.hidden ? ' · hidden' : ''}
+                      </span>
+                      <span className="flex-1" />
+                      <span className="text-[11px] text-[hsl(var(--text-subtle))]">
+                        {c.timedOut ? 'timed out' : c.passed ? 'passed' : 'wrong output'}
+                      </span>
+                    </div>
+
+                    {!c.passed && !c.hidden ? (
+                      <div className="grid gap-3 border-t border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-3 py-2.5 sm:grid-cols-3">
+                        {[
+                          { label: 'Input', text: c.input ?? '' },
+                          { label: 'Expected', text: c.expected ?? '' },
+                          { label: 'You printed', text: c.actual || '(nothing)' },
+                        ].map((f) => (
+                          <div key={f.label}>
+                            <p className="text-[10px] font-semibold tracking-wide text-[hsl(var(--text-subtle))] uppercase">
+                              {f.label}
+                            </p>
+                            <pre className="mt-0.5 font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-[hsl(var(--text))]">
+                              {f.text}
+                            </pre>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {!c.passed && c.hidden ? (
+                      <p className="border-t border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-3 py-2 text-[11px] text-[hsl(var(--text-muted))]">
+                        This case is hidden, so its input is not shown — it is there to catch
+                        solutions that only work on the examples.
+                      </p>
+                    ) : null}
+
+                    {c.stderr.trim() ? (
+                      <pre className="border-t border-[hsl(var(--border))] px-3 py-2 font-mono text-[11px] whitespace-pre-wrap text-rose-600 dark:text-rose-400">
+                        {c.stderr}
+                      </pre>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      ) : null}
 
       {/* --------------------------------------------------------- footer */}
       <div className="flex flex-wrap items-center gap-3 border-t border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-4 py-2 text-[11px] text-[hsl(var(--text-subtle))]">

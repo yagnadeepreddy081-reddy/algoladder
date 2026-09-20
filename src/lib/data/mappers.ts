@@ -86,6 +86,7 @@ export function mapProblem(row: any): Problem {
     ioFormat: row.io_format ?? null,
     examples: row.examples ?? [],
     constraints: row.constraints ?? [],
+    testCases: row.test_cases ?? [],
   };
 }
 

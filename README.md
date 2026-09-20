@@ -30,16 +30,21 @@ are required to run or deploy it.
 
 ## What this is — and what it deliberately is not
 
-AlgoLadder is an **independent study tracker**. It is not affiliated with, endorsed by, or derived
-from any other DSA course, sheet or channel.
+AlgoLadder is an **independent study tracker**. It is not affiliated with or endorsed by any
+company, course or channel.
 
-- **Problem titles** refer to publicly known coding problems. Every one links out to its page on
-  LeetCode or GeeksforGeeks — the host site remains the authoritative statement.
-- **All explanatory material is original to this project.** The descriptions, hints, approach
-  write-ups and complexity notes were written from scratch for AlgoLadder. The hints and approaches
-  are *pattern-level* teaching material (see `data/source/patterns.mjs`), not per-problem
-  editorials, which is both a deliberate design decision and what keeps the project clean of
-  anyone else's editorial content.
+- **The problem selection follows the widely used A2Z progression** that most Indian DSA
+  roadmaps share — the same well-known problems in broadly the same teaching order, because that
+  order works. The list of problems is not what this project claims as its own work.
+- **Problem titles** refer to publicly known coding problems hosted on LeetCode and
+  GeeksforGeeks. Every one links out to its page there.
+- **Everything written here is original to this project**: the problem statements, the worked
+  examples, the constraints, the hints, the approach write-ups and the complexity notes were all
+  written from scratch for AlgoLadder. No text is reproduced from LeetCode, GeeksforGeeks, or any
+  DSA sheet, course or editorial.
+- **The software is the project.** The statements, the in-browser multi-language editor and judge,
+  the spaced-revision scheduler and the progress analytics are what AlgoLadder adds on top of a
+  list of links.
 - **Problem statements, worked examples and constraints are not reproduced.** The problem page
   links out for those and says so.
 - **Premium here locks AlgoLadder's own tooling** — analytics, study plans, the revision scheduler,

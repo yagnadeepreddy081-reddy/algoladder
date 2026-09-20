@@ -427,10 +427,11 @@ export default async function LandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-10 sm:flex-row sm:items-start sm:justify-between sm:px-6">
           <Wordmark showTagline />
           <p className="max-w-xl text-xs text-[hsl(var(--text-subtle))]">
-            AlgoLadder is an independent study tracker. Problem titles refer to publicly available
-            problems hosted on LeetCode and GeeksforGeeks; all links point to those sites and all
-            explanatory material here is original to this project. AlgoLadder is not affiliated
-            with, endorsed by, or derived from any other DSA course or sheet.
+            AlgoLadder is an independent study tracker, not affiliated with or endorsed by any
+            company or course. The problem selection follows the widely used A2Z progression that
+            most DSA roadmaps share. Problem titles refer to publicly available problems hosted on
+            LeetCode and GeeksforGeeks, and all links point to those sites. Every statement,
+            example, hint and explanation on this site was written from scratch for AlgoLadder.
           </p>
         </div>
       </footer>

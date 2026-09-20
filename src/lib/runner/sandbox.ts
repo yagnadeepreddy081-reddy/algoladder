@@ -232,3 +232,23 @@ export async function runCode({
     version: compiler.version ?? compiler.name,
   };
 }
+
+/* ------------------------------------------------------------- checking --- */
+
+/**
+ * Compare program output against an expected answer the way a human would:
+ * trailing spaces on a line and blank lines at the end are not mistakes.
+ * Everything else — including case and internal spacing — must match.
+ */
+export function normalizeOutput(text: string): string {
+  return text
+    .replace(/\r\n/g, '\n')
+    .split('\n')
+    .map((line) => line.replace(/[ \t]+$/, ''))
+    .join('\n')
+    .replace(/\n+$/, '');
+}
+
+export function outputMatches(actual: string, expected: string): boolean {
+  return normalizeOutput(actual) === normalizeOutput(expected);
+}

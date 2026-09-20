@@ -51,6 +51,14 @@ export interface Subtopic {
   problemCount: number;
 }
 
+/** One test case a submission is checked against. */
+export interface ProblemTestCase {
+  input: string;
+  expected: string;
+  /** Hidden cases run, but the UI reveals only pass/fail. */
+  hidden?: boolean;
+}
+
 export interface ProblemExample {
   input: string;
   output: string;
@@ -96,6 +104,7 @@ export interface Problem {
   ioFormat: { input: string; output: string } | null;
   examples: ProblemExample[];
   constraints: string[];
+  testCases: ProblemTestCase[];
 }
 
 export interface UserProgress {

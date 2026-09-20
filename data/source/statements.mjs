@@ -627,11 +627,12 @@ export const STATEMENTS = {
 
   'intersection-of-two-arrays': {
     description:
-      'You are given two integer arrays. Return the values that appear in both, with each value listed at most once regardless of how often it occurs in either array. The order of the result does not matter.',
+      'You are given two integer arrays. Return the values that appear in both, with each value listed at most once regardless of how often it occurs in either array. Print them in ascending order.',
     ioFormat: {
       input:
         'The first line holds n and the second line holds n integers. The third line holds m and the fourth line holds m integers.',
-      output: 'The shared values, space separated, each appearing once.',
+      output:
+        'The shared values in ascending order, space separated, each appearing once. Print an empty line when there are none.',
     },
     examples: [
       {
@@ -641,9 +642,9 @@ export const STATEMENTS = {
           'Only 2 is in both. It appears twice in the second array, but the result lists it once.',
       },
       {
-        input: '4\n4 9 5\n5\n9 4 9 8 4',
+        input: '3\n4 9 5\n5\n9 4 9 8 4',
         output: '4 9',
-        explanation: 'Both 4 and 9 appear in each array. Either order is accepted.',
+        explanation: 'Both 4 and 9 appear in each array, and 4 comes first because the output is sorted.',
       },
     ],
     constraints: ['1 <= n, m <= 1000', '0 <= element <= 1000'],
@@ -947,12 +948,12 @@ export const STATEMENTS = {
     examples: [
       {
         input: '11\n2 3 1 3 2 4 6 7 9 2 19\n4\n2 1 4 3',
-        output: '2 2 2 1 4 3 3 9 6 7 19',
+        output: '2 2 2 1 4 3 3 6 7 9 19',
         explanation:
           'The values 2, 1, 4 and 3 come first in exactly that order, with duplicates grouped. Then 6, 7, 9 and 19 — which are not in the ordering list — follow in ascending order.',
       },
       {
-        input: '8\n28 6 22 8 44 17\n3\n22 28 8',
+        input: '6\n28 6 22 8 44 17\n3\n22 28 8',
         output: '22 28 8 6 17 44',
         explanation: 'The listed values lead; 6, 17 and 44 trail in ascending order.',
       },

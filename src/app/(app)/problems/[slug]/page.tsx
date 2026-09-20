@@ -160,7 +160,11 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
           />
 
           {/* write and run a solution without leaving the page */}
-          <CodePlayground problemId={problem.id} drafts={codeDrafts} />
+          <CodePlayground
+            problemId={problem.id}
+            drafts={codeDrafts}
+            hasTestCases={problem.testCases.length > 0}
+          />
 
           {/* hints + approach, or the lock */}
           {unlocked ? (

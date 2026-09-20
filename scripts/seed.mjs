@@ -99,14 +99,14 @@ async function main() {
            description, platform, external_url, video_url,
            tags, companies, is_premium, is_revision, is_active,
            pattern, pattern_name, pattern_family, hints, approach,
-           time_complexity, space_complexity, io_format, examples, constraints
+           time_complexity, space_complexity, io_format, examples, constraints, test_cases
          ) VALUES (
            $1,$2,$3,$4,$5,$6::difficulty_level,
            $7,$8,$9,
            $10,$11,$12,$13,
            $14,$15,$16,$17,true,
            $18,$19,$20,$21,$22,
-           $23,$24,$25::jsonb,$26::jsonb,$27
+           $23,$24,$25::jsonb,$26::jsonb,$27,$28::jsonb
          )
          ON CONFLICT (id) DO UPDATE SET
            slug = EXCLUDED.slug,
@@ -135,7 +135,8 @@ async function main() {
            space_complexity = EXCLUDED.space_complexity,
            io_format = EXCLUDED.io_format,
            examples = EXCLUDED.examples,
-           constraints = EXCLUDED.constraints`,
+           constraints = EXCLUDED.constraints,
+           test_cases = EXCLUDED.test_cases`,
         [
           p.id, p.slug, p.title, p.topicId, p.subtopicId, p.difficulty,
           p.problemNoInTopic, p.overallNo, p.recommendedOrder,
@@ -146,6 +147,7 @@ async function main() {
           p.ioFormat ? JSON.stringify(p.ioFormat) : null,
           JSON.stringify(p.examples ?? []),
           p.constraints ?? [],
+          JSON.stringify(p.testCases ?? []),
         ],
       );
     }

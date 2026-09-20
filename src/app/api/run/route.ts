@@ -4,7 +4,8 @@ import { z } from 'zod';
 import { getApiUser } from '@/lib/auth/session';
 import { execute } from '@/lib/db';
 import { LANGUAGE_IDS, type LanguageId } from '@/lib/runner/languages';
-import { runCode } from '@/lib/runner/sandbox';
+import { outputMatches, runCode, type RunResult } from '@/lib/runner/sandbox';
+import { getTestCases } from '@/lib/data/test-cases';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -14,7 +15,26 @@ const bodySchema = z.object({
   language: z.enum(LANGUAGE_IDS),
   source: z.string().min(1, 'There is nothing to run yet.').max(60_000),
   stdin: z.string().max(20_000).default(''),
+  /** 'run' uses the user's own input; 'submit' grades against stored cases. */
+  mode: z.enum(['run', 'submit']).default('run'),
 });
+
+/** Grading never runs more than this many cases, however many are stored. */
+const MAX_CASES = 8;
+/** How many cases to have in flight at once, to stay polite to the service. */
+const CONCURRENCY = 3;
+
+export interface CaseResult {
+  index: number;
+  hidden: boolean;
+  passed: boolean;
+  input?: string;
+  expected?: string;
+  actual: string;
+  stderr: string;
+  timedOut: boolean;
+  wallTimeMs: number;
+}
 
 /* ----------------------------------------------------------- rate limit --- */
 
@@ -108,7 +128,82 @@ export async function POST(request: Request) {
     );
   }
 
-  const { language, source, stdin, problemId } = parsed.data;
+  const { language, source, stdin, problemId, mode } = parsed.data;
+
+  /* ------------------------------------------------------------ submit --- */
+
+  if (mode === 'submit') {
+    if (!problemId) {
+      return NextResponse.json({ error: 'No problem to grade against.' }, { status: 400 });
+    }
+
+    const cases = (await getTestCases(problemId)).slice(0, MAX_CASES);
+    if (cases.length === 0) {
+      return NextResponse.json(
+        { error: 'This problem does not have test cases yet — use Run with your own input.' },
+        { status: 409 },
+      );
+    }
+
+    const run = (input: string) =>
+      runCode({ languageId: language as LanguageId, source, stdin: input });
+
+    // Compile errors are identical for every case, so pay for one run first
+    // and bail out before spending the rest of the budget on the same failure.
+    const first = await run(cases[0].input);
+    if (first.error) return NextResponse.json(first, { status: 502 });
+    if (first.compileOutput.trim()) {
+      return NextResponse.json(
+        { mode: 'submit', compileOutput: first.compileOutput, cases: [], passed: 0, total: cases.length },
+        { status: 200 },
+      );
+    }
+
+    const results: RunResult[] = [first];
+    for (let i = 1; i < cases.length; i += CONCURRENCY) {
+      const slice = cases.slice(i, i + CONCURRENCY);
+      results.push(...(await Promise.all(slice.map((c) => run(c.input)))));
+    }
+
+    const caseResults: CaseResult[] = cases.map((c, i) => {
+      const r = results[i];
+      const passed = Boolean(r?.ran) && !r.timedOut && outputMatches(r.stdout, c.expected);
+      return {
+        index: i + 1,
+        hidden: Boolean(c.hidden),
+        passed,
+        input: c.hidden ? undefined : c.input,
+        expected: c.hidden ? undefined : c.expected,
+        actual: c.hidden && !passed ? '' : (r?.stdout ?? ''),
+        stderr: r?.stderr ?? '',
+        timedOut: Boolean(r?.timedOut),
+        wallTimeMs: r?.wallTimeMs ?? 0,
+      };
+    });
+
+    const passedCount = caseResults.filter((c) => c.passed).length;
+
+    if (problemId) {
+      execute(
+        `UPDATE user_problem_code
+            SET run_count = run_count + 1, last_run_at = now(), updated_at = now()
+          WHERE user_id = $1 AND problem_id = $2 AND language = $3`,
+        [user.id, problemId, language],
+      ).catch(() => {});
+    }
+
+    return NextResponse.json({
+      mode: 'submit',
+      cases: caseResults,
+      passed: passedCount,
+      total: caseResults.length,
+      compileOutput: '',
+      wallTimeMs: results.reduce((n, r) => n + (r?.wallTimeMs ?? 0), 0),
+    });
+  }
+
+  /* --------------------------------------------------------------- run --- */
+
   const result = await runCode({ languageId: language as LanguageId, source, stdin });
 
   // Best-effort bookkeeping: a failed counter update must never fail a run.

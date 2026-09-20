@@ -58,6 +58,25 @@
     ],
     "constraints": [
       "1 <= n <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "5",
+        "expected": "1\n2\nFizz\n4\nBuzz"
+      },
+      {
+        "input": "1",
+        "expected": "1"
+      },
+      {
+        "input": "15",
+        "expected": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz"
+      },
+      {
+        "input": "20",
+        "expected": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz\n16\n17\nFizz\n19\nBuzz",
+        "hidden": true
+      }
     ]
   },
   {
@@ -123,6 +142,29 @@
     ],
     "constraints": [
       "0 <= n <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "14",
+        "expected": "6"
+      },
+      {
+        "input": "8",
+        "expected": "4"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      },
+      {
+        "input": "1",
+        "expected": "1"
+      },
+      {
+        "input": "123",
+        "expected": "12",
+        "hidden": true
+      }
     ]
   },
   {
@@ -183,6 +225,25 @@
     "constraints": [
       "1 <= m, n <= 200",
       "1 <= balance <= 10^5"
+    ],
+    "testCases": [
+      {
+        "input": "3 2\n1 5\n7 3\n3 4",
+        "expected": "10"
+      },
+      {
+        "input": "2 3\n1 2 3\n3 2 1",
+        "expected": "6"
+      },
+      {
+        "input": "1 1\n5",
+        "expected": "5"
+      },
+      {
+        "input": "3 3\n2 8 7\n7 1 3\n1 9 5",
+        "expected": "17",
+        "hidden": true
+      }
     ]
   },
   {
@@ -244,6 +305,25 @@
     "constraints": [
       "1 <= n <= 1000",
       "-10^6 <= element <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "4\n1 2 3 4",
+        "expected": "1 3 6 10"
+      },
+      {
+        "input": "5\n3 1 2 10 1",
+        "expected": "3 4 6 16 17"
+      },
+      {
+        "input": "1\n7",
+        "expected": "7"
+      },
+      {
+        "input": "3\n-1 5 -2",
+        "expected": "-1 4 2",
+        "hidden": true
+      }
     ]
   },
   {
@@ -305,6 +385,25 @@
       "1 <= n <= 1000",
       "0 <= a[i] < n",
       "a is a permutation of 0..n-1"
+    ],
+    "testCases": [
+      {
+        "input": "5\n0 2 1 4 3",
+        "expected": "0 1 2 3 4"
+      },
+      {
+        "input": "4\n0 2 3 1",
+        "expected": "0 3 1 2"
+      },
+      {
+        "input": "1\n0",
+        "expected": "0"
+      },
+      {
+        "input": "3\n2 0 1",
+        "expected": "1 2 0",
+        "hidden": true
+      }
     ]
   },
   {
@@ -370,6 +469,34 @@
     ],
     "constraints": [
       "-2^31 <= x <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "121",
+        "expected": "true"
+      },
+      {
+        "input": "-121",
+        "expected": "false"
+      },
+      {
+        "input": "10",
+        "expected": "false"
+      },
+      {
+        "input": "0",
+        "expected": "true"
+      },
+      {
+        "input": "1234321",
+        "expected": "true",
+        "hidden": true
+      },
+      {
+        "input": "1000021",
+        "expected": "false",
+        "hidden": true
+      }
     ]
   },
   {
@@ -436,6 +563,34 @@
     ],
     "constraints": [
       "-2^31 <= x <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "123",
+        "expected": "321"
+      },
+      {
+        "input": "-123",
+        "expected": "-321"
+      },
+      {
+        "input": "120",
+        "expected": "21"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      },
+      {
+        "input": "1534236469",
+        "expected": "0",
+        "hidden": true
+      },
+      {
+        "input": "-2147483648",
+        "expected": "0",
+        "hidden": true
+      }
     ]
   },
   {
@@ -497,6 +652,29 @@
     ],
     "constraints": [
       "1 <= n <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "19",
+        "expected": "true"
+      },
+      {
+        "input": "2",
+        "expected": "false"
+      },
+      {
+        "input": "1",
+        "expected": "true"
+      },
+      {
+        "input": "7",
+        "expected": "true"
+      },
+      {
+        "input": "116",
+        "expected": "false",
+        "hidden": true
+      }
     ]
   },
   {
@@ -567,6 +745,34 @@
     ],
     "constraints": [
       "-2^31 <= n <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "16",
+        "expected": "true"
+      },
+      {
+        "input": "1",
+        "expected": "true"
+      },
+      {
+        "input": "6",
+        "expected": "false"
+      },
+      {
+        "input": "0",
+        "expected": "false"
+      },
+      {
+        "input": "-16",
+        "expected": "false",
+        "hidden": true
+      },
+      {
+        "input": "1073741824",
+        "expected": "true",
+        "hidden": true
+      }
     ]
   },
   {
@@ -631,6 +837,29 @@
     ],
     "constraints": [
       "0 <= n <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "38",
+        "expected": "2"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      },
+      {
+        "input": "99",
+        "expected": "9"
+      },
+      {
+        "input": "9",
+        "expected": "9"
+      },
+      {
+        "input": "123456789",
+        "expected": "9",
+        "hidden": true
+      }
     ]
   },
   {
@@ -696,6 +925,29 @@
     ],
     "constraints": [
       "0 <= n <= 5 * 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "10",
+        "expected": "4"
+      },
+      {
+        "input": "2",
+        "expected": "0"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      },
+      {
+        "input": "3",
+        "expected": "1"
+      },
+      {
+        "input": "100",
+        "expected": "25",
+        "hidden": true
+      }
     ]
   },
   {
@@ -763,6 +1015,34 @@
     "constraints": [
       "1 <= label length <= 7",
       "Label contains only the characters A through Z"
+    ],
+    "testCases": [
+      {
+        "input": "A",
+        "expected": "1"
+      },
+      {
+        "input": "AB",
+        "expected": "28"
+      },
+      {
+        "input": "ZY",
+        "expected": "701"
+      },
+      {
+        "input": "Z",
+        "expected": "26"
+      },
+      {
+        "input": "AAA",
+        "expected": "703",
+        "hidden": true
+      },
+      {
+        "input": "FXSHRXW",
+        "expected": "2147483647",
+        "hidden": true
+      }
     ]
   },
   {
@@ -827,6 +1107,34 @@
     ],
     "constraints": [
       "1 <= n <= 10^8"
+    ],
+    "testCases": [
+      {
+        "input": "28",
+        "expected": "true"
+      },
+      {
+        "input": "7",
+        "expected": "false"
+      },
+      {
+        "input": "1",
+        "expected": "false"
+      },
+      {
+        "input": "6",
+        "expected": "true"
+      },
+      {
+        "input": "496",
+        "expected": "true",
+        "hidden": true
+      },
+      {
+        "input": "8128",
+        "expected": "true",
+        "hidden": true
+      }
     ]
   },
   {
@@ -893,6 +1201,29 @@
     ],
     "constraints": [
       "0 <= n <= 90"
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "expected": "3"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      },
+      {
+        "input": "1",
+        "expected": "1"
+      },
+      {
+        "input": "10",
+        "expected": "55"
+      },
+      {
+        "input": "50",
+        "expected": "12586269025",
+        "hidden": true
+      }
     ]
   },
   {
@@ -955,6 +1286,25 @@
     "constraints": [
       "1 <= length <= 10^5",
       "The string contains printable ASCII characters"
+    ],
+    "testCases": [
+      {
+        "input": "hello",
+        "expected": "olleh"
+      },
+      {
+        "input": "Hannah",
+        "expected": "hannaH"
+      },
+      {
+        "input": "a",
+        "expected": "a"
+      },
+      {
+        "input": "AlgoLadder",
+        "expected": "reddaLoglA",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1020,6 +1370,34 @@
     ],
     "constraints": [
       "-2^31 <= n <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "16",
+        "expected": "true"
+      },
+      {
+        "input": "8",
+        "expected": "false"
+      },
+      {
+        "input": "1",
+        "expected": "true"
+      },
+      {
+        "input": "0",
+        "expected": "false"
+      },
+      {
+        "input": "-4",
+        "expected": "false",
+        "hidden": true
+      },
+      {
+        "input": "1073741824",
+        "expected": "true",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1087,6 +1465,25 @@
     "constraints": [
       "1 <= n <= 10^5",
       "-10^9 <= element <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "4\n1 2 3 1",
+        "expected": "true"
+      },
+      {
+        "input": "4\n1 2 3 4",
+        "expected": "false"
+      },
+      {
+        "input": "1\n1",
+        "expected": "false"
+      },
+      {
+        "input": "10\n1 1 1 3 3 4 3 2 4 2",
+        "expected": "true",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1154,6 +1551,25 @@
     "constraints": [
       "1 <= length of each string <= 10^5",
       "Both strings are lowercase English letters"
+    ],
+    "testCases": [
+      {
+        "input": "aa\nab",
+        "expected": "false"
+      },
+      {
+        "input": "aa\naab",
+        "expected": "true"
+      },
+      {
+        "input": "a\nb",
+        "expected": "false"
+      },
+      {
+        "input": "abc\ncba",
+        "expected": "true",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1222,6 +1638,29 @@
     "constraints": [
       "1 <= length <= 10^5",
       "The string contains only lowercase English letters"
+    ],
+    "testCases": [
+      {
+        "input": "leetcode",
+        "expected": "0"
+      },
+      {
+        "input": "loveleetcode",
+        "expected": "2"
+      },
+      {
+        "input": "aabb",
+        "expected": "-1"
+      },
+      {
+        "input": "z",
+        "expected": "0"
+      },
+      {
+        "input": "dddccdbba",
+        "expected": "8",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1238,7 +1677,7 @@
     "problemNoInTopic": 20,
     "overallNo": 20,
     "recommendedOrder": 20,
-    "description": "You are given two integer arrays. Return the values that appear in both, with each value listed at most once regardless of how often it occurs in either array. The order of the result does not matter.",
+    "description": "You are given two integer arrays. Return the values that appear in both, with each value listed at most once regardless of how often it occurs in either array. Print them in ascending order.",
     "platform": "LeetCode",
     "externalUrl": "https://leetcode.com/problems/intersection-of-two-arrays/",
     "urlDerivedFromTitle": true,
@@ -1266,7 +1705,7 @@
     "spaceComplexity": "O(min(n, m))",
     "ioFormat": {
       "input": "The first line holds n and the second line holds n integers. The third line holds m and the fourth line holds m integers.",
-      "output": "The shared values, space separated, each appearing once."
+      "output": "The shared values in ascending order, space separated, each appearing once. Print an empty line when there are none."
     },
     "examples": [
       {
@@ -1275,14 +1714,33 @@
         "explanation": "Only 2 is in both. It appears twice in the second array, but the result lists it once."
       },
       {
-        "input": "4\n4 9 5\n5\n9 4 9 8 4",
+        "input": "3\n4 9 5\n5\n9 4 9 8 4",
         "output": "4 9",
-        "explanation": "Both 4 and 9 appear in each array. Either order is accepted."
+        "explanation": "Both 4 and 9 appear in each array, and 4 comes first because the output is sorted."
       }
     ],
     "constraints": [
       "1 <= n, m <= 1000",
       "0 <= element <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "2\n1 2\n2\n2 2",
+        "expected": "2"
+      },
+      {
+        "input": "3\n4 9 5\n5\n9 4 9 8 4",
+        "expected": "4 9"
+      },
+      {
+        "input": "2\n1 2\n2\n3 4",
+        "expected": ""
+      },
+      {
+        "input": "5\n7 7 1 3 3\n4\n3 7 9 1",
+        "expected": "1 3 7",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1341,6 +1799,25 @@
     "constraints": [
       "1 <= n <= 2000",
       "-10^6 <= element <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "5\n5 1 4 2 8",
+        "expected": "1 2 4 5 8"
+      },
+      {
+        "input": "3\n3 2 1",
+        "expected": "1 2 3"
+      },
+      {
+        "input": "1\n42",
+        "expected": "42"
+      },
+      {
+        "input": "6\n-2 5 -2 0 3 1",
+        "expected": "-2 -2 0 1 3 5",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1399,6 +1876,25 @@
     "constraints": [
       "1 <= n <= 2000",
       "-10^6 <= element <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "5\n12 11 13 5 6",
+        "expected": "5 6 11 12 13"
+      },
+      {
+        "input": "4\n1 2 3 4",
+        "expected": "1 2 3 4"
+      },
+      {
+        "input": "1\n9",
+        "expected": "9"
+      },
+      {
+        "input": "6\n4 4 2 9 2 1",
+        "expected": "1 2 2 4 4 9",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1457,6 +1953,25 @@
     "constraints": [
       "1 <= n <= 2000",
       "-10^6 <= element <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "5\n64 25 12 22 11",
+        "expected": "11 12 22 25 64"
+      },
+      {
+        "input": "2\n2 1",
+        "expected": "1 2"
+      },
+      {
+        "input": "1\n0",
+        "expected": "0"
+      },
+      {
+        "input": "5\n-3 -1 -7 0 2",
+        "expected": "-7 -3 -1 0 2",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1519,6 +2034,25 @@
     "constraints": [
       "1 <= n <= 10^5",
       "-10^9 <= element <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "6\n38 27 43 3 9 82",
+        "expected": "3 9 27 38 43 82"
+      },
+      {
+        "input": "1\n5",
+        "expected": "5"
+      },
+      {
+        "input": "4\n4 3 2 1",
+        "expected": "1 2 3 4"
+      },
+      {
+        "input": "7\n5 5 5 1 9 1 5",
+        "expected": "1 1 5 5 5 5 9",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1581,6 +2115,25 @@
     "constraints": [
       "1 <= n <= 10^5",
       "-10^9 <= element <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "6\n10 7 8 9 1 5",
+        "expected": "1 5 7 8 9 10"
+      },
+      {
+        "input": "5\n2 2 2 2 2",
+        "expected": "2 2 2 2 2"
+      },
+      {
+        "input": "1\n3",
+        "expected": "3"
+      },
+      {
+        "input": "8\n8 7 6 5 4 3 2 1",
+        "expected": "1 2 3 4 5 6 7 8",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1644,6 +2197,25 @@
     "constraints": [
       "1 <= n <= 300",
       "Every element is 0, 1 or 2"
+    ],
+    "testCases": [
+      {
+        "input": "6\n2 0 2 1 1 0",
+        "expected": "0 0 1 1 2 2"
+      },
+      {
+        "input": "3\n2 0 1",
+        "expected": "0 1 2"
+      },
+      {
+        "input": "1\n0",
+        "expected": "0"
+      },
+      {
+        "input": "7\n2 2 2 1 1 0 0",
+        "expected": "0 0 1 1 2 2 2",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1708,6 +2280,25 @@
       "0 <= m, n <= 200",
       "-10^9 <= element <= 10^9",
       "Both inputs are sorted"
+    ],
+    "testCases": [
+      {
+        "input": "3 3\n1 2 3 0 0 0\n2 5 6",
+        "expected": "1 2 2 3 5 6"
+      },
+      {
+        "input": "0 1\n0\n1",
+        "expected": "1"
+      },
+      {
+        "input": "2 2\n4 5 0 0\n1 2",
+        "expected": "1 2 4 5"
+      },
+      {
+        "input": "3 2\n-5 0 7 0 0\n-9 3",
+        "expected": "-9 -5 0 3 7",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1769,6 +2360,25 @@
     "constraints": [
       "1 <= n <= 5 * 10^4",
       "-5 * 10^4 <= element <= 5 * 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "4\n5 2 3 1",
+        "expected": "1 2 3 5"
+      },
+      {
+        "input": "5\n5 1 1 2 0",
+        "expected": "0 1 1 2 5"
+      },
+      {
+        "input": "1\n1",
+        "expected": "1"
+      },
+      {
+        "input": "6\n-1 -5 3 0 -5 2",
+        "expected": "-5 -5 -1 0 2 3",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1836,6 +2446,29 @@
     "constraints": [
       "1 <= n <= 100",
       "0 <= element <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "2\n10 2",
+        "expected": "210"
+      },
+      {
+        "input": "5\n3 30 34 5 9",
+        "expected": "9534330"
+      },
+      {
+        "input": "2\n0 0",
+        "expected": "0"
+      },
+      {
+        "input": "1\n10",
+        "expected": "10"
+      },
+      {
+        "input": "3\n1 20 23",
+        "expected": "23201",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1885,11 +2518,11 @@
     "examples": [
       {
         "input": "11\n2 3 1 3 2 4 6 7 9 2 19\n4\n2 1 4 3",
-        "output": "2 2 2 1 4 3 3 9 6 7 19",
+        "output": "2 2 2 1 4 3 3 6 7 9 19",
         "explanation": "The values 2, 1, 4 and 3 come first in exactly that order, with duplicates grouped. Then 6, 7, 9 and 19 — which are not in the ordering list — follow in ascending order."
       },
       {
-        "input": "8\n28 6 22 8 44 17\n3\n22 28 8",
+        "input": "6\n28 6 22 8 44 17\n3\n22 28 8",
         "output": "22 28 8 6 17 44",
         "explanation": "The listed values lead; 6, 17 and 44 trail in ascending order."
       }
@@ -1898,6 +2531,25 @@
       "1 <= n <= 1000",
       "0 <= element <= 1000",
       "The second array has distinct values"
+    ],
+    "testCases": [
+      {
+        "input": "11\n2 3 1 3 2 4 6 7 9 2 19\n4\n2 1 4 3",
+        "expected": "2 2 2 1 4 3 3 6 7 9 19"
+      },
+      {
+        "input": "6\n28 6 22 8 44 17\n3\n22 28 8",
+        "expected": "22 28 8 6 17 44"
+      },
+      {
+        "input": "3\n5 5 5\n1\n5",
+        "expected": "5 5 5"
+      },
+      {
+        "input": "5\n1 2 3 4 5\n2\n5 1",
+        "expected": "5 1 2 3 4",
+        "hidden": true
+      }
     ]
   },
   {
@@ -1945,7 +2597,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0032",
@@ -1991,7 +2644,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0033",
@@ -2036,7 +2690,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0034",
@@ -2080,7 +2735,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0035",
@@ -2126,7 +2782,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0036",
@@ -2171,7 +2828,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0037",
@@ -2216,7 +2874,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0038",
@@ -2261,7 +2920,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0039",
@@ -2306,7 +2966,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0040",
@@ -2352,7 +3013,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0041",
@@ -2397,7 +3059,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0042",
@@ -2442,7 +3105,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0043",
@@ -2487,7 +3151,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0044",
@@ -2532,7 +3197,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0045",
@@ -2575,7 +3241,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0046",
@@ -2622,7 +3289,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0047",
@@ -2667,7 +3335,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0048",
@@ -2713,7 +3382,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0049",
@@ -2759,7 +3429,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0050",
@@ -2805,7 +3476,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0051",
@@ -2851,7 +3523,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0052",
@@ -2897,7 +3570,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0053",
@@ -2944,7 +3618,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0054",
@@ -2990,7 +3665,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0055",
@@ -3035,7 +3711,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0056",
@@ -3081,7 +3758,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0057",
@@ -3127,7 +3805,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0058",
@@ -3173,7 +3852,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0059",
@@ -3219,7 +3899,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0060",
@@ -3264,7 +3945,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0061",
@@ -3310,7 +3992,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0062",
@@ -3357,7 +4040,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0063",
@@ -3402,7 +4086,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0064",
@@ -3447,7 +4132,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0065",
@@ -3491,7 +4177,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0066",
@@ -3537,7 +4224,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0067",
@@ -3583,7 +4271,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0068",
@@ -3627,7 +4316,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0069",
@@ -3671,7 +4361,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0070",
@@ -3716,7 +4407,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0071",
@@ -3760,7 +4452,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0072",
@@ -3804,7 +4497,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0073",
@@ -3850,7 +4544,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0074",
@@ -3896,7 +4591,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0075",
@@ -3941,7 +4637,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0076",
@@ -3986,7 +4683,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0077",
@@ -4031,7 +4729,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0078",
@@ -4076,7 +4775,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0079",
@@ -4121,7 +4821,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0080",
@@ -4165,7 +4866,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0081",
@@ -4209,7 +4911,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0082",
@@ -4253,7 +4956,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0083",
@@ -4297,7 +5001,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0084",
@@ -4342,7 +5047,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0085",
@@ -4386,7 +5092,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0086",
@@ -4431,7 +5138,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0087",
@@ -4475,7 +5183,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0088",
@@ -4521,7 +5230,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0089",
@@ -4564,7 +5274,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0090",
@@ -4607,7 +5318,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0091",
@@ -4651,7 +5363,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0092",
@@ -4696,7 +5409,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0093",
@@ -4741,7 +5455,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0094",
@@ -4786,7 +5501,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0095",
@@ -4833,7 +5549,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0096",
@@ -4878,7 +5595,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0097",
@@ -4923,7 +5641,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0098",
@@ -4968,7 +5687,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0099",
@@ -5014,7 +5734,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0100",
@@ -5058,7 +5779,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0101",
@@ -5102,7 +5824,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0102",
@@ -5147,7 +5870,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0103",
@@ -5193,7 +5917,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0104",
@@ -5239,7 +5964,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0105",
@@ -5284,7 +6010,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0106",
@@ -5330,7 +6057,8 @@
     "spaceComplexity": "O(m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0107",
@@ -5373,7 +6101,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0108",
@@ -5418,7 +6147,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0109",
@@ -5464,7 +6194,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0110",
@@ -5510,7 +6241,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0111",
@@ -5556,7 +6288,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0112",
@@ -5602,7 +6335,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0113",
@@ -5648,7 +6382,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0114",
@@ -5693,7 +6428,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0115",
@@ -5737,7 +6473,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0116",
@@ -5783,7 +6520,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0117",
@@ -5828,7 +6566,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0118",
@@ -5874,7 +6613,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0119",
@@ -5917,7 +6657,8 @@
     "spaceComplexity": "O(m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0120",
@@ -5962,7 +6703,8 @@
     "spaceComplexity": "O(m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0121",
@@ -6007,7 +6749,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0122",
@@ -6053,7 +6796,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0123",
@@ -6098,7 +6842,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0124",
@@ -6142,7 +6887,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0125",
@@ -6189,7 +6935,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0126",
@@ -6235,7 +6982,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0127",
@@ -6280,7 +7028,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0128",
@@ -6325,7 +7074,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0129",
@@ -6369,7 +7119,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0130",
@@ -6416,7 +7167,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0131",
@@ -6462,7 +7214,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0132",
@@ -6507,7 +7260,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0133",
@@ -6552,7 +7306,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0134",
@@ -6597,7 +7352,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0135",
@@ -6641,7 +7397,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0136",
@@ -6687,7 +7444,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0137",
@@ -6732,7 +7490,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0138",
@@ -6779,7 +7538,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0139",
@@ -6825,7 +7585,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0140",
@@ -6870,7 +7631,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0141",
@@ -6915,7 +7677,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0142",
@@ -6960,7 +7723,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0143",
@@ -7006,7 +7770,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0144",
@@ -7051,7 +7816,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0145",
@@ -7097,7 +7863,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0146",
@@ -7143,7 +7910,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0147",
@@ -7188,7 +7956,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0148",
@@ -7235,7 +8004,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0149",
@@ -7281,7 +8051,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0150",
@@ -7328,7 +8099,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0151",
@@ -7374,7 +8146,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0152",
@@ -7419,7 +8192,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0153",
@@ -7464,7 +8238,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0154",
@@ -7511,7 +8286,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0155",
@@ -7556,7 +8332,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0156",
@@ -7600,7 +8377,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0157",
@@ -7644,7 +8422,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0158",
@@ -7689,7 +8468,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0159",
@@ -7733,7 +8513,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0160",
@@ -7778,7 +8559,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0161",
@@ -7824,7 +8606,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0162",
@@ -7871,7 +8654,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0163",
@@ -7917,7 +8701,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0164",
@@ -7961,7 +8746,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0165",
@@ -8005,7 +8791,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0166",
@@ -8050,7 +8837,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0167",
@@ -8095,7 +8883,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0168",
@@ -8140,7 +8929,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0169",
@@ -8185,7 +8975,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0170",
@@ -8231,7 +9022,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0171",
@@ -8276,7 +9068,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0172",
@@ -8320,7 +9113,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0173",
@@ -8364,7 +9158,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0174",
@@ -8410,7 +9205,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0175",
@@ -8455,7 +9251,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0176",
@@ -8499,7 +9296,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0177",
@@ -8544,7 +9342,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0178",
@@ -8589,7 +9388,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0179",
@@ -8634,7 +9434,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0180",
@@ -8681,7 +9482,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0181",
@@ -8727,7 +9529,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0182",
@@ -8772,7 +9575,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0183",
@@ -8819,7 +9623,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0184",
@@ -8865,7 +9670,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0185",
@@ -8910,7 +9716,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0186",
@@ -8955,7 +9762,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0187",
@@ -9001,7 +9809,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0188",
@@ -9046,7 +9855,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0189",
@@ -9092,7 +9902,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0190",
@@ -9139,7 +9950,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0191",
@@ -9185,7 +9997,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0192",
@@ -9230,7 +10043,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0193",
@@ -9275,7 +10089,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0194",
@@ -9320,7 +10135,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0195",
@@ -9364,7 +10180,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0196",
@@ -9409,7 +10226,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0197",
@@ -9455,7 +10273,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0198",
@@ -9498,7 +10317,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0199",
@@ -9542,7 +10362,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0200",
@@ -9588,7 +10409,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0201",
@@ -9631,7 +10453,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0202",
@@ -9677,7 +10500,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0203",
@@ -9722,7 +10546,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0204",
@@ -9766,7 +10591,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0205",
@@ -9812,7 +10638,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0206",
@@ -9856,7 +10683,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0207",
@@ -9899,7 +10727,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0208",
@@ -9944,7 +10773,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0209",
@@ -9989,7 +10819,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0210",
@@ -10035,7 +10866,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0211",
@@ -10082,7 +10914,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0212",
@@ -10128,7 +10961,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0213",
@@ -10173,7 +11007,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0214",
@@ -10217,7 +11052,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0215",
@@ -10262,7 +11098,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0216",
@@ -10307,7 +11144,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0217",
@@ -10354,7 +11192,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0218",
@@ -10399,7 +11238,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0219",
@@ -10445,7 +11285,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0220",
@@ -10491,7 +11332,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0221",
@@ -10537,7 +11379,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0222",
@@ -10581,7 +11424,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0223",
@@ -10625,7 +11469,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0224",
@@ -10669,7 +11514,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0225",
@@ -10714,7 +11560,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0226",
@@ -10759,7 +11606,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0227",
@@ -10804,7 +11652,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0228",
@@ -10850,7 +11699,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0229",
@@ -10895,7 +11745,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0230",
@@ -10941,7 +11792,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0231",
@@ -10985,7 +11837,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0232",
@@ -11031,7 +11884,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0233",
@@ -11076,7 +11930,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0234",
@@ -11120,7 +11975,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0235",
@@ -11165,7 +12021,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0236",
@@ -11210,7 +12067,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0237",
@@ -11256,7 +12114,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0238",
@@ -11301,7 +12160,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0239",
@@ -11347,7 +12207,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0240",
@@ -11392,7 +12253,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0241",
@@ -11439,7 +12301,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0242",
@@ -11484,7 +12347,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0243",
@@ -11529,7 +12393,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0244",
@@ -11575,7 +12440,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0245",
@@ -11619,7 +12485,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0246",
@@ -11664,7 +12531,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0247",
@@ -11709,7 +12577,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0248",
@@ -11752,7 +12621,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0249",
@@ -11799,7 +12669,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0250",
@@ -11844,7 +12715,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0251",
@@ -11890,7 +12762,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0252",
@@ -11935,7 +12808,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0253",
@@ -11982,7 +12856,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0254",
@@ -12028,7 +12903,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0255",
@@ -12073,7 +12949,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0256",
@@ -12118,7 +12995,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0257",
@@ -12163,7 +13041,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0258",
@@ -12209,7 +13088,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0259",
@@ -12254,7 +13134,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0260",
@@ -12301,7 +13182,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0261",
@@ -12344,7 +13226,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0262",
@@ -12389,7 +13272,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0263",
@@ -12432,7 +13316,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0264",
@@ -12476,7 +13361,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0265",
@@ -12523,7 +13409,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0266",
@@ -12569,7 +13456,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0267",
@@ -12615,7 +13503,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0268",
@@ -12661,7 +13550,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0269",
@@ -12707,7 +13597,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0270",
@@ -12753,7 +13644,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0271",
@@ -12800,7 +13692,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0272",
@@ -12845,7 +13738,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0273",
@@ -12891,7 +13785,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0274",
@@ -12936,7 +13831,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0275",
@@ -12982,7 +13878,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0276",
@@ -13027,7 +13924,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0277",
@@ -13071,7 +13969,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0278",
@@ -13115,7 +14014,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0279",
@@ -13161,7 +14061,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0280",
@@ -13207,7 +14108,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0281",
@@ -13253,7 +14155,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0282",
@@ -13299,7 +14202,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0283",
@@ -13344,7 +14248,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0284",
@@ -13390,7 +14295,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0285",
@@ -13436,7 +14342,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0286",
@@ -13482,7 +14389,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0287",
@@ -13527,7 +14435,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0288",
@@ -13572,7 +14481,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0289",
@@ -13617,7 +14527,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0290",
@@ -13660,7 +14571,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0291",
@@ -13706,7 +14618,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0292",
@@ -13752,7 +14665,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0293",
@@ -13798,7 +14712,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0294",
@@ -13843,7 +14758,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0295",
@@ -13888,7 +14804,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0296",
@@ -13935,7 +14852,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0297",
@@ -13980,7 +14898,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0298",
@@ -14026,7 +14945,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0299",
@@ -14072,7 +14992,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0300",
@@ -14117,7 +15038,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0301",
@@ -14162,7 +15084,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0302",
@@ -14208,7 +15131,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0303",
@@ -14254,7 +15178,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0304",
@@ -14300,7 +15225,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0305",
@@ -14345,7 +15271,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0306",
@@ -14391,7 +15318,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0307",
@@ -14437,7 +15365,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0308",
@@ -14482,7 +15411,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0309",
@@ -14528,7 +15458,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0310",
@@ -14573,7 +15504,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0311",
@@ -14619,7 +15551,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0312",
@@ -14664,7 +15597,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0313",
@@ -14710,7 +15644,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0314",
@@ -14756,7 +15691,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0315",
@@ -14803,7 +15739,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0316",
@@ -14850,7 +15787,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0317",
@@ -14897,7 +15835,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0318",
@@ -14943,7 +15882,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0319",
@@ -14989,7 +15929,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0320",
@@ -15034,7 +15975,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0321",
@@ -15079,7 +16021,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0322",
@@ -15126,7 +16069,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0323",
@@ -15171,7 +16115,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0324",
@@ -15219,7 +16164,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0325",
@@ -15265,7 +16211,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0326",
@@ -15311,7 +16258,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0327",
@@ -15356,7 +16304,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0328",
@@ -15401,7 +16350,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0329",
@@ -15446,7 +16396,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0330",
@@ -15493,7 +16444,8 @@
     "spaceComplexity": "O(w)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0331",
@@ -15538,7 +16490,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0332",
@@ -15583,7 +16536,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0333",
@@ -15628,7 +16582,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0334",
@@ -15674,7 +16629,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0335",
@@ -15721,7 +16677,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0336",
@@ -15767,7 +16724,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0337",
@@ -15812,7 +16770,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0338",
@@ -15858,7 +16817,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0339",
@@ -15903,7 +16863,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0340",
@@ -15950,7 +16911,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0341",
@@ -15998,7 +16960,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0342",
@@ -16044,7 +17007,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0343",
@@ -16090,7 +17054,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0344",
@@ -16135,7 +17100,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0345",
@@ -16180,7 +17146,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0346",
@@ -16225,7 +17192,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0347",
@@ -16269,7 +17237,8 @@
     "spaceComplexity": "O(h)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0348",
@@ -16315,7 +17284,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0349",
@@ -16361,7 +17331,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0350",
@@ -16409,7 +17380,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0351",
@@ -16455,7 +17427,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0352",
@@ -16500,7 +17473,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0353",
@@ -16547,7 +17521,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0354",
@@ -16592,7 +17567,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0355",
@@ -16637,7 +17613,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0356",
@@ -16681,7 +17658,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0357",
@@ -16725,7 +17703,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0358",
@@ -16771,7 +17750,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0359",
@@ -16817,7 +17797,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0360",
@@ -16862,7 +17843,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0361",
@@ -16909,7 +17891,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0362",
@@ -16955,7 +17938,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0363",
@@ -17001,7 +17985,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0364",
@@ -17046,7 +18031,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0365",
@@ -17092,7 +18078,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0366",
@@ -17138,7 +18125,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0367",
@@ -17184,7 +18172,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0368",
@@ -17231,7 +18220,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0369",
@@ -17277,7 +18267,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0370",
@@ -17322,7 +18313,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0371",
@@ -17367,7 +18359,8 @@
     "spaceComplexity": "O(V^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0372",
@@ -17412,7 +18405,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0373",
@@ -17457,7 +18451,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0374",
@@ -17502,7 +18497,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0375",
@@ -17548,7 +18544,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0376",
@@ -17593,7 +18590,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0377",
@@ -17639,7 +18637,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0378",
@@ -17684,7 +18683,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0379",
@@ -17730,7 +18730,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0380",
@@ -17775,7 +18776,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0381",
@@ -17821,7 +18823,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0382",
@@ -17866,7 +18869,8 @@
     "spaceComplexity": "O(V^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0383",
@@ -17911,7 +18915,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0384",
@@ -17956,7 +18961,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0385",
@@ -18002,7 +19008,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0386",
@@ -18047,7 +19054,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0387",
@@ -18093,7 +19101,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0388",
@@ -18138,7 +19147,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0389",
@@ -18184,7 +19194,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0390",
@@ -18229,7 +19240,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0391",
@@ -18274,7 +19286,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0392",
@@ -18319,7 +19332,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0393",
@@ -18365,7 +19379,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0394",
@@ -18410,7 +19425,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0395",
@@ -18456,7 +19472,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0396",
@@ -18501,7 +19518,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0397",
@@ -18546,7 +19564,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0398",
@@ -18592,7 +19611,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0399",
@@ -18639,7 +19659,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0400",
@@ -18684,7 +19705,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0401",
@@ -18730,7 +19752,8 @@
     "spaceComplexity": "O(V)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0402",
@@ -18776,7 +19799,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0403",
@@ -18820,7 +19844,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0404",
@@ -18865,7 +19890,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0405",
@@ -18911,7 +19937,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0406",
@@ -18955,7 +19982,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0407",
@@ -19001,7 +20029,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0408",
@@ -19045,7 +20074,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0409",
@@ -19092,7 +20122,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0410",
@@ -19138,7 +20169,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0411",
@@ -19183,7 +20215,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0412",
@@ -19228,7 +20261,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0413",
@@ -19272,7 +20306,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0414",
@@ -19316,7 +20351,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0415",
@@ -19361,7 +20397,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0416",
@@ -19406,7 +20443,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0417",
@@ -19452,7 +20490,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0418",
@@ -19498,7 +20537,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0419",
@@ -19543,7 +20583,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0420",
@@ -19587,7 +20628,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0421",
@@ -19632,7 +20674,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0422",
@@ -19678,7 +20721,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0423",
@@ -19723,7 +20767,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0424",
@@ -19768,7 +20813,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0425",
@@ -19813,7 +20859,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0426",
@@ -19858,7 +20905,8 @@
     "spaceComplexity": "O(W)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0427",
@@ -19903,7 +20951,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0428",
@@ -19948,7 +20997,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0429",
@@ -19994,7 +21044,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0430",
@@ -20039,7 +21090,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0431",
@@ -20085,7 +21137,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0432",
@@ -20132,7 +21185,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0433",
@@ -20177,7 +21231,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0434",
@@ -20222,7 +21277,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0435",
@@ -20267,7 +21323,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0436",
@@ -20312,7 +21369,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0437",
@@ -20356,7 +21414,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0438",
@@ -20400,7 +21459,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0439",
@@ -20446,7 +21506,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0440",
@@ -20491,7 +21552,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0441",
@@ -20537,7 +21599,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0442",
@@ -20581,7 +21644,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0443",
@@ -20626,7 +21690,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0444",
@@ -20671,7 +21736,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0445",
@@ -20717,7 +21783,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0446",
@@ -20762,7 +21829,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0447",
@@ -20806,7 +21874,8 @@
     "spaceComplexity": "O(n^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0448",
@@ -20851,7 +21920,8 @@
     "spaceComplexity": "O(n^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0449",
@@ -20896,7 +21966,8 @@
     "spaceComplexity": "O(n^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0450",
@@ -20940,7 +22011,8 @@
     "spaceComplexity": "O(n^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0451",
@@ -20985,7 +22057,8 @@
     "spaceComplexity": "O(n^2)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0452",
@@ -21029,7 +22102,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0453",
@@ -21074,7 +22148,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0454",
@@ -21119,7 +22194,8 @@
     "spaceComplexity": "O(n*m)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0455",
@@ -21165,7 +22241,8 @@
     "spaceComplexity": "O(2^n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0456",
@@ -21210,7 +22287,8 @@
     "spaceComplexity": "O(2^n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0457",
@@ -21254,7 +22332,8 @@
     "spaceComplexity": "O(2^n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0458",
@@ -21301,7 +22380,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0459",
@@ -21347,7 +22427,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0460",
@@ -21392,7 +22473,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0461",
@@ -21437,7 +22519,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0462",
@@ -21483,7 +22566,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0463",
@@ -21528,7 +22612,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0464",
@@ -21573,7 +22658,8 @@
     "spaceComplexity": "O(N*L)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0465",
@@ -21617,7 +22703,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0466",
@@ -21663,7 +22750,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0467",
@@ -21708,7 +22796,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0468",
@@ -21753,7 +22842,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0469",
@@ -21798,7 +22888,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0470",
@@ -21843,7 +22934,8 @@
     "spaceComplexity": "O(1)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0471",
@@ -21888,7 +22980,8 @@
     "spaceComplexity": "O(k)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0472",
@@ -21934,7 +23027,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0473",
@@ -21981,7 +23075,8 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   },
   {
     "id": "al-0474",
@@ -22026,6 +23121,7 @@
     "spaceComplexity": "O(n)",
     "ioFormat": null,
     "examples": [],
-    "constraints": []
+    "constraints": [],
+    "testCases": []
   }
 ]
