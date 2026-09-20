@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 
 import { ROADMAP } from '../data/source/roadmap.mjs';
 import { PATTERNS } from '../data/source/patterns.mjs';
+import { STATEMENTS } from '../data/source/statements.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, '..', 'data');
@@ -142,6 +143,7 @@ export function buildDataset() {
         topicProblemCount += 1;
 
         const slug = kebab(parsed.title);
+        const statement = STATEMENTS[slug] ?? {};
 
         problems.push({
           id: `al-${String(overallNo).padStart(4, '0')}`,
@@ -160,7 +162,7 @@ export function buildDataset() {
           overallNo,
           recommendedOrder: overallNo,
 
-          description: parsed.description,
+          description: statement.description ?? parsed.description,
           platform: parsed.platform,
           externalUrl: parsed.externalUrl,
           urlDerivedFromTitle: parsed.urlDerivedFromTitle,
@@ -175,14 +177,18 @@ export function buildDataset() {
           pattern: parsed.pattern,
           patternName: p.name,
           patternFamily: p.family,
-          hints: p.hints,
-          approach: p.approach,
-          timeComplexity: p.tc,
-          spaceComplexity: p.sc,
 
-          ioFormat: null,
-          examples: [],
-          constraints: [],
+          // A problem with a full statement in statements.mjs overrides the
+          // pattern-level defaults; anything it omits still falls back to them.
+          hints: statement.hints ?? p.hints,
+          approach: statement.approach ?? p.approach,
+          timeComplexity: statement.timeComplexity ?? p.tc,
+          spaceComplexity: statement.spaceComplexity ?? p.sc,
+
+          ioFormat: statement.ioFormat ?? null,
+          examples: statement.examples ?? [],
+          constraints: statement.constraints ?? [],
+
         });
       });
 
@@ -209,6 +215,16 @@ export function buildDataset() {
       problemCount: topicProblemCount,
     });
   });
+
+  // Every key in statements.mjs must name a real problem. A typo in a slug
+  // would otherwise fail silently, leaving the problem with pattern defaults.
+  const slugs = new Set(problems.map((p) => p.slug));
+  const orphans = Object.keys(STATEMENTS).filter((slug) => !slugs.has(slug));
+  if (orphans.length) {
+    throw new Error(
+      `statements.mjs has ${orphans.length} key(s) matching no problem:\n  ${orphans.join('\n  ')}`,
+    );
+  }
 
   // ---- Revision list -----------------------------------------------------
   // Seed the default revision list with the highest-leverage problems: the

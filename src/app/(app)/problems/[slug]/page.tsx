@@ -20,6 +20,7 @@ import {
 } from '@/components/problems/controls';
 import { ApproachDisclosure, HintList } from '@/components/problems/hints';
 import { CodePlayground } from '@/components/problems/code-playground';
+import { ProblemStatement } from '@/components/problems/statement';
 import { ProgressPanel } from '@/components/problems/progress-panel';
 import { NotesPanel } from '@/components/problems/notes-panel';
 import { ReportDialog } from '@/components/problems/report-dialog';
@@ -149,72 +150,14 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         {/* -------------------------------------------------------- main */}
         <div className="min-w-0 space-y-6">
-          {/* what the problem asks */}
-          <Card>
-            <CardHeader title="What this problem asks" />
-            <div className="px-5 pb-5">
-              <p className="text-sm leading-relaxed text-pretty text-[hsl(var(--text))]">
-                {problem.description}
-              </p>
-
-              {problem.ioFormat ? (
-                <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-lg bg-[hsl(var(--surface-2))] px-4 py-3">
-                    <dt className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
-                      Input
-                    </dt>
-                    <dd className="mt-1 font-mono text-sm">{problem.ioFormat.input}</dd>
-                  </div>
-                  <div className="rounded-lg bg-[hsl(var(--surface-2))] px-4 py-3">
-                    <dt className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
-                      Output
-                    </dt>
-                    <dd className="mt-1 font-mono text-sm">{problem.ioFormat.output}</dd>
-                  </div>
-                </dl>
-              ) : null}
-
-              {problem.examples.length ? (
-                <div className="mt-4 space-y-3">
-                  <h3 className="text-sm font-semibold text-[hsl(var(--text))]">Examples</h3>
-                  {problem.examples.map((ex, i) => (
-                    <div key={i} className="rounded-lg bg-[hsl(var(--surface-2))] p-4">
-                      <p className="font-mono text-xs">
-                        <span className="text-[hsl(var(--text-muted))]">Input: </span>
-                        {ex.input}
-                      </p>
-                      <p className="mt-1 font-mono text-xs">
-                        <span className="text-[hsl(var(--text-muted))]">Output: </span>
-                        {ex.output}
-                      </p>
-                      {ex.explanation ? (
-                        <p className="mt-2 text-xs text-[hsl(var(--text-muted))]">{ex.explanation}</p>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-
-              {problem.constraints.length ? (
-                <div className="mt-4">
-                  <h3 className="text-sm font-semibold text-[hsl(var(--text))]">Constraints</h3>
-                  <ul className="mt-2 space-y-1">
-                    {problem.constraints.map((c, i) => (
-                      <li key={i} className="font-mono text-xs text-[hsl(var(--text-muted))]">
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <p className="mt-4 rounded-lg border border-dashed border-[hsl(var(--border))] px-4 py-3 text-xs text-[hsl(var(--text-subtle))]">
-                  The exact input format, worked examples and constraints live on{' '}
-                  {problem.platform}, which is the authoritative statement — open the link above for
-                  those. AlgoLadder deliberately does not reproduce them.
-                </p>
-              )}
-            </div>
-          </Card>
+          <ProblemStatement
+            description={problem.description}
+            ioFormat={problem.ioFormat}
+            examples={problem.examples}
+            constraints={problem.constraints}
+            platform={problem.platform}
+            externalUrl={problem.externalUrl}
+          />
 
           {/* write and run a solution without leaving the page */}
           <CodePlayground problemId={problem.id} drafts={codeDrafts} />

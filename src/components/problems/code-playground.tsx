@@ -6,6 +6,7 @@ import clsx from 'clsx';
 
 import { buttonClass } from '@/components/ui/primitives';
 import { saveCodeDraftAction } from '@/lib/actions/code';
+import { USE_INPUT_EVENT } from '@/components/problems/statement';
 import {
   DEFAULT_LANGUAGE,
   LANGUAGE_IDS,
@@ -177,6 +178,23 @@ export function CodePlayground({
     runRef.current = run;
   }, [run]);
 
+  /* ------------------------------------------- input from an example --- */
+
+  /**
+   * "Use this input" in the statement above drops that example straight into
+   * the Input box, so trying an example never means retyping it.
+   */
+  useEffect(() => {
+    const onUseInput = (event: Event) => {
+      const value = (event as CustomEvent<string>).detail;
+      if (typeof value !== 'string') return;
+      setStdins((prev) => ({ ...prev, [language]: value }));
+      setResult(null);
+    };
+    window.addEventListener(USE_INPUT_EVENT, onUseInput);
+    return () => window.removeEventListener(USE_INPUT_EVENT, onUseInput);
+  }, [language]);
+
   /* ---------------------------------------------------------- autosave --- */
 
   const firstRender = useRef(true);
@@ -221,7 +239,8 @@ export function CodePlayground({
 
   return (
     <section
-      className="overflow-hidden rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))]"
+      id="playground"
+      className="overflow-hidden rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] scroll-mt-4"
       aria-labelledby="playground-heading"
     >
       {/* ------------------------------------------------------- toolbar */}
