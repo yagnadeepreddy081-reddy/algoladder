@@ -65,13 +65,13 @@ export function SignUpForm({
   const fe = state.fieldErrors ?? {};
 
   return (
-    <Card className="p-6 sm:p-8">
+    <Card className="p-4 sm:p-4">
       <h1 className="text-xl font-semibold text-[hsl(var(--text))]">Create your account</h1>
       <p className="mt-1.5 text-sm text-[hsl(var(--text-muted))]">
         Free forever for the full 474-problem ladder.
       </p>
 
-      <form action={formAction} className="mt-6 space-y-4" noValidate>
+      <form action={formAction} className="mt-5 space-y-4" noValidate>
         <FormError state={state} />
         {next ? <input type="hidden" name="next" value={next} /> : null}
 
@@ -138,7 +138,7 @@ export function SignUpForm({
         <SubmitButton pendingLabel="Creating your account…">Create account</SubmitButton>
       </form>
 
-      <p className="mt-6 text-center text-sm text-[hsl(var(--text-muted))]">
+      <p className="mt-5 text-center text-sm text-[hsl(var(--text-muted))]">
         Already have an account?{' '}
         <Link href="/login" className="font-medium text-brand-600 hover:underline dark:text-brand-400">
           Log in
@@ -163,7 +163,7 @@ export function LoginForm({
   const fe = state.fieldErrors ?? {};
 
   return (
-    <Card className="p-6 sm:p-8">
+    <Card className="p-4 sm:p-4">
       <h1 className="text-xl font-semibold text-[hsl(var(--text))]">Welcome back</h1>
       <p className="mt-1.5 text-sm text-[hsl(var(--text-muted))]">
         Pick up wherever you left off on the ladder.
@@ -175,7 +175,7 @@ export function LoginForm({
         </p>
       ) : null}
 
-      <form action={formAction} className="mt-6 space-y-4" noValidate>
+      <form action={formAction} className="mt-5 space-y-4" noValidate>
         <FormError state={state} />
         {next ? <input type="hidden" name="next" value={next} /> : null}
 
@@ -217,7 +217,7 @@ export function LoginForm({
         <SubmitButton pendingLabel="Signing you in…">Log in</SubmitButton>
       </form>
 
-      <p className="mt-6 text-center text-sm text-[hsl(var(--text-muted))]">
+      <p className="mt-5 text-center text-sm text-[hsl(var(--text-muted))]">
         New here?{' '}
         <Link href="/signup" className="font-medium text-brand-600 hover:underline dark:text-brand-400">
           Create an account
@@ -238,14 +238,14 @@ export function ForgotPasswordForm({
   const fe = state.fieldErrors ?? {};
 
   return (
-    <Card className="p-6 sm:p-8">
+    <Card className="p-4 sm:p-4">
       <h1 className="text-xl font-semibold text-[hsl(var(--text))]">Reset your password</h1>
       <p className="mt-1.5 text-sm text-[hsl(var(--text-muted))]">
         Enter your e-mail and we will send you a link valid for one hour.
       </p>
 
       {state.ok ? (
-        <div className="mt-6 rounded-lg border border-brand-300 bg-brand-50 px-4 py-3 dark:border-brand-800 dark:bg-brand-950">
+        <div className="mt-5 rounded-lg border border-brand-300 bg-brand-50 px-4 py-3 dark:border-brand-800 dark:bg-brand-950">
           <p className="text-sm text-brand-800 dark:text-brand-300">{state.message}</p>
           {state.devResetUrl ? (
             <div className="mt-3 border-t border-brand-200 pt-3 dark:border-brand-900">
@@ -265,7 +265,7 @@ export function ForgotPasswordForm({
           ) : null}
         </div>
       ) : (
-        <form action={formAction} className="mt-6 space-y-4" noValidate>
+        <form action={formAction} className="mt-5 space-y-4" noValidate>
           <FormError state={state} />
           <Field label="E-mail" htmlFor="email" error={fe.email}>
             <input
@@ -283,7 +283,7 @@ export function ForgotPasswordForm({
         </form>
       )}
 
-      <p className="mt-6 text-center text-sm text-[hsl(var(--text-muted))]">
+      <p className="mt-5 text-center text-sm text-[hsl(var(--text-muted))]">
         <Link href="/login" className="font-medium text-brand-600 hover:underline dark:text-brand-400">
           Back to log in
         </Link>
@@ -306,13 +306,13 @@ export function ResetPasswordForm({
   const fe = state.fieldErrors ?? {};
 
   return (
-    <Card className="p-6 sm:p-8">
+    <Card className="p-4 sm:p-4">
       <h1 className="text-xl font-semibold text-[hsl(var(--text))]">Choose a new password</h1>
       <p className="mt-1.5 text-sm text-[hsl(var(--text-muted))]">
         Setting a new password signs you out on every other device.
       </p>
 
-      <form action={formAction} className="mt-6 space-y-4" noValidate>
+      <form action={formAction} className="mt-5 space-y-4" noValidate>
         <FormError state={state} />
         <input type="hidden" name="token" value={token} />
 
@@ -349,7 +349,7 @@ export function ResetPasswordForm({
         <SubmitButton pendingLabel="Updating…">Set new password</SubmitButton>
       </form>
 
-      <p className="mt-6 text-center text-sm text-[hsl(var(--text-muted))]">
+      <p className="mt-5 text-center text-sm text-[hsl(var(--text-muted))]">
         <Link href="/forgot-password" className="text-brand-600 hover:underline dark:text-brand-400">
           Request a new link
         </Link>

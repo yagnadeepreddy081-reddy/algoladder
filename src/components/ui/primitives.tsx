@@ -3,6 +3,14 @@ import clsx from 'clsx';
 
 import type { Difficulty, ProgressStatus } from '@/lib/types';
 
+/**
+ * The shared visual language: compact, border-led, one accent colour.
+ *
+ * Depth comes from a 1px border and a change of surface, not from shadows —
+ * shadows are reserved for things that genuinely float (menus, toasts). Radii
+ * are small so the interface reads as a tool rather than a marketing page.
+ */
+
 /* ---------------------------------------------------------------- Card --- */
 
 export function Card({
@@ -10,12 +18,15 @@ export function Card({
   className,
   id,
   testId,
+  interactive = false,
   as: Tag = 'div',
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
   testId?: string;
+  /** Adds a hover treatment. Only for cards that are themselves a link. */
+  interactive?: boolean;
   as?: 'div' | 'section' | 'article' | 'li';
 }) {
   return (
@@ -24,6 +35,8 @@ export function Card({
       data-testid={testId}
       className={clsx(
         'rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))]',
+        interactive &&
+          'transition-colors hover:border-[hsl(var(--border-strong))] hover:bg-[hsl(var(--surface-2))]',
         className,
       )}
     >
@@ -44,11 +57,18 @@ export function CardHeader({
   className?: string;
 }) {
   return (
-    <div className={clsx('flex items-start justify-between gap-4 px-5 pt-5 pb-3', className)}>
+    <div
+      className={clsx(
+        'flex items-start justify-between gap-3 border-b border-[hsl(var(--border))] px-4 py-3',
+        className,
+      )}
+    >
       <div className="min-w-0">
-        <h2 className="text-base font-semibold text-[hsl(var(--text))]">{title}</h2>
+        <h2 className="text-[13px] font-semibold tracking-tight text-[hsl(var(--text))]">
+          {title}
+        </h2>
         {description ? (
-          <p className="mt-1 text-sm text-[hsl(var(--text-muted))]">{description}</p>
+          <p className="mt-1 text-xs text-[hsl(var(--text-muted))]">{description}</p>
         ) : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
@@ -62,25 +82,30 @@ type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'outline';
 type ButtonSize = 'sm' | 'md' | 'lg' | 'icon';
 
 const BUTTON_BASE =
-  'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors ' +
-  'disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2';
+  'inline-flex items-center justify-center gap-1.5 rounded-md font-medium tracking-tight ' +
+  'transition-[background-color,border-color,color,opacity] duration-100 ' +
+  'disabled:cursor-not-allowed disabled:opacity-45 ' +
+  'focus-visible:outline-2 focus-visible:outline-offset-2';
 
 const BUTTON_VARIANT: Record<ButtonVariant, string> = {
   primary:
-    'bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 dark:bg-brand-500 dark:hover:bg-brand-400 dark:text-brand-950',
+    'bg-brand-600 text-white hover:bg-brand-500 active:bg-brand-700 ' +
+    'dark:bg-brand-500 dark:text-brand-950 dark:hover:bg-brand-400',
   secondary:
     'bg-[hsl(var(--surface-3))] text-[hsl(var(--text))] hover:bg-[hsl(var(--border))]',
   outline:
-    'border border-[hsl(var(--border-strong))] bg-transparent text-[hsl(var(--text))] hover:bg-[hsl(var(--surface-2))]',
-  ghost: 'bg-transparent text-[hsl(var(--text-muted))] hover:bg-[hsl(var(--surface-2))] hover:text-[hsl(var(--text))]',
-  danger: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800',
+    'border border-[hsl(var(--border-strong))] bg-[hsl(var(--surface))] text-[hsl(var(--text))] ' +
+    'hover:border-[hsl(var(--text-subtle))] hover:bg-[hsl(var(--surface-2))]',
+  ghost:
+    'bg-transparent text-[hsl(var(--text-muted))] hover:bg-[hsl(var(--surface-2))] hover:text-[hsl(var(--text))]',
+  danger: 'bg-rose-600 text-white hover:bg-rose-500 active:bg-rose-700',
 };
 
 const BUTTON_SIZE: Record<ButtonSize, string> = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
-  lg: 'h-12 px-6 text-base',
-  icon: 'h-9 w-9 p-0',
+  sm: 'h-7 px-2.5 text-xs',
+  md: 'h-8 px-3 text-[13px]',
+  lg: 'h-10 px-4 text-sm',
+  icon: 'h-8 w-8 p-0',
 };
 
 export function buttonClass(
@@ -103,17 +128,17 @@ export function Badge({
   className?: string;
 }) {
   const tones = {
-    zinc: 'bg-[hsl(var(--surface-3))] text-[hsl(var(--text-muted))]',
-    brand: 'bg-brand-100 text-brand-800 dark:bg-brand-950 dark:text-brand-300',
-    amber: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300',
-    red: 'bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300',
-    blue: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300',
-    violet: 'bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-300',
+    zinc: 'border-[hsl(var(--border-strong))] text-[hsl(var(--text-muted))]',
+    brand: 'border-brand-600/40 text-brand-700 dark:text-brand-400',
+    amber: 'border-amber-500/40 text-amber-700 dark:text-amber-400',
+    red: 'border-rose-500/40 text-rose-700 dark:text-rose-400',
+    blue: 'border-blue-500/40 text-blue-700 dark:text-blue-400',
+    violet: 'border-violet-500/40 text-violet-700 dark:text-violet-400',
   };
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium whitespace-nowrap',
+        'inline-flex items-center gap-1 rounded border px-1.5 py-px text-[11px] font-medium whitespace-nowrap',
         tones[tone],
         className,
       )}
@@ -123,19 +148,17 @@ export function Badge({
   );
 }
 
+/** Difficulty reads as a coloured dot plus a word — quieter than a filled pill. */
 export function DifficultyBadge({ difficulty }: { difficulty: Difficulty }) {
-  const styles: Record<Difficulty, string> = {
-    Easy: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300',
-    Medium: 'bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300',
-    Hard: 'bg-rose-100 text-rose-800 dark:bg-rose-950/70 dark:text-rose-300',
+  const styles: Record<Difficulty, { dot: string; text: string }> = {
+    Easy: { dot: 'bg-emerald-500', text: 'text-emerald-700 dark:text-emerald-400' },
+    Medium: { dot: 'bg-amber-500', text: 'text-amber-700 dark:text-amber-400' },
+    Hard: { dot: 'bg-rose-500', text: 'text-rose-700 dark:text-rose-400' },
   };
+  const s = styles[difficulty];
   return (
-    <span
-      className={clsx(
-        'inline-flex items-center rounded-md px-2 py-0.5 text-xs font-semibold',
-        styles[difficulty],
-      )}
-    >
+    <span className={clsx('inline-flex items-center gap-1.5 text-xs font-medium', s.text)}>
+      <span className={clsx('h-1.5 w-1.5 shrink-0 rounded-full', s.dot)} aria-hidden />
       {difficulty}
     </span>
   );
@@ -152,11 +175,7 @@ const STATUS_STYLE: Record<ProgressStatus, { label: string; className: string; d
     className: 'text-amber-700 dark:text-amber-400',
     dot: 'bg-amber-500',
   },
-  solved: {
-    label: 'Solved',
-    className: 'text-brand-700 dark:text-brand-400',
-    dot: 'bg-brand-500',
-  },
+  solved: { label: 'Solved', className: 'text-brand-700 dark:text-brand-400', dot: 'bg-brand-500' },
   needs_revision: {
     label: 'Needs revision',
     className: 'text-violet-700 dark:text-violet-400',
@@ -192,7 +211,7 @@ export function ProgressBar({
   size?: 'sm' | 'md' | 'lg';
 }) {
   const pct = total > 0 ? Math.min(100, Math.round((value / total) * 100)) : 0;
-  const heights = { sm: 'h-1.5', md: 'h-2', lg: 'h-3' };
+  const heights = { sm: 'h-1', md: 'h-1.5', lg: 'h-2' };
   return (
     <div className={className}>
       {showLabel ? (
@@ -204,7 +223,10 @@ export function ProgressBar({
         </div>
       ) : null}
       <div
-        className={clsx('w-full overflow-hidden rounded-full bg-[hsl(var(--surface-3))]', heights[size])}
+        className={clsx(
+          'w-full overflow-hidden rounded-full bg-[hsl(var(--surface-3))]',
+          heights[size],
+        )}
         role="progressbar"
         aria-valuenow={pct}
         aria-valuemin={0}
@@ -220,7 +242,6 @@ export function ProgressBar({
   );
 }
 
-/** Stacked bar showing the easy/medium/hard split of what is solved. */
 export function DifficultySplitBar({
   easy,
   medium,
@@ -236,9 +257,9 @@ export function DifficultySplitBar({
   const pct = (n: number) => (n / total) * 100;
   return (
     <div
-      className="flex h-2 w-full overflow-hidden rounded-full bg-[hsl(var(--surface-3))]"
+      className="flex h-1.5 w-full overflow-hidden rounded-full bg-[hsl(var(--surface-3))]"
       role="img"
-      aria-label={`${easy} easy, ${medium} medium and ${hard} hard problems solved out of ${total}`}
+      aria-label={`${easy} easy, ${medium} medium and ${hard} hard problems out of ${total}`}
     >
       <div className="bg-emerald-500" style={{ width: `${pct(easy)}%` }} />
       <div className="bg-amber-500" style={{ width: `${pct(medium)}%` }} />
@@ -273,17 +294,19 @@ export function StatTile({
   };
   return (
     <Card
-      className="p-4"
+      className="px-4 py-3"
       testId={testId ?? `stat-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
     >
-      <div className="flex items-start justify-between gap-2">
-        <p className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-[11px] font-medium tracking-wide text-[hsl(var(--text-subtle))] uppercase">
           {label}
         </p>
         {icon ? <span className="text-[hsl(var(--text-subtle))]">{icon}</span> : null}
       </div>
-      <p className={clsx('tabular mt-2 text-2xl font-semibold', valueTone[tone])}>{value}</p>
-      {sub ? <p className="mt-1 text-xs text-[hsl(var(--text-muted))]">{sub}</p> : null}
+      <p className={clsx('tabular mt-1.5 text-[22px] leading-none font-semibold', valueTone[tone])}>
+        {value}
+      </p>
+      {sub ? <p className="mt-1.5 text-xs text-[hsl(var(--text-muted))]">{sub}</p> : null}
     </Card>
   );
 }
@@ -302,13 +325,13 @@ export function EmptyState({
   icon?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center rounded-[var(--radius-card)] border border-dashed border-[hsl(var(--border-strong))] px-6 py-14 text-center">
+    <div className="flex flex-col items-center justify-center rounded-[var(--radius-card)] border border-dashed border-[hsl(var(--border-strong))] px-6 py-12 text-center">
       {icon ? <div className="mb-3 text-[hsl(var(--text-subtle))]">{icon}</div> : null}
-      <p className="text-base font-medium text-[hsl(var(--text))]">{title}</p>
+      <p className="text-sm font-medium text-[hsl(var(--text))]">{title}</p>
       {description ? (
-        <p className="mt-1.5 max-w-sm text-sm text-[hsl(var(--text-muted))]">{description}</p>
+        <p className="mt-1.5 max-w-sm text-xs text-[hsl(var(--text-muted))]">{description}</p>
       ) : null}
-      {action ? <div className="mt-5">{action}</div> : null}
+      {action ? <div className="mt-4">{action}</div> : null}
     </div>
   );
 }
@@ -317,11 +340,11 @@ export function ErrorState({ title, detail }: { title: string; detail?: string }
   return (
     <div
       role="alert"
-      className="rounded-[var(--radius-card)] border border-rose-300 bg-rose-50 px-5 py-4 dark:border-rose-900 dark:bg-rose-950/40"
+      className="rounded-[var(--radius-card)] border border-rose-500/40 bg-rose-500/5 px-4 py-3"
     >
-      <p className="text-sm font-semibold text-rose-800 dark:text-rose-300">{title}</p>
+      <p className="text-[13px] font-semibold text-rose-700 dark:text-rose-400">{title}</p>
       {detail ? (
-        <p className="mt-1 text-sm break-words text-rose-700 dark:text-rose-400">{detail}</p>
+        <p className="mt-1 text-xs break-words text-rose-700/80 dark:text-rose-400/80">{detail}</p>
       ) : null}
     </div>
   );
@@ -330,14 +353,14 @@ export function ErrorState({ title, detail }: { title: string; detail?: string }
 /* ------------------------------------------------------------ Skeleton --- */
 
 export function Skeleton({ className }: { className?: string }) {
-  return <div className={clsx('shimmer rounded-md', className)} aria-hidden />;
+  return <div className={clsx('shimmer rounded', className)} aria-hidden />;
 }
 
 export function TableSkeleton({ rows = 8 }: { rows?: number }) {
   return (
-    <div className="space-y-2" aria-busy="true" aria-label="Loading">
+    <div className="space-y-1.5" aria-busy="true" aria-label="Loading">
       {Array.from({ length: rows }).map((_, i) => (
-        <Skeleton key={i} className="h-14 w-full" />
+        <Skeleton key={i} className="h-11 w-full" />
       ))}
     </div>
   );
@@ -357,15 +380,15 @@ export function PageHeader({
   breadcrumb?: ReactNode;
 }) {
   return (
-    <header className="mb-6">
-      {breadcrumb ? <div className="mb-2 text-sm">{breadcrumb}</div> : null}
-      <div className="flex flex-wrap items-start justify-between gap-4">
+    <header className="mb-5">
+      {breadcrumb ? <div className="mb-1.5 text-xs">{breadcrumb}</div> : null}
+      <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <h1 className="text-2xl font-semibold tracking-tight text-balance text-[hsl(var(--text))] sm:text-3xl">
+          <h1 className="text-xl font-semibold tracking-tight text-balance text-[hsl(var(--text))] sm:text-2xl">
             {title}
           </h1>
           {description ? (
-            <p className="mt-2 max-w-2xl text-sm text-pretty text-[hsl(var(--text-muted))]">
+            <p className="mt-1.5 max-w-2xl text-[13px] text-pretty text-[hsl(var(--text-muted))]">
               {description}
             </p>
           ) : null}
@@ -379,10 +402,11 @@ export function PageHeader({
 /* --------------------------------------------------------------- Field --- */
 
 export const inputClass =
-  'w-full rounded-lg border border-[hsl(var(--border-strong))] bg-[hsl(var(--surface))] px-3 py-2 ' +
-  'text-sm text-[hsl(var(--text))] placeholder:text-[hsl(var(--text-subtle))] ' +
+  'w-full rounded-md border border-[hsl(var(--border-strong))] bg-[hsl(var(--surface))] px-2.5 py-1.5 ' +
+  'text-[13px] text-[hsl(var(--text))] placeholder:text-[hsl(var(--text-subtle))] ' +
+  'transition-colors hover:border-[hsl(var(--text-subtle))] ' +
   'focus:border-brand-500 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-0 ' +
-  'disabled:opacity-60';
+  'disabled:opacity-55';
 
 export function Field({
   label,
@@ -399,16 +423,16 @@ export function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-medium text-[hsl(var(--text))]">
+      <label htmlFor={htmlFor} className="mb-1 block text-xs font-medium text-[hsl(var(--text))]">
         {label}
       </label>
       {children}
       {error ? (
-        <p id={`${htmlFor}-error`} role="alert" className="mt-1.5 text-xs text-rose-600 dark:text-rose-400">
+        <p id={`${htmlFor}-error`} role="alert" className="mt-1 text-xs text-rose-600 dark:text-rose-400">
           {error}
         </p>
       ) : hint ? (
-        <p className="mt-1.5 text-xs text-[hsl(var(--text-muted))]">{hint}</p>
+        <p className="mt-1 text-xs text-[hsl(var(--text-muted))]">{hint}</p>
       ) : null}
     </div>
   );

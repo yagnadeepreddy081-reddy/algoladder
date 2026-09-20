@@ -20,7 +20,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div>
-      <div className="mb-6 flex flex-wrap items-center gap-3 border-b border-[hsl(var(--border))] pb-3">
+      <div className="mb-5 flex flex-wrap items-center gap-3 border-b border-[hsl(var(--border))] pb-3">
         <Badge tone="violet">Admin</Badge>
         <nav aria-label="Admin sections" className="flex flex-wrap gap-1">
           {TABS.map((t) => (

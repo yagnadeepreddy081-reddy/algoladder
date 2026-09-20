@@ -78,7 +78,7 @@ export default async function SubtopicPage({
         }
       />
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-3">
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <StatTile label="Problems" value={summary.total} />
         <StatTile label="Solved" value={summary.solved} sub={`${summary.percent}%`} tone="brand" />
         <StatTile
@@ -92,7 +92,7 @@ export default async function SubtopicPage({
         />
       </div>
 
-      <Card className="mb-6 p-5">
+      <Card className="mb-5 p-4">
         <ProgressBar
           value={summary.solved}
           total={summary.total}
@@ -104,7 +104,7 @@ export default async function SubtopicPage({
 
       <ProblemList problems={problems} showTopic={false} numbering="topic" />
 
-      <nav className="mt-6 flex items-stretch gap-3" aria-label="Subtopic navigation">
+      <nav className="mt-5 flex items-stretch gap-3" aria-label="Subtopic navigation">
         {prevSub ? (
           <Link
             href={`/topics/${topic.slug}/${prevSub.slug}`}

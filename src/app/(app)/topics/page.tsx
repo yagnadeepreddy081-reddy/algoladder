@@ -41,8 +41,8 @@ export default async function TopicsPage() {
       />
 
       {/* ------------------------------------------------ overall progress */}
-      <Card className="mb-8 p-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      <Card className="mb-8 p-4">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
               Whole ladder
@@ -72,7 +72,7 @@ export default async function TopicsPage() {
           </dl>
         </div>
 
-        <ProgressBar value={grandSolved} total={grandTotal} size="lg" className="mt-6" />
+        <ProgressBar value={grandSolved} total={grandTotal} size="lg" className="mt-5" />
       </Card>
 
       {/* ------------------------------------------------------ the rungs */}
@@ -89,7 +89,7 @@ export default async function TopicsPage() {
               <Link
                 href={`/topics/${t.slug}`}
                 prefetch={false}
-                className="group flex h-full flex-col rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] p-5 transition-all hover:border-brand-400 hover:shadow-[var(--shadow-soft)] dark:hover:border-brand-700"
+                className="group flex h-full flex-col rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] p-4 transition-all hover:border-brand-400 hover:shadow-[var(--shadow-soft)] dark:hover:border-brand-700"
               >
                 <div className="flex items-center gap-3">
                   <span

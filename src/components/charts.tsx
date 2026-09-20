@@ -157,7 +157,7 @@ export function DifficultyDonut({
         }
       />
 
-      <div className="px-5 pb-5">
+      <div className="px-4 pb-4">
         {totalSolved === 0 ? (
           <EmptyChart message="No solved problems yet. This fills in as you work through the ladder." />
         ) : showTable ? (

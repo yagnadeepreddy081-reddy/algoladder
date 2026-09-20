@@ -52,7 +52,7 @@ export default async function AnalyticsPage() {
         description="Every figure on this page is computed from your own solve history in the database. Empty charts mean there is nothing recorded yet, not that something is broken."
       />
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile
           label="Completion"
           value={`${stats.completionPercent}%`}
@@ -68,7 +68,7 @@ export default async function AnalyticsPage() {
         />
       </div>
 
-      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+      <div className="mb-5 grid gap-4 lg:grid-cols-2">
         <DifficultyDonut data={difficultyData} totalSolved={stats.solved} />
 
         <Card>
@@ -85,7 +85,7 @@ export default async function AnalyticsPage() {
       {/* ------------------------------------------------- premium section */}
       {premium && analytics ? (
         <>
-          <div className="mb-6 grid gap-4 lg:grid-cols-2">
+          <div className="mb-5 grid gap-4 lg:grid-cols-2">
             <Card>
               <CardHeader
                 title="Solves per day"
@@ -107,13 +107,13 @@ export default async function AnalyticsPage() {
             </Card>
           </div>
 
-          <div className="mb-6 grid gap-4 lg:grid-cols-2">
+          <div className="mb-5 grid gap-4 lg:grid-cols-2">
             <Card>
               <CardHeader
                 title="Weakest topics"
                 description="Ranked by completion. Start at the top of this list."
               />
-              <ol className="space-y-2 px-5 pb-5">
+              <ol className="space-y-2 px-4 pb-4">
                 {analytics.hardestTopics.map((t, i) => (
                   <li
                     key={t.topic}
@@ -138,7 +138,7 @@ export default async function AnalyticsPage() {
                 title="Effort"
                 description="Only counts the time you logged yourself on a problem page."
               />
-              <div className="px-5 pb-5">
+              <div className="px-4 pb-4">
                 <dl className="mb-4 grid grid-cols-2 gap-3">
                   <div className="rounded-lg bg-[hsl(var(--surface-2))] px-4 py-3">
                     <dt className="text-xs text-[hsl(var(--text-muted))]">Total attempts</dt>
@@ -181,7 +181,7 @@ export default async function AnalyticsPage() {
         />
       )}
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2">
         <Link href="/topics" className={buttonClass('outline', 'md')}>
           Go to the roadmap
         </Link>

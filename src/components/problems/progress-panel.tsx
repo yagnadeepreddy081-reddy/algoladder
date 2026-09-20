@@ -59,7 +59,7 @@ export function ProgressPanel({
         description="Private to your account, and it survives a sign-out."
       />
 
-      <div className="space-y-5 px-5 pb-5">
+      <div className="space-y-5 px-4 pb-4">
         {/* attempts + time */}
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-lg bg-[hsl(var(--surface-2))] px-4 py-3">

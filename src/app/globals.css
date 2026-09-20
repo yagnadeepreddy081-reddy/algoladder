@@ -1,75 +1,81 @@
 @import 'tailwindcss';
 
-/* AlgoLadder dark mode is class-driven so the user's stored preference wins
-   over the OS setting. `<html class="dark">` is set by ThemeScript. */
+/* AlgoLadder is dark by default. The class is set by ThemeScript before first
+   paint, so a reload never flashes the wrong theme. */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* --- Brand: emerald rungs on a zinc ladder --------------------------- */
+  /* --- Brand: one accent, used sparingly ------------------------------- */
   --color-brand-50: oklch(0.979 0.021 166.1);
   --color-brand-100: oklch(0.95 0.052 163.1);
   --color-brand-200: oklch(0.905 0.093 164.2);
   --color-brand-300: oklch(0.845 0.143 164.9);
-  --color-brand-400: oklch(0.765 0.177 163.2);
-  --color-brand-500: oklch(0.696 0.17 162.5);
-  --color-brand-600: oklch(0.596 0.145 163.2);
-  --color-brand-700: oklch(0.508 0.118 165.6);
-  --color-brand-800: oklch(0.432 0.095 166.9);
-  --color-brand-900: oklch(0.378 0.077 168.9);
-  --color-brand-950: oklch(0.262 0.051 172.6);
+  --color-brand-400: oklch(0.79 0.166 163.8);
+  --color-brand-500: oklch(0.72 0.175 162.5);
+  --color-brand-600: oklch(0.63 0.155 163.2);
+  --color-brand-700: oklch(0.53 0.125 165.6);
+  --color-brand-800: oklch(0.44 0.098 166.9);
+  --color-brand-900: oklch(0.37 0.076 168.9);
+  --color-brand-950: oklch(0.235 0.05 172.6);
 
-  /* --- Difficulty scale (WCAG-checked against both surfaces) ----------- */
-  --color-easy: oklch(0.52 0.13 160);
-  --color-easy-soft: oklch(0.95 0.045 160);
-  --color-medium: oklch(0.55 0.13 70);
-  --color-medium-soft: oklch(0.95 0.05 80);
-  --color-hard: oklch(0.54 0.18 20);
-  --color-hard-soft: oklch(0.95 0.035 20);
+  /* --- Difficulty ------------------------------------------------------ */
+  --color-easy: oklch(0.72 0.15 162);
+  --color-medium: oklch(0.78 0.14 75);
+  --color-hard: oklch(0.68 0.19 20);
 
+  /* System stack on purpose: SF Pro on macOS, Segoe UI Variable on Windows,
+     Inter on most Linux desktops. No webfont request, nothing to block, and
+     nothing to flash on first paint. */
   --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI Variable Text', 'Segoe UI',
+    ui-sans-serif, system-ui, Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    ui-monospace, SFMono-Regular, 'SF Mono', 'JetBrains Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
 
-  --radius-card: 0.875rem;
-  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 4px 16px -4px rgb(0 0 0 / 0.08);
+  /* Sharp, not pill-shaped. */
+  --radius-card: 0.5rem;
+
+  /* Depth comes from borders; shadows only lift things that actually float. */
+  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.16);
+  --shadow-pop: 0 8px 24px -8px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.3);
 }
 
 /* ------------------------------------------------------------------------
-   Semantic surface tokens. Every component reads these instead of hard-coding
-   a zinc shade, so the whole app re-themes from one place.
+   Semantic surfaces. Every component reads these, so the whole application
+   re-themes from this one block.
    ------------------------------------------------------------------------ */
 @layer base {
   :root {
-    --surface: 0 0% 100%;
-    --surface-2: 240 5% 98%;
-    --surface-3: 240 5% 96%;
-    --border: 240 6% 90%;
-    --border-strong: 240 5% 84%;
-    --text: 240 10% 12%;
-    --text-muted: 240 4% 42%;
-    --text-subtle: 240 4% 55%;
-    --ring: 162 70% 38%;
-    --overlay: 240 10% 12%;
-    color-scheme: light;
+    /* Dark is the default theme, so it is the default token set. */
+    --surface: 240 6% 7%;
+    --surface-2: 240 5% 10%;
+    --surface-3: 240 5% 14%;
+    --border: 240 5% 17%;
+    --border-strong: 240 5% 27%;
+    --text: 240 12% 96%;
+    --text-muted: 240 5% 64%;
+    --text-subtle: 240 5% 45%;
+    --ring: 162 70% 45%;
+    color-scheme: dark;
   }
 
-  .dark {
-    --surface: 240 10% 8%;
-    --surface-2: 240 8% 11%;
-    --surface-3: 240 7% 15%;
-    --border: 240 6% 20%;
-    --border-strong: 240 6% 28%;
-    --text: 240 10% 96%;
-    --text-muted: 240 5% 68%;
-    --text-subtle: 240 5% 56%;
-    --ring: 162 60% 52%;
-    --overlay: 240 20% 2%;
-    color-scheme: dark;
+  :root:not(.dark) {
+    --surface: 0 0% 100%;
+    --surface-2: 240 20% 99%;
+    --surface-3: 240 10% 95.5%;
+    --border: 240 6% 90%;
+    --border-strong: 240 5% 80%;
+    --text: 240 14% 9%;
+    --text-muted: 240 5% 38%;
+    --text-subtle: 240 4% 54%;
+    --ring: 162 72% 34%;
+    color-scheme: light;
   }
 
   * {
     border-color: hsl(var(--border));
+    min-width: 0;
   }
 
   html {
@@ -78,12 +84,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    *,
-    *::before,
-    *::after {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -94,66 +96,56 @@
     background-color: hsl(var(--surface));
     color: hsl(var(--text));
     font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* A single visible, consistent focus ring for keyboard users. */
+  /* A tighter type scale — headings lead, body stays compact. */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+  }
+  h1 { letter-spacing: -0.03em; }
+
+  code, kbd, pre, samp {
+    font-family: var(--font-mono);
+    font-feature-settings: 'liga' 0;
+  }
+
   :focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
-    border-radius: 0.375rem;
+    border-radius: 0.25rem;
   }
 
   ::selection {
-    background-color: hsl(var(--ring) / 0.25);
+    background-color: hsl(var(--ring) / 0.28);
   }
 
-  /* Scrollbars that don't fight dark mode. */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--border-strong));
     border-radius: 99px;
     border: 2px solid transparent;
     background-clip: content-box;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--text-subtle));
-    background-clip: content-box;
-  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--text-subtle)); background-clip: content-box; }
 }
 
 @layer components {
-  .surface {
-    background-color: hsl(var(--surface));
-  }
-  .surface-2 {
-    background-color: hsl(var(--surface-2));
-  }
-  .surface-3 {
-    background-color: hsl(var(--surface-3));
-  }
-  .text-default {
-    color: hsl(var(--text));
-  }
-  .text-muted {
-    color: hsl(var(--text-muted));
-  }
-  .text-subtle {
-    color: hsl(var(--text-subtle));
-  }
-  .border-default {
-    border-color: hsl(var(--border));
-  }
-  .border-strong {
-    border-color: hsl(var(--border-strong));
-  }
+  .surface { background-color: hsl(var(--surface)); }
+  .surface-2 { background-color: hsl(var(--surface-2)); }
+  .surface-3 { background-color: hsl(var(--surface-3)); }
+  .text-default { color: hsl(var(--text)); }
+  .text-muted { color: hsl(var(--text-muted)); }
+  .text-subtle { color: hsl(var(--text-subtle)); }
+  .border-default { border-color: hsl(var(--border)); }
+  .border-strong { border-color: hsl(var(--border-strong)); }
 
   .card {
     background-color: hsl(var(--surface));
@@ -161,75 +153,61 @@
     border-radius: var(--radius-card);
   }
 
-  /* Skip link — visible only once focused. */
+  /* A hairline that reads as a divider on both themes. */
+  .hairline { border-color: hsl(var(--border)); }
+
   .skip-link {
     position: absolute;
     left: 0.75rem;
     top: -4rem;
     z-index: 100;
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
     background-color: var(--color-brand-600);
     padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: white;
     transition: top 150ms ease;
   }
-  .skip-link:focus {
-    top: 0.75rem;
-  }
+  .skip-link:focus { top: 0.75rem; }
 }
 
 @layer utilities {
   .shimmer {
     background-image: linear-gradient(
       90deg,
-      hsl(var(--surface-3)) 0%,
-      hsl(var(--border)) 50%,
-      hsl(var(--surface-3)) 100%
+      hsl(var(--surface-2)) 0%,
+      hsl(var(--surface-3)) 50%,
+      hsl(var(--surface-2)) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;
   }
-
   @keyframes shimmer {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 
-  .animate-in-up {
-    animation: inUp 220ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
+  .animate-in-up { animation: inUp 200ms cubic-bezier(0.22, 1, 0.36, 1); }
   @keyframes inUp {
-    from {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: none; }
   }
 
-  .animate-toast {
-    animation: toastIn 240ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
+  .animate-toast { animation: toastIn 220ms cubic-bezier(0.22, 1, 0.36, 1); }
   @keyframes toastIn {
-    from {
-      opacity: 0;
-      transform: translateY(12px) scale(0.97);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: none; }
   }
 
-  .tabular {
-    font-variant-numeric: tabular-nums;
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* Faint grid, for hero sections that would otherwise be a flat slab. */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
   }
 }

@@ -20,7 +20,7 @@ export function HintList({ hints }: { hints: string[] }) {
         title="Hints"
         description="Revealed one at a time. Try the next line of thinking before you open another."
       />
-      <div className="px-5 pb-5">
+      <div className="px-4 pb-4">
         <ol className="space-y-2">
           {hints.map((hint, i) => (
             <li key={i}>
@@ -88,7 +88,7 @@ export function ApproachDisclosure({
         }
       />
       {open ? (
-        <div className="animate-in-up px-5 pb-5">
+        <div className="animate-in-up px-4 pb-4">
           <p className="text-sm leading-relaxed text-pretty text-[hsl(var(--text))]">{approach}</p>
           <dl className="mt-4 grid gap-3 sm:grid-cols-2">
             <div className="rounded-lg bg-[hsl(var(--surface-2))] px-4 py-3">
@@ -110,7 +110,7 @@ export function ApproachDisclosure({
           </p>
         </div>
       ) : (
-        <div className="px-5 pb-5">
+        <div className="px-4 pb-4">
           <p className="text-sm text-[hsl(var(--text-muted))]">
             Hidden so you do not spoil the problem by scrolling. Open it once you have had a real go,
             or once the hints have run out.

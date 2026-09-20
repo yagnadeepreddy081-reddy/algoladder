@@ -63,7 +63,7 @@ export default async function StudyPlanPage() {
 
       {plan ? (
         <>
-          <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <StatTile label="Plan" value={<span className="text-base">{plan.name}</span>} />
             <StatTile
               label="Progress"
@@ -78,7 +78,7 @@ export default async function StudyPlanPage() {
             />
           </div>
 
-          <Card className="mb-6 p-5">
+          <Card className="mb-5 p-4">
             <ProgressBar
               value={plan.completedItems}
               total={plan.totalItems}
@@ -93,12 +93,12 @@ export default async function StudyPlanPage() {
 
           {/* -------------------------------------------------- overdue */}
           {overdue.length ? (
-            <Card className="mb-6 border-amber-300 dark:border-amber-900">
+            <Card className="mb-5 border-amber-300 dark:border-amber-900">
               <CardHeader
                 title={`Behind schedule (${overdue.reduce((n, d) => n + d.problems.filter((p) => !p.solved).length, 0)})`}
                 description="Days that have passed with problems still unsolved. Catch up or rebuild the plan at a gentler pace."
               />
-              <ul className="divide-y divide-[hsl(var(--border))] px-5 pb-3">
+              <ul className="divide-y divide-[hsl(var(--border))] px-4 pb-3">
                 {overdue.flatMap((d) =>
                   d.problems
                     .filter((p) => !p.solved)
@@ -122,7 +122,7 @@ export default async function StudyPlanPage() {
           ) : null}
 
           {/* ---------------------------------------------------- today */}
-          <Card className="mb-6">
+          <Card className="mb-5">
             <CardHeader
               title="Today"
               description={
@@ -131,7 +131,7 @@ export default async function StudyPlanPage() {
                   : 'Nothing scheduled for today.'
               }
             />
-            <div className="px-5 pb-5">
+            <div className="px-4 pb-4">
               {todayDay ? (
                 <ul className="space-y-1">
                   {todayDay.problems.map((p) => (
@@ -179,9 +179,9 @@ export default async function StudyPlanPage() {
 
           {/* ------------------------------------------------- upcoming */}
           {upcoming.length ? (
-            <Card className="mb-6">
+            <Card className="mb-5">
               <CardHeader title="The week ahead" description="What the plan has queued up next." />
-              <div className="space-y-4 px-5 pb-5">
+              <div className="space-y-4 px-4 pb-4">
                 {upcoming.map((d) => (
                   <div key={d.date}>
                     <p className="mb-1.5 text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">

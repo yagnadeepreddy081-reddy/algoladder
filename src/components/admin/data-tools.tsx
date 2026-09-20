@@ -62,7 +62,7 @@ export function ValidationRunner({ initial }: { initial: ValidationReport }) {
         }
       />
 
-      <div className="px-5 pb-5">
+      <div className="px-4 pb-4">
         <div
           className={clsx(
             'mb-4 rounded-lg border px-4 py-3',
@@ -173,7 +173,7 @@ export function ImportPanel() {
         title="Import problems"
         description="Paste or upload a JSON array in the same shape as data/problems.json. Existing IDs are updated; new ones are inserted. The whole import runs in one transaction, so a bad row rolls the lot back."
       />
-      <form action={action} className="space-y-4 px-5 pb-5">
+      <form action={action} className="space-y-4 px-4 pb-4">
         {state.error ? <ErrorState title="Import failed" detail={state.error} /> : null}
 
         {state.ok ? (

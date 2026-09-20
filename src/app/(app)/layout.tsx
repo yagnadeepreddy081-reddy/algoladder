@@ -39,8 +39,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <div className="flex min-w-0 flex-1 flex-col">
         <MobileTopBar user={navUser} signOut={signOut} />
 
-        <main id="main" className="flex-1 px-4 pt-6 pb-24 sm:px-6 lg:px-8 lg:pb-10">
-          <div className="mx-auto w-full max-w-6xl">{children}</div>
+        <main id="main" className="flex-1 px-4 pt-5 pb-24 sm:px-5 lg:px-7 lg:pb-10">
+          <div className="mx-auto w-full max-w-[1120px]">{children}</div>
         </main>
       </div>
 

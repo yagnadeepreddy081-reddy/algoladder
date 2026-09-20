@@ -46,7 +46,7 @@ export function ReportDialog({ problemId, title }: { problemId: string; title: s
         ref={ref}
         className="m-auto w-[calc(100vw-2rem)] max-w-md rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] p-0 text-[hsl(var(--text))] backdrop:bg-black/50"
       >
-        <form action={formAction} className="space-y-4 p-5">
+        <form action={formAction} className="space-y-4 p-4">
           <div>
             <h2 className="text-base font-semibold">Report an issue</h2>
             <p className="mt-1 text-sm text-[hsl(var(--text-muted))]">

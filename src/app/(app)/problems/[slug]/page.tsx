@@ -109,7 +109,7 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
       />
 
       {/* ------------------------------------------------- action toolbar */}
-      <Card className="mb-6 p-4">
+      <Card className="mb-5 p-4">
         <div className="flex flex-wrap items-center gap-2">
           <DifficultyBadge difficulty={problem.difficulty} />
           <StatusPill status={status} />
@@ -147,9 +147,9 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
         </div>
       </Card>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
         {/* -------------------------------------------------------- main */}
-        <div className="min-w-0 space-y-6">
+        <div className="min-w-0 space-y-4">
           <ProblemStatement
             description={problem.description}
             ioFormat={problem.ioFormat}
@@ -183,7 +183,7 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
               description="You can still open this problem on its host site, mark it solved and keep notes — the free preview above is the whole statement. Pro unlocks the progressive hints, the written approach and the complexity targets."
               feature="premium learning paths"
               preview={
-                <div className="p-5">
+                <div className="p-4">
                   <p className="text-sm font-semibold text-[hsl(var(--text))]">Hints</p>
                   <p className="mt-2 text-sm text-[hsl(var(--text-muted))]">
                     {problem.hints[0]?.slice(0, 90)}…
@@ -233,12 +233,12 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
         </div>
 
         {/* -------------------------------------------------------- side */}
-        <aside className="min-w-0 space-y-6">
+        <aside className="min-w-0 space-y-4">
           <ProgressPanel problemId={problem.id} slug={problem.slug} progress={problem.progress} />
 
           <Card>
             <CardHeader title="Classification" />
-            <dl className="space-y-3 px-5 pb-5 text-sm">
+            <dl className="space-y-3 px-4 pb-4 text-sm">
               <div className="flex justify-between gap-3">
                 <dt className="text-[hsl(var(--text-muted))]">Topic</dt>
                 <dd className="text-right">
@@ -313,7 +313,7 @@ export default async function ProblemPage({ params }: { params: Promise<{ slug: 
           {related.length ? (
             <Card>
               <CardHeader title="Related problems" description="Same pattern or same corner of the topic." />
-              <ul className="space-y-1 px-5 pb-5">
+              <ul className="space-y-1 px-4 pb-4">
                 {related.map((r) => (
                   <li key={r.id}>
                     <Link

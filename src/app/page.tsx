@@ -79,9 +79,9 @@ function HeroPreview() {
     <div className="relative">
       <div
         aria-hidden
-        className="absolute -inset-4 -z-10 rounded-[2rem] bg-brand-500/10 blur-2xl dark:bg-brand-500/15"
+        className="absolute -inset-4 -z-10 rounded-2xl bg-brand-500/10 blur-2xl dark:bg-brand-500/15"
       />
-      <div className="overflow-hidden rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] shadow-[0_24px_60px_-24px_rgb(0_0_0/0.35)]">
+      <div className="overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] shadow-[0_24px_60px_-24px_rgb(0_0_0/0.35)]">
         {/* window chrome */}
         <div className="flex items-center gap-2 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-4 py-2.5">
           <span className="flex gap-1.5" aria-hidden>
@@ -161,7 +161,11 @@ export default async function LandingPage() {
       {/* ambient background — one soft brand glow, nothing that fights the text */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_100%_at_50%_0%,hsl(var(--ring)/0.14),transparent_70%)]"
+        className="grid-bg pointer-events-none absolute inset-x-0 top-0 -z-10 h-[560px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_100%_at_50%_0%,hsl(var(--ring)/0.13),transparent_70%)]"
       />
 
       {/* ---------------------------------------------------------- nav */}
@@ -265,7 +269,7 @@ export default async function LandingPage() {
                 key={f.title}
                 className="rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] p-6 transition-colors hover:border-[hsl(var(--border-strong))]"
               >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-700 dark:bg-brand-950/70 dark:text-brand-300">
                   {f.icon}
                 </span>
                 <h3 className="mt-4 text-base font-semibold text-[hsl(var(--text))]">{f.title}</h3>
@@ -355,7 +359,7 @@ export default async function LandingPage() {
                 {topics.map((t) => (
                   <li
                     key={t.id}
-                    className="flex items-center gap-3 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-4 py-3"
+                    className="flex items-center gap-3 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-4 py-3"
                   >
                     <span className="tabular flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[hsl(var(--surface-3))] text-xs font-semibold text-[hsl(var(--text-muted))]">
                       {t.position}

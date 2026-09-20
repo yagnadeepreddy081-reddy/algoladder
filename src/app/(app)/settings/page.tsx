@@ -28,7 +28,7 @@ export default async function SettingsPage() {
         description="Your profile, your password, how the app looks, and getting your data back out."
       />
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <ProfileForm profile={profile} email={user.email} />
 
         {/* ----------------------------------------------------- plan */}
@@ -42,7 +42,7 @@ export default async function SettingsPage() {
               </Link>
             }
           />
-          <div className="flex flex-wrap items-center gap-3 px-5 pb-5">
+          <div className="flex flex-wrap items-center gap-3 px-4 pb-4">
             <Badge tone={canExport ? 'brand' : 'zinc'}>{describePlan(subscription)}</Badge>
             {user.role === 'admin' ? <Badge tone="violet">Admin</Badge> : null}
           </div>
@@ -56,7 +56,7 @@ export default async function SettingsPage() {
             title="Export your data"
             description="Everything you have written here, in a format you can keep. Your data is yours."
           />
-          <div className="px-5 pb-5">
+          <div className="px-4 pb-4">
             {canExport ? (
               <div className="flex flex-wrap gap-2">
                 <a href="/api/export?format=json" className={buttonClass('outline', 'md')} download>

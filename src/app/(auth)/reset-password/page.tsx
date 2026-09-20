@@ -17,12 +17,12 @@ export default async function ResetPasswordPage({
 
   if (!token) {
     return (
-      <Card className="p-6 sm:p-8">
+      <Card className="p-4 sm:p-4">
         <h1 className="text-xl font-semibold text-[hsl(var(--text))]">This link is incomplete</h1>
         <p className="mt-2 text-sm text-[hsl(var(--text-muted))]">
           The reset link did not carry a token. Request a fresh one and use the newest e-mail.
         </p>
-        <Link href="/forgot-password" className={buttonClass('primary', 'md', 'mt-6 w-full')}>
+        <Link href="/forgot-password" className={buttonClass('primary', 'md', 'mt-5 w-full')}>
           Request a new link
         </Link>
       </Card>

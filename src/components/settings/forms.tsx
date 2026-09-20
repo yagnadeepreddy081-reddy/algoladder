@@ -53,7 +53,7 @@ export function ProfileForm({ profile, email }: { profile: Profile; email: strin
   return (
     <Card>
       <CardHeader title="Profile" description="How AlgoLadder addresses you, and what you are aiming at." />
-      <form action={action} className="space-y-4 px-5 pb-5">
+      <form action={action} className="space-y-4 px-4 pb-4">
         <Banner message={state.error} tone="error" />
         <Banner message={state.ok ? state.message : undefined} tone="ok" />
 
@@ -159,7 +159,7 @@ export function PasswordForm() {
         title="Password"
         description="Changing it here does not sign you out. Use the button below for that."
       />
-      <form action={action} className="space-y-4 px-5 pb-5">
+      <form action={action} className="space-y-4 px-4 pb-4">
         <Banner message={state.error} tone="error" />
         <Banner message={state.ok ? state.message : undefined} tone="ok" />
 
@@ -210,7 +210,7 @@ export function AppearanceCard() {
         title="Appearance"
         description="Stored in this browser. System follows your operating system setting."
       />
-      <div className="px-5 pb-5">
+      <div className="px-4 pb-4">
         <ThemeToggle />
       </div>
     </Card>
@@ -230,7 +230,7 @@ export function DangerZone({ signOutEverywhere }: { signOutEverywhere: () => Pro
         title="Careful with these"
         description="Both are immediate. Neither deletes your account."
       />
-      <div className="space-y-4 px-5 pb-5">
+      <div className="space-y-4 px-4 pb-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="min-w-0">
             <p className="text-sm font-medium text-[hsl(var(--text))]">Sign out everywhere</p>

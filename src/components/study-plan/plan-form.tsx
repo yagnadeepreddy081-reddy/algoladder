@@ -45,7 +45,7 @@ export function PlanForm({ topics }: { topics: Topic[] }) {
         title="Build a study plan"
         description="Pick the topics, the pace and the horizon. Unsolved problems are dated out in recommended order."
       />
-      <form action={formAction} className="space-y-4 px-5 pb-5">
+      <form action={formAction} className="space-y-4 px-4 pb-4">
         {state.error ? <ErrorState title={state.error} /> : null}
 
         <label className="block">

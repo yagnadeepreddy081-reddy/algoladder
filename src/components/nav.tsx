@@ -99,21 +99,27 @@ export function Sidebar({
           prefetch={false}
           aria-current={active ? 'page' : undefined}
           className={clsx(
-            'group flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors',
+            'group relative flex items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] transition-colors',
             active
-              ? 'bg-brand-50 font-medium text-brand-800 dark:bg-brand-950/60 dark:text-brand-300'
-              : 'text-[hsl(var(--text-muted))] hover:bg-[hsl(var(--surface-2))] hover:text-[hsl(var(--text))]',
+              ? 'bg-[hsl(var(--surface-3))] font-medium text-[hsl(var(--text))]'
+              : 'text-[hsl(var(--text-muted))] hover:bg-[hsl(var(--surface-3))]/60 hover:text-[hsl(var(--text))]',
           )}
         >
-          {ICONS[item.icon]}
+          {active ? (
+            <span
+              aria-hidden
+              className="absolute inset-y-1 left-0 w-0.5 rounded-full bg-brand-500"
+            />
+          ) : null}
+          <span className={clsx('shrink-0', active && 'text-brand-500')}>{ICONS[item.icon]}</span>
           <span className="flex-1 truncate">{item.label}</span>
           {item.premium && !user.isPremium ? (
-            <span className="rounded bg-[hsl(var(--surface-3))] px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-[hsl(var(--text-subtle))] uppercase">
+            <span className="rounded border border-[hsl(var(--border-strong))] px-1 text-[9px] font-semibold tracking-wide text-[hsl(var(--text-subtle))] uppercase">
               Pro
             </span>
           ) : null}
           {badge ? (
-            <span className="tabular rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-semibold text-violet-800 dark:bg-violet-950 dark:text-violet-300">
+            <span className="tabular rounded bg-violet-500/15 px-1.5 text-[10px] font-semibold text-violet-600 dark:text-violet-400">
               {badge}
             </span>
           ) : null}
@@ -124,46 +130,48 @@ export function Sidebar({
 
   return (
     <aside className="hidden w-64 shrink-0 border-r border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] lg:flex lg:flex-col">
-      <div className="px-5 py-5">
+      <div className="px-4 py-5">
         <Wordmark href="/dashboard" />
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 pb-4" aria-label="Main">
         <ul className="space-y-0.5">{PRIMARY_NAV.map(renderItem)}</ul>
 
-        <p className="mt-6 mb-1.5 px-3 text-[11px] font-semibold tracking-wider text-[hsl(var(--text-subtle))] uppercase">
+        <p className="mt-5 mb-1.5 px-3 text-[11px] font-semibold tracking-wider text-[hsl(var(--text-subtle))] uppercase">
           More
         </p>
-        <ul className="space-y-0.5">{SECONDARY_NAV.map(renderItem)}</ul>
+        <ul className="space-y-px">{SECONDARY_NAV.map(renderItem)}</ul>
 
         {user.role === 'admin' ? (
           <>
-            <p className="mt-6 mb-1.5 px-3 text-[11px] font-semibold tracking-wider text-[hsl(var(--text-subtle))] uppercase">
+            <p className="mt-5 mb-1 px-2 text-[10px] font-semibold tracking-[0.08em] text-[hsl(var(--text-subtle))] uppercase">
               Admin
             </p>
-            <ul className="space-y-0.5">
+            <ul className="space-y-px">
               {renderItem({ href: '/admin', label: 'Admin panel', icon: 'admin' })}
             </ul>
           </>
         ) : null}
       </nav>
 
-      <div className="border-t border-[hsl(var(--border))] p-3">
-        <div className="mb-2 flex items-center gap-2.5 rounded-lg px-2 py-1.5">
+      <div className="border-t border-[hsl(var(--border))] p-2">
+        <div className="mb-1 flex items-center gap-2 rounded-md px-1.5 py-1.5">
           <span
             aria-hidden
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white dark:bg-brand-500 dark:text-brand-950"
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-brand-600 text-[11px] font-semibold text-white dark:bg-brand-500 dark:text-brand-950"
           >
             {user.displayName.slice(0, 1).toUpperCase()}
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block truncate text-sm font-medium text-[hsl(var(--text))]">
+            <span className="block truncate text-[13px] font-medium text-[hsl(var(--text))]">
               {user.displayName}
             </span>
-            <span className="block truncate text-xs text-[hsl(var(--text-subtle))]">{user.plan}</span>
+            <span className="block truncate text-[11px] text-[hsl(var(--text-subtle))]">
+              {user.plan}
+            </span>
           </span>
         </div>
-        <div className="flex items-center justify-between gap-2 px-1">
+        <div className="flex items-center justify-between gap-2 px-0.5">
           <ThemeToggle compact />
           {signOut}
         </div>
@@ -180,7 +188,7 @@ export function MobileTopBar({ user, signOut }: { user: NavUser; signOut: ReactN
 
   return (
     <div className="lg:hidden">
-      <div className="flex h-14 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-4">
+      <div className="flex h-12 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--surface))] px-3">
         <Wordmark href="/dashboard" />
         <div className="flex items-center gap-1">
           <ThemeToggle compact />
@@ -212,9 +220,9 @@ export function MobileTopBar({ user, signOut }: { user: NavUser; signOut: ReactN
                   onClick={() => setOpen(false)}
                   aria-current={isActive(pathname, item.href) ? 'page' : undefined}
                   className={clsx(
-                    'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm',
+                    'flex items-center gap-2.5 rounded-md px-2 py-2 text-[13px]',
                     isActive(pathname, item.href)
-                      ? 'bg-brand-50 font-medium text-brand-800 dark:bg-brand-950/60 dark:text-brand-300'
+                      ? 'bg-[hsl(var(--surface-3))] font-medium text-[hsl(var(--text))]'
                       : 'text-[hsl(var(--text-muted))]',
                   )}
                 >

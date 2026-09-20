@@ -22,7 +22,7 @@ export function PremiumLock({
   preview?: React.ReactNode;
 }) {
   const body = (
-    <div className={compact ? 'p-5' : 'px-6 py-10'}>
+    <div className={compact ? 'p-4' : 'px-6 py-10'}>
       <div className="mx-auto max-w-md text-center">
         <span
           aria-hidden
@@ -40,7 +40,7 @@ export function PremiumLock({
           <p className="mt-2 text-xs text-[hsl(var(--text-subtle))]">Part of {feature}.</p>
         ) : null}
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           <Link href="/premium" className={buttonClass('primary', 'md')}>
             See what Pro includes
           </Link>

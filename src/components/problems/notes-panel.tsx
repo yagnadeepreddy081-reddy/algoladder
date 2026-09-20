@@ -214,7 +214,7 @@ export function NotesPanel({
         }
       />
 
-      <div className="space-y-3 px-5 pb-5">
+      <div className="space-y-3 px-4 pb-4">
         {locked ? (
           <div className="rounded-lg border border-dashed border-[hsl(var(--border-strong))] px-4 py-5 text-center">
             <p className="text-sm text-[hsl(var(--text-muted))]">{lockReason}</p>

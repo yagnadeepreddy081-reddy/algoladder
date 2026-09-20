@@ -37,7 +37,7 @@ export function Pagination({
     'inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-sm transition-colors';
 
   return (
-    <nav aria-label="Pagination" className="mt-6 flex flex-wrap items-center justify-center gap-1">
+    <nav aria-label="Pagination" className="mt-5 flex flex-wrap items-center justify-center gap-1">
       <Link
         href={href(Math.max(1, page - 1))}
         prefetch={false}

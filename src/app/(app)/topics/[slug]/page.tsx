@@ -62,7 +62,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       />
 
       {/* ------------------------------------------------------- summary */}
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile label="Problems" value={summary.total} sub={`${subtopics.length} subtopics`} />
         <StatTile
           label="Completed"
@@ -74,7 +74,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <StatTile label="Needs revision" value={summary.needsRevision} tone="violet" />
       </div>
 
-      <Card className="mb-6 p-5">
+      <Card className="mb-5 p-4">
         <ProgressBar
           value={summary.solved}
           total={summary.total}
@@ -117,12 +117,12 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       </Card>
 
       {/* ----------------------------------------------------- subtopics */}
-      <Card className="mb-6">
+      <Card className="mb-5">
         <CardHeader
           title="Subtopics"
           description="Each one is a coherent block. Finishing a block beats scattering across three."
         />
-        <ul className="grid gap-2 px-5 pb-5 sm:grid-cols-2">
+        <ul className="grid gap-2 px-4 pb-4 sm:grid-cols-2">
           {subtopics.map((s) => {
             const inSub = problems.filter((p) => p.subtopicId === s.id);
             const solved = inSub.filter((p) => p.progress?.status === 'solved').length;

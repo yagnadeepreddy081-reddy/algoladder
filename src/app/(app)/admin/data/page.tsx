@@ -17,7 +17,7 @@ export default async function AdminDataPage() {
         description="Move the dataset in and out, and check it against the same rules the build gate uses."
       />
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <ValidationRunner initial={report} />
 
         <Card>
@@ -25,7 +25,7 @@ export default async function AdminDataPage() {
             title="Export"
             description="A JSON export round-trips exactly through the importer below, so it doubles as a backup."
           />
-          <div className="flex flex-wrap gap-2 px-5 pb-5">
+          <div className="flex flex-wrap gap-2 px-4 pb-4">
             <a href="/api/admin/export?what=problems&format=json" download className={buttonClass('outline', 'md')}>
               Problems (JSON)
             </a>
@@ -48,7 +48,7 @@ export default async function AdminDataPage() {
             title="Re-seeding from the source files"
             description="The canonical dataset lives in the repository, not in the database."
           />
-          <div className="space-y-3 px-5 pb-5 text-sm text-[hsl(var(--text-muted))]">
+          <div className="space-y-3 px-4 pb-4 text-sm text-[hsl(var(--text-muted))]">
             <p>
               Curation lives in <code className="font-mono text-xs">data/source/roadmap.mjs</code>.
               Edit it, then rebuild and re-seed:

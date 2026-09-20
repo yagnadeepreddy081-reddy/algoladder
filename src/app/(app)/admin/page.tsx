@@ -24,7 +24,7 @@ export default async function AdminOverviewPage() {
         }
       />
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile
           label="Active problems"
           value={stats.activeProblems}
@@ -36,20 +36,20 @@ export default async function AdminOverviewPage() {
         <StatTile label="Open reports" value={stats.openReports} tone={stats.openReports ? 'amber' : 'default'} />
       </div>
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile label="Users" value={stats.users} sub={`${stats.admins} admin`} />
         <StatTile label="New this week" value={stats.newUsersThisWeek} />
         <StatTile label="Active this week" value={stats.activeUsersThisWeek} />
         <StatTile label="Paid accounts" value={stats.paidUsers} tone="brand" />
       </div>
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-2">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2">
         <StatTile label="Total solves recorded" value={stats.totalSolves} />
         <StatTile label="Notes written" value={stats.notes} />
       </div>
 
       {!countOk ? (
-        <Card className="mb-6 border-rose-300 p-5 dark:border-rose-900">
+        <Card className="mb-5 border-rose-300 p-4 dark:border-rose-900">
           <p className="text-sm font-semibold text-rose-800 dark:text-rose-300">
             The dataset does not hold exactly {EXPECTED_TOTAL} active problems.
           </p>
@@ -66,7 +66,7 @@ export default async function AdminOverviewPage() {
           title="Topics"
           description="Flipping a topic to premium marks every problem inside it premium too."
         />
-        <ul className="divide-y divide-[hsl(var(--border))] px-5 pb-2">
+        <ul className="divide-y divide-[hsl(var(--border))] px-4 pb-2">
           {topics.map((t) => (
             <li key={String(t.id)} className="flex flex-wrap items-center gap-3 py-3">
               <span className="tabular w-6 shrink-0 text-sm text-[hsl(var(--text-subtle))]">

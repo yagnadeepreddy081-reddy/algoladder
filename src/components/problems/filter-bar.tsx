@@ -177,7 +177,7 @@ export function FilterBar({
     );
 
   return (
-    <div className="mb-6 overflow-hidden rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))]">
+    <div className="mb-5 overflow-hidden rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))]">
       {/* top row: search + sort + panel toggle */}
       <div className="flex flex-wrap items-center gap-2 border-b border-[hsl(var(--border))] p-3">
         {/* A real GET form, so Enter works and search still works with no JS. */}

@@ -124,6 +124,16 @@ export function CodePlayground({
 }) {
   const isDark = useIsDark();
 
+  /* Monaco is imperative about themes: the `theme` prop is only read on first
+     mount, so the instance is kept and setTheme called whenever we flip. */
+  /** Only the one method we call — importing Monaco's types here would pull
+      the whole editor into the server bundle. */
+  const monacoRef = useRef<{ editor: { setTheme: (name: string) => void } } | null>(null);
+
+  useEffect(() => {
+    monacoRef.current?.editor.setTheme(isDark ? 'algoladder-dark' : 'algoladder-light');
+  }, [isDark]);
+
   const initialLanguage = useMemo<LanguageId>(() => {
     const used = LANGUAGE_IDS.find((id) => drafts[id]?.source?.trim());
     return used ?? DEFAULT_LANGUAGE;
@@ -318,8 +328,8 @@ export function CodePlayground({
       aria-labelledby="playground-heading"
     >
       {/* ------------------------------------------------------- toolbar */}
-      <div className="flex flex-wrap items-center gap-3 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-4 py-3">
-        <div className="min-w-0">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-b border-[hsl(var(--border))] bg-[hsl(var(--surface-2))] px-4 py-2.5">
+        <div className="min-w-0 flex-1">
           <h2
             id="playground-heading"
             className="text-sm font-semibold text-[hsl(var(--text))]"
@@ -333,7 +343,8 @@ export function CodePlayground({
           </p>
         </div>
 
-        <span className="flex-1" />
+        {/* Controls stay one cluster so a wrap moves all of them together. */}
+        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
 
         {/* language tabs */}
         <div
@@ -391,6 +402,7 @@ export function CodePlayground({
             {submitting ? 'Checking…' : 'Submit'}
           </button>
         ) : null}
+        </div>
       </div>
 
       {/* -------------------------------------------------------- editor */}
@@ -398,12 +410,45 @@ export function CodePlayground({
         <MonacoEditor
           height="100%"
           language={LANGUAGES[language].monaco}
-          theme={isDark ? 'vs-dark' : 'light'}
+          theme={isDark ? 'algoladder-dark' : 'algoladder-light'}
           value={source}
           onChange={(value) =>
             setSources((prev) => ({ ...prev, [language]: value ?? '' }))
           }
+          beforeMount={(monaco) => {
+            // Surfaces matched to --surface-2 so the editor reads as part of
+            // the panel rather than a window pasted on top of it.
+            monaco.editor.defineTheme('algoladder-dark', {
+              base: 'vs-dark',
+              inherit: true,
+              rules: [],
+              colors: {
+                'editor.background': '#17171a',
+                'editorGutter.background': '#17171a',
+                'editor.lineHighlightBackground': '#1f1f23',
+                'editorLineNumber.foreground': '#4b4b52',
+                'editorLineNumber.activeForeground': '#9c9ca3',
+                'editor.selectionBackground': '#2a3f37',
+                'editorIndentGuide.background1': '#26262b',
+                'editorWidget.background': '#1c1c20',
+                'scrollbarSlider.background': '#3a3a42aa',
+              },
+            });
+            monaco.editor.defineTheme('algoladder-light', {
+              base: 'vs',
+              inherit: true,
+              rules: [],
+              colors: {
+                'editor.background': '#fcfcfd',
+                'editorGutter.background': '#fcfcfd',
+                'editor.lineHighlightBackground': '#f2f2f5',
+                'editorLineNumber.foreground': '#a1a1aa',
+              },
+            });
+          }}
           onMount={(editor, monaco) => {
+            monacoRef.current = monaco;
+            monaco.editor.setTheme(isDark ? 'algoladder-dark' : 'algoladder-light');
             editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
               void runRef.current();
             });

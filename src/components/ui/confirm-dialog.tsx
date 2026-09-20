@@ -61,12 +61,12 @@ export function ConfirmDialog({
         className="m-auto w-[calc(100vw-2rem)] max-w-md rounded-[var(--radius-card)] border border-[hsl(var(--border))] bg-[hsl(var(--surface))] p-0 text-[hsl(var(--text))] backdrop:bg-black/50 backdrop:backdrop-blur-[2px]"
         aria-labelledby="confirm-title"
       >
-        <div className="p-5">
+        <div className="p-4">
           <h2 id="confirm-title" className="text-base font-semibold">
             {title}
           </h2>
           <p className="mt-2 text-sm text-[hsl(var(--text-muted))]">{description}</p>
-          <div className="mt-6 flex justify-end gap-2">
+          <div className="mt-5 flex justify-end gap-2">
             <button type="button" onClick={close} className={buttonClass('outline', 'md')} disabled={busy}>
               {cancelLabel}
             </button>

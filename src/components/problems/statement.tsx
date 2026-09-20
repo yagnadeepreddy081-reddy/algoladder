@@ -48,7 +48,7 @@ export function ProblemStatement({
     <Card>
       <CardHeader title="The problem" />
 
-      <div className="px-5 pb-5">
+      <div className="px-4 pb-4">
         <p className="text-[15px] leading-relaxed text-pretty text-[hsl(var(--text))]">
           {description}
         </p>
@@ -73,7 +73,7 @@ export function ProblemStatement({
 
         {/* --------------------------------------------------- examples */}
         {examples.length ? (
-          <div className="mt-6 space-y-4">
+          <div className="mt-5 space-y-4">
             <h3 className="text-sm font-semibold text-[hsl(var(--text))]">
               Example{examples.length > 1 ? 's' : ''}
             </h3>
@@ -121,7 +121,7 @@ export function ProblemStatement({
 
         {/* ------------------------------------------------- constraints */}
         {constraints.length ? (
-          <div className="mt-6">
+          <div className="mt-5">
             <h3 className="text-sm font-semibold text-[hsl(var(--text))]">Constraints</h3>
             <ul className="mt-2 space-y-1">
               {constraints.map((c, i) => (

@@ -40,7 +40,7 @@ export default async function NotesPage({
         description="Everything you have written across the ladder, newest first. Notes are private to your account."
       />
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-3">
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <StatTile label="Notes" value={notes.length} />
         <StatTile label="Problems covered" value={distinctProblems} />
         <StatTile
@@ -52,7 +52,7 @@ export default async function NotesPage({
       </div>
 
       {/* Server-rendered search — works without JavaScript. */}
-      <form className="mb-6 flex gap-2" role="search">
+      <form className="mb-5 flex gap-2" role="search">
         <input
           type="search"
           name="q"
@@ -89,7 +89,7 @@ export default async function NotesPage({
         <ul className="space-y-4">
           {notes.map((n) => (
             <li key={n.id}>
-              <Card className="p-5">
+              <Card className="p-4">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <Link
                     href={`/problems/${n.problemSlug}`}

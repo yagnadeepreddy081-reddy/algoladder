@@ -15,7 +15,7 @@ export function ThemeScript() {
   try {
     var stored = localStorage.getItem('${STORAGE_KEY}');
     var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var dark = stored === 'dark' || ((!stored || stored === 'system') && prefersDark);
+    var dark = stored ? stored === 'dark' || (stored === 'system' && prefersDark) : true;
     document.documentElement.classList.toggle('dark', dark);
     document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
   } catch (e) {}
@@ -50,11 +50,11 @@ const SystemIcon = () => (
 );
 
 export function ThemeToggle({ compact = false }: { compact?: boolean }) {
-  const [theme, setTheme] = useState<Theme>('system');
+  const [theme, setTheme] = useState<Theme>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = (localStorage.getItem(STORAGE_KEY) as Theme | null) ?? 'system';
+    const stored = (localStorage.getItem(STORAGE_KEY) as Theme | null) ?? 'dark';
     setTheme(stored);
     setMounted(true);
 

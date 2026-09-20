@@ -37,7 +37,7 @@ export default async function PremiumPage() {
       />
 
       {/* ------------------------------------------------- current status */}
-      <div className="mb-6 grid gap-3 sm:grid-cols-3">
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <StatTile
           label="Current plan"
           value={<span className="text-base">{describePlan(subscription)}</span>}
@@ -64,7 +64,7 @@ export default async function PremiumPage() {
 
       {/* ------------------------------------------------- dev-mode notice */}
       {mockMode && !paymentsOn ? (
-        <Card className="mb-6 border-amber-300 p-5 dark:border-amber-900">
+        <Card className="mb-5 border-amber-300 p-4 dark:border-amber-900">
           <div className="flex flex-wrap items-start gap-3">
             <Badge tone="amber">Development mode</Badge>
             <div className="min-w-0 flex-1">
@@ -83,7 +83,7 @@ export default async function PremiumPage() {
       ) : null}
 
       {!paymentsOn && !mockMode ? (
-        <Card className="mb-6 p-5">
+        <Card className="mb-5 p-4">
           <p className="text-sm text-[hsl(var(--text-muted))]">
             No payment provider is configured on this deployment, so upgrades are unavailable. See
             the Payments section of the README before enabling{' '}
@@ -93,9 +93,9 @@ export default async function PremiumPage() {
       ) : null}
 
       {/* -------------------------------------------------------- trial */}
-      <div id="trial" className="mb-6 scroll-mt-20">
+      <div id="trial" className="mb-5 scroll-mt-20">
         {!premium && mockMode ? (
-          <Card className="p-5">
+          <Card className="p-4">
             <h2 className="text-base font-semibold text-[hsl(var(--text))]">
               Try Pro for {process.env.TRIAL_DAYS ?? 7} days
             </h2>
@@ -111,7 +111,7 @@ export default async function PremiumPage() {
         ) : null}
 
         {trialDays != null ? (
-          <Card className="border-brand-300 p-5 dark:border-brand-800">
+          <Card className="border-brand-300 p-4 dark:border-brand-800">
             <p className="text-sm font-medium text-[hsl(var(--text))]">
               Your trial has {trialDays} day{trialDays === 1 ? '' : 's'} left.
             </p>
@@ -123,12 +123,12 @@ export default async function PremiumPage() {
       </div>
 
       {/* --------------------------------------------------------- plans */}
-      <div className="mb-6 grid gap-4 lg:grid-cols-3">
+      <div className="mb-5 grid gap-4 lg:grid-cols-3">
         {PLAN_PRICING.map((p) => (
           <Card
             key={p.plan}
             className={
-              'flex flex-col p-6 ' +
+              'flex flex-col p-4 ' +
               (p.highlight ? 'border-brand-400 ring-1 ring-brand-400 dark:border-brand-600 dark:ring-brand-600' : '')
             }
           >
@@ -153,7 +153,7 @@ export default async function PremiumPage() {
               ))}
             </ul>
 
-            <div className="mt-6">
+            <div className="mt-5">
               <PlanButton
                 plan={p.plan}
                 current={subscription.plan === p.plan && subscription.status !== 'expired'}
@@ -167,12 +167,12 @@ export default async function PremiumPage() {
       </div>
 
       {/* ------------------------------------------------------ features */}
-      <Card className="mb-6">
+      <Card className="mb-5">
         <CardHeader
           title="What Pro unlocks, precisely"
           description="Each of these links to where the feature lives, so you can see what you would be paying for."
         />
-        <ul className="grid gap-x-8 gap-y-4 px-5 pb-5 sm:grid-cols-2">
+        <ul className="grid gap-x-8 gap-y-4 px-4 pb-4 sm:grid-cols-2">
           {PREMIUM_FEATURES.map((f) => (
             <li key={f.key}>
               <Link

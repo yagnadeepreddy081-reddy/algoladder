@@ -22,7 +22,7 @@ export default async function BookmarksPage() {
       />
 
       {problems.length ? (
-        <div className="mb-6 grid gap-3 sm:grid-cols-3">
+        <div className="mb-5 grid gap-3 sm:grid-cols-3">
           <StatTile label="Bookmarked" value={summary.total} />
           <StatTile label="Solved" value={summary.solved} tone="brand" />
           <StatTile label="Still unsolved" value={summary.notStarted + summary.inProgress} tone="amber" />

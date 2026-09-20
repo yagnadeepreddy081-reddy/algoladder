@@ -70,12 +70,12 @@ export function ProblemEditor({
     .replace(/^-+|-+$/g, '');
 
   return (
-    <form action={action} className="space-y-6">
+    <form action={action} className="space-y-4">
       {state.error ? <ErrorState title="Could not save" detail={state.error} /> : null}
 
       <Card>
         <CardHeader title="The basics" description="What the problem is and where it lives." />
-        <div className="space-y-4 px-5 pb-5">
+        <div className="space-y-4 px-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field
               label="ID"
@@ -199,7 +199,7 @@ export function ProblemEditor({
 
       <Card>
         <CardHeader title="Where to solve it" description="The external link users follow." />
-        <div className="space-y-4 px-5 pb-5">
+        <div className="space-y-4 px-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-[180px_1fr]">
             <Field label="Platform" htmlFor="platform">
               <select
@@ -247,7 +247,7 @@ export function ProblemEditor({
 
       <Card>
         <CardHeader title="Ordering and access" description="Where it sits on the ladder, and who can see the teaching material." />
-        <div className="space-y-4 px-5 pb-5">
+        <div className="space-y-4 px-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-3">
             <Field label="Overall number" htmlFor="overallNo" hint="Unique, 1 to 474.">
               <input
@@ -284,7 +284,7 @@ export function ProblemEditor({
             </Field>
           </div>
 
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap gap-4">
             <label className="flex items-center gap-2 text-sm">
               <input
                 type="checkbox"
@@ -314,7 +314,7 @@ export function ProblemEditor({
           title="Classification and teaching material"
           description="All original writing. Never paste an editorial from another site."
         />
-        <div className="space-y-4 px-5 pb-5">
+        <div className="space-y-4 px-4 pb-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Pattern key" htmlFor="pattern">
               <input

@@ -98,7 +98,7 @@ export default async function DashboardPage() {
       />
 
       {/* --------------------------------------------------------- tiles */}
-      <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatTile
           label="Total problems"
           value={stats.totalProblems}
@@ -119,7 +119,7 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <Card className="mb-6 p-5">
+      <Card className="mb-5 p-4">
         <ProgressBar
           value={stats.solved}
           total={stats.totalProblems}
@@ -154,8 +154,8 @@ export default async function DashboardPage() {
       </Card>
 
       {/* --------------------------------------------------- next up row */}
-      <div className="mb-6 grid gap-4 lg:grid-cols-2">
-        <Card className="flex flex-col p-5">
+      <div className="mb-5 grid gap-4 lg:grid-cols-2">
+        <Card className="flex flex-col p-4">
           <p className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
             Continue where you left off
           </p>
@@ -189,7 +189,7 @@ export default async function DashboardPage() {
           )}
         </Card>
 
-        <Card className="flex flex-col p-5">
+        <Card className="flex flex-col p-4">
           <p className="text-xs font-medium tracking-wide text-[hsl(var(--text-muted))] uppercase">
             Recommended next
           </p>
@@ -223,13 +223,13 @@ export default async function DashboardPage() {
       </div>
 
       {/* --------------------------------------------------------- charts */}
-      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+      <div className="mb-5 grid gap-4 lg:grid-cols-2">
         <WeeklyActivityChart data={stats.weeklyActivity} />
         <DifficultyDonut data={difficultyData} totalSolved={stats.solved} />
       </div>
 
       {/* ------------------------------------------------- revision + topics */}
-      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+      <div className="mb-5 grid gap-4 lg:grid-cols-2">
         <Card>
           <CardHeader
             title="Due for revision today"
@@ -246,7 +246,7 @@ export default async function DashboardPage() {
               ) : null
             }
           />
-          <div className="px-5 pb-5">
+          <div className="px-4 pb-4">
             {due.length ? (
               <ul className="space-y-1">
                 {due.map((p) => (
@@ -284,7 +284,7 @@ export default async function DashboardPage() {
               </Link>
             }
           />
-          <div className="px-5 pb-5">
+          <div className="px-4 pb-4">
             {topTopics.length ? (
               <ul className="space-y-3">
                 {topTopics.map((t) => (
@@ -315,7 +315,7 @@ export default async function DashboardPage() {
       {/* ------------------------------------------------- recent activity */}
       <Card>
         <CardHeader title="Recent activity" description="The last ten things you did here." />
-        <div className="px-5 pb-5">
+        <div className="px-4 pb-4">
           {activity.length ? (
             <ul className="divide-y divide-[hsl(var(--border))]">
               {activity.map((a) => (

@@ -39,7 +39,7 @@ export default async function RevisionPage() {
         description="Spaced repetition for problems you have solved. Grade each review honestly and the scheduler decides when you see it again."
       />
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-3">
+      <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <StatTile label="On the list" value={all.length} />
         <StatTile label="Due today" value={due.length} tone="violet" />
         <StatTile
@@ -55,7 +55,7 @@ export default async function RevisionPage() {
       </div>
 
       {/* ------------------------------------------------------ due today */}
-      <section className="mb-6">
+      <section className="mb-5">
         <h2 className="mb-3 text-lg font-semibold text-[hsl(var(--text))]">
           Due now {due.length ? `(${due.length})` : ''}
         </h2>
@@ -66,7 +66,7 @@ export default async function RevisionPage() {
             description="Your revision list, the due dates you set by hand and the problems on it all stay free. What Pro adds is the four-point grading that moves each problem's next date automatically."
             feature="the revision scheduler"
             preview={
-              <div className="space-y-2 p-5">
+              <div className="space-y-2 p-4">
                 {due.slice(0, 2).map((p) => (
                   <p key={p.id} className="text-sm text-[hsl(var(--text))]">
                     {p.title}
@@ -117,7 +117,7 @@ export default async function RevisionPage() {
             title={`Scheduled later (${upcoming.length})`}
             description="Problems the scheduler has pushed out. The interval grows each time you grade one well."
           />
-          <ul className="divide-y divide-[hsl(var(--border))] px-5 pb-2">
+          <ul className="divide-y divide-[hsl(var(--border))] px-4 pb-2">
             {upcoming.map((p) => (
               <li key={p.id} className="flex flex-wrap items-center gap-3 py-3">
                 <Link
