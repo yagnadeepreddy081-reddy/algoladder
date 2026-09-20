@@ -1,0 +1,14 @@
+id,slug,title,topicId,topicSlug,subtopicId,subtopicSlug,difficulty,problemNoInTopic,overallNo,recommendedOrder,description,platform,externalUrl,videoUrl,tags,companies,isPremium,isRevision,pattern,patternName,timeComplexity,spaceComplexity
+al-0001,fizz-buzz,Fizz Buzz,topic-01,basics,topic-01-s01,loops-and-conditionals,Easy,1,1,1,"Walk the numbers 1 to n and emit a word instead of the number when it is divisible by 3, by 5, or by both.",LeetCode,https://leetcode.com/problems/fizz-buzz/,,Loops; Conditionals; Warm-up,Amazon; Microsoft,false,true,simulation,Direct simulation,O(n),O(1)
+al-0002,number-of-steps-to-reduce-a-number-to-zero,Number of Steps to Reduce a Number to Zero,topic-01,basics,topic-01-s01,loops-and-conditionals,Easy,2,2,2,"Repeatedly halve an even number or subtract one from an odd number, counting how many operations reach zero.",LeetCode,https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/,,Loops; Simulation; Math,Amazon,false,false,simulation,Direct simulation,O(n),O(1)
+al-0003,richest-customer-wealth,Richest Customer Wealth,topic-01,basics,topic-01-s01,loops-and-conditionals,Easy,3,3,3,Sum each row of a grid of account balances and report the largest row total.,LeetCode,https://leetcode.com/problems/richest-customer-wealth/,,Matrix; Loops,Amazon,false,true,matrix-manipulation,Matrix traversal and in-place transforms,O(n*m),O(1)
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,

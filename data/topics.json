@@ -1,0 +1,192 @@
+[
+  {
+    "id": "topic-01",
+    "slug": "basics",
+    "name": "Basics",
+    "icon": "sprout",
+    "description": "Warm up the muscles every later topic assumes: loops, arithmetic on digits, a first taste of recursion, and the hash map you will reach for hundreds of times from here on.",
+    "position": 1,
+    "isPremium": false,
+    "problemCount": 20
+  },
+  {
+    "id": "topic-02",
+    "slug": "sorting",
+    "name": "Sorting",
+    "icon": "arrow-down-up",
+    "description": "Write the classic sorts by hand once so the loop invariants stick, then learn the far more common skill: choosing the key that makes a problem trivial to sort into an answer.",
+    "position": 2,
+    "isPremium": false,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-03",
+    "slug": "arrays",
+    "name": "Arrays",
+    "icon": "layout-grid",
+    "description": "The workhorse topic. Forty problems taking you from one-pass scans and hash lookups through in-place matrix surgery and interval merging, up to the hard counting problems that need a modified merge sort.",
+    "position": 3,
+    "isPremium": false,
+    "problemCount": 40
+  },
+  {
+    "id": "topic-04",
+    "slug": "binary-search",
+    "name": "Binary Search",
+    "icon": "crosshair",
+    "description": "Binary search is not really about sorted arrays; it is about monotone predicates. Start on plain arrays, then learn to search the space of possible answers, then take it into two dimensions.",
+    "position": 4,
+    "isPremium": false,
+    "problemCount": 32
+  },
+  {
+    "id": "topic-05",
+    "slug": "strings",
+    "name": "Strings",
+    "icon": "type",
+    "description": "Strings are arrays with a bounded alphabet, which opens doors arrays do not have: counting arrays, rolling hashes and prefix functions. Start with careful case analysis, finish with parsing.",
+    "position": 5,
+    "isPremium": false,
+    "problemCount": 20
+  },
+  {
+    "id": "topic-06",
+    "slug": "linked-lists",
+    "name": "Linked Lists",
+    "icon": "link",
+    "description": "Pointer discipline. A dummy head, a saved next pointer and a drawing on paper solve most of these — then the fast and slow pointer trick solves the rest in constant space.",
+    "position": 6,
+    "isPremium": false,
+    "problemCount": 31
+  },
+  {
+    "id": "topic-07",
+    "slug": "recursion",
+    "name": "Recursion",
+    "icon": "repeat",
+    "description": "Learn to trust the recursive call. These problems separate the two halves of recursive thinking: defining what the function promises, and handling only the current step.",
+    "position": 7,
+    "isPremium": false,
+    "problemCount": 20
+  },
+  {
+    "id": "topic-08",
+    "slug": "backtracking",
+    "name": "Backtracking",
+    "icon": "git-branch",
+    "description": "Systematic search with an undo button. Three questions define every problem here: what is a choice, what makes it legal, and when is the answer complete.",
+    "position": 8,
+    "isPremium": false,
+    "problemCount": 20
+  },
+  {
+    "id": "topic-09",
+    "slug": "bit-manipulation",
+    "name": "Bit Manipulation",
+    "icon": "binary",
+    "description": "A small toolbox with outsized reach: clearing the lowest set bit, isolating it, and the fact that XOR cancels duplicates. Write the binary out by hand for the first few cases.",
+    "position": 9,
+    "isPremium": false,
+    "problemCount": 16
+  },
+  {
+    "id": "topic-10",
+    "slug": "stack-and-queue",
+    "name": "Stack and Queue",
+    "icon": "layers",
+    "description": "Two structures, one big idea each: the stack remembers what is still unresolved, and the monotonic variant of it answers every \"nearest greater element\" question in linear time.",
+    "position": 10,
+    "isPremium": false,
+    "problemCount": 30
+  },
+  {
+    "id": "topic-11",
+    "slug": "sliding-window-and-two-pointers",
+    "name": "Sliding Window and Two Pointers",
+    "icon": "move-horizontal",
+    "description": "Two techniques that turn quadratic double loops into linear sweeps. The two-pointer version needs an ordering; the sliding-window version needs a monotone validity condition.",
+    "position": 11,
+    "isPremium": false,
+    "problemCount": 20
+  },
+  {
+    "id": "topic-12",
+    "slug": "heaps",
+    "name": "Heaps",
+    "icon": "triangle",
+    "description": "A heap gives you the extreme element cheaply without paying for a full sort. The counter-intuitive bit — a min-heap for the k largest — is worth internalising early.",
+    "position": 12,
+    "isPremium": false,
+    "problemCount": 17
+  },
+  {
+    "id": "topic-13",
+    "slug": "greedy-algorithms",
+    "name": "Greedy Algorithms",
+    "icon": "zap",
+    "description": "Commit to the locally best choice and never look back. The technique is easy; knowing when it is actually correct is the skill, so try to break each rule before you trust it.",
+    "position": 13,
+    "isPremium": false,
+    "problemCount": 16
+  },
+  {
+    "id": "topic-14",
+    "slug": "binary-trees",
+    "name": "Binary Trees",
+    "icon": "git-fork",
+    "description": "Thirty-nine problems that all reduce to one question: what does each child report upward, and what does the parent pass down? Get that right and the code is five lines.",
+    "position": 14,
+    "isPremium": false,
+    "problemCount": 39
+  },
+  {
+    "id": "topic-15",
+    "slug": "binary-search-trees",
+    "name": "Binary Search Trees",
+    "icon": "search",
+    "description": "Add an ordering to a binary tree and traversal becomes search. The inorder sequence being sorted is the fact that solves most of these.",
+    "position": 15,
+    "isPremium": false,
+    "problemCount": 16
+  },
+  {
+    "id": "topic-16",
+    "slug": "graphs",
+    "name": "Graphs",
+    "icon": "network",
+    "description": "The biggest topic on the ladder, and the one that pays back most. Fifty-four problems from grid flood fills through topological ordering and the four shortest-path algorithms, up to bridges and strongly connected components.",
+    "position": 16,
+    "isPremium": false,
+    "problemCount": 54
+  },
+  {
+    "id": "topic-17",
+    "slug": "dynamic-programming",
+    "name": "Dynamic Programming",
+    "icon": "grid-3x3",
+    "description": "The largest topic, ordered so each family builds on the last. Every problem here follows the same route: recursion, memoisation, tabulation, then space optimisation. Define the state precisely and the rest follows.",
+    "position": 17,
+    "isPremium": false,
+    "problemCount": 56
+  },
+  {
+    "id": "topic-18",
+    "slug": "tries",
+    "name": "Tries",
+    "icon": "folder-tree",
+    "description": "A tree where the path spells the key. Small topic, but it is the structure behind autocomplete, and its binary form turns maximum-XOR queries into a greedy walk.",
+    "position": 18,
+    "isPremium": false,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-19",
+    "slug": "advanced-dsa",
+    "name": "Advanced Data Structures and Algorithms",
+    "icon": "cpu",
+    "description": "The last rung. Range-query structures, offline processing and a few designs that show up in senior interviews. Attempt these once the rest of the ladder is comfortable.",
+    "position": 19,
+    "isPremium": false,
+    "problemCount": 10
+  }
+]

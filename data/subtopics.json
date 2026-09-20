@@ -1,0 +1,612 @@
+[
+  {
+    "id": "topic-01-s01",
+    "topicId": "topic-01",
+    "topicSlug": "basics",
+    "slug": "loops-and-conditionals",
+    "name": "Loops & Conditionals",
+    "description": "Five short problems whose only job is to get you writing correct loops and boundary conditions without thinking about efficiency.",
+    "position": 1,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-01-s02",
+    "topicId": "topic-01",
+    "topicSlug": "basics",
+    "slug": "basic-maths",
+    "name": "Basic Maths",
+    "description": "Digit extraction, divisibility and overflow discipline. Small problems that quietly teach you to reason about numbers rather than iterate over them.",
+    "position": 2,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-01-s03",
+    "topicId": "topic-01",
+    "topicSlug": "basics",
+    "slug": "basic-recursion",
+    "name": "Basic Recursion",
+    "description": "Three problems that establish the shape of a recursive function: a base case, one smaller call, and a combination step.",
+    "position": 3,
+    "problemCount": 3
+  },
+  {
+    "id": "topic-01-s04",
+    "topicId": "topic-01",
+    "topicSlug": "basics",
+    "slug": "basic-hashing",
+    "name": "Basic Hashing",
+    "description": "Your first encounters with the hash map and hash set. Nearly every optimisation later in the roadmap starts with \"store what you have already seen\".",
+    "position": 4,
+    "problemCount": 4
+  },
+  {
+    "id": "topic-02-s01",
+    "topicId": "topic-02",
+    "topicSlug": "sorting",
+    "slug": "sorting-algorithms",
+    "name": "Sorting Algorithms From Scratch",
+    "description": "Implement each sort yourself. You will rarely ship these, but the invariants they teach show up everywhere.",
+    "position": 1,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-02-s02",
+    "topicId": "topic-02",
+    "topicSlug": "sorting",
+    "slug": "sorting-applied",
+    "name": "Sorting Applied",
+    "description": "Problems where the whole difficulty disappears once you sort by the right key, or where you must sort under a custom rule.",
+    "position": 2,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-03-s01",
+    "topicId": "topic-03",
+    "topicSlug": "arrays",
+    "slug": "easy-arrays",
+    "name": "Easy Arrays",
+    "description": "Single-pass scans, in-place rewrites and index-as-hash tricks. Master these and the medium tier stops feeling like a jump.",
+    "position": 1,
+    "problemCount": 15
+  },
+  {
+    "id": "topic-03-s02",
+    "topicId": "topic-03",
+    "topicSlug": "arrays",
+    "slug": "medium-arrays",
+    "name": "Medium Arrays",
+    "description": "Where arrays get interesting: prefix products, in-place matrix transforms, interval merging and the hash-map-of-prefix-sums idea you will reuse constantly.",
+    "position": 2,
+    "problemCount": 15
+  },
+  {
+    "id": "topic-03-s03",
+    "topicId": "topic-03",
+    "topicSlug": "arrays",
+    "slug": "hard-arrays",
+    "name": "Hard Arrays",
+    "description": "Counting problems that need a modified merge sort, geometric reasoning, and the two-sided scans behind trapping rain water.",
+    "position": 3,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-04-s01",
+    "topicId": "topic-04",
+    "topicSlug": "binary-search",
+    "slug": "bs-on-arrays",
+    "name": "Binary Search on 1D Arrays",
+    "description": "Get the boundary conventions right here, once, and the rest of the topic becomes mechanical.",
+    "position": 1,
+    "problemCount": 13
+  },
+  {
+    "id": "topic-04-s02",
+    "topicId": "topic-04",
+    "topicSlug": "binary-search",
+    "slug": "bs-on-answers",
+    "name": "Binary Search on the Answer",
+    "description": "The pattern that unlocks a whole class of problems: define a monotone feasibility check, then binary search the answer space instead of the data.",
+    "position": 2,
+    "problemCount": 12
+  },
+  {
+    "id": "topic-04-s03",
+    "topicId": "topic-04",
+    "topicSlug": "binary-search",
+    "slug": "bs-on-2d",
+    "name": "Binary Search on Matrices",
+    "description": "Two shapes of sorted matrix, two very different techniques — plus searching a value range when the data itself is not directly searchable.",
+    "position": 3,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-05-s01",
+    "topicId": "topic-05",
+    "topicSlug": "strings",
+    "slug": "easy-strings",
+    "name": "Easy Strings",
+    "description": "Scanning, counting and comparing. The skill being built here is enumerating edge cases before you write a line.",
+    "position": 1,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-05-s02",
+    "topicId": "topic-05",
+    "topicSlug": "strings",
+    "slug": "medium-hard-strings",
+    "name": "Medium & Hard Strings",
+    "description": "Expansion around centres, grouping by canonical form, and the parsing problems that reward writing the specification down first.",
+    "position": 2,
+    "problemCount": 12
+  },
+  {
+    "id": "topic-06-s01",
+    "topicId": "topic-06",
+    "topicSlug": "linked-lists",
+    "slug": "singly-linked-list-basics",
+    "name": "Singly Linked List Basics",
+    "description": "Traversal, deletion, reversal and cycle detection. The foundation everything else in this topic builds on.",
+    "position": 1,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-06-s02",
+    "topicId": "topic-06",
+    "topicSlug": "linked-lists",
+    "slug": "doubly-and-circular-lists",
+    "name": "Doubly & Circular Lists",
+    "description": "Two pointers per node changes what is cheap. These problems show why the operating-system and browser worlds are full of doubly linked lists.",
+    "position": 2,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-06-s03",
+    "topicId": "topic-06",
+    "topicSlug": "linked-lists",
+    "slug": "medium-linked-lists",
+    "name": "Medium Linked Lists",
+    "description": "Arithmetic on lists, partitioning, sorting in place, and the deep-copy problem that teaches you the interleaving trick.",
+    "position": 3,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-06-s04",
+    "topicId": "topic-06",
+    "topicSlug": "linked-lists",
+    "slug": "hard-linked-lists",
+    "name": "Hard Linked Lists & Caches",
+    "description": "Group reversal and the two cache designs that come up in system-design interviews as often as in algorithm rounds.",
+    "position": 4,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-07-s01",
+    "topicId": "topic-07",
+    "topicSlug": "recursion",
+    "slug": "recursion-patterns",
+    "name": "Recursion Patterns",
+    "description": "Halving, doubling and self-similar structure. Each of these has an obvious slow recursion and a much smaller one hiding behind it.",
+    "position": 1,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-07-s02",
+    "topicId": "topic-07",
+    "topicSlug": "recursion",
+    "slug": "recursion-on-structures",
+    "name": "Recursion on Strings & Nested Data",
+    "description": "When the input itself is recursive — nested brackets, nested lists, chemical formulae — the parser wants to be recursive too.",
+    "position": 2,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-07-s03",
+    "topicId": "topic-07",
+    "topicSlug": "recursion",
+    "slug": "divide-and-conquer",
+    "name": "Divide & Conquer",
+    "description": "Split, solve, combine — where the interesting work always lives in the combine step.",
+    "position": 3,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-08-s01",
+    "topicId": "topic-08",
+    "topicSlug": "backtracking",
+    "slug": "subsets-and-combinations",
+    "name": "Subsets & Combinations",
+    "description": "The take-it-or-leave-it recursion tree, plus the duplicate-skipping rule that stops it emitting the same answer twice.",
+    "position": 1,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-08-s02",
+    "topicId": "topic-08",
+    "topicSlug": "backtracking",
+    "slug": "permutations-and-partitions",
+    "name": "Permutations & Partitions",
+    "description": "Ordering matters here, and so does the cut point. Both need the same swap-recurse-unswap discipline.",
+    "position": 2,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-08-s03",
+    "topicId": "topic-08",
+    "topicSlug": "backtracking",
+    "slug": "constraint-search",
+    "name": "Constraint Search",
+    "description": "The classic hard backtracking set, where the difference between passing and timing out is entirely about pruning.",
+    "position": 3,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-09-s01",
+    "topicId": "topic-09",
+    "topicSlug": "bit-manipulation",
+    "slug": "bit-basics",
+    "name": "Bit Basics",
+    "description": "The operations themselves. Short problems chosen so the trick is visible the moment you write the numbers in binary.",
+    "position": 1,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-09-s02",
+    "topicId": "topic-09",
+    "topicSlug": "bit-manipulation",
+    "slug": "bit-tricks-and-xor",
+    "name": "Bit Tricks & XOR",
+    "description": "Where bit manipulation stops being a party trick: counting modulo three per bit position, and doing arithmetic without arithmetic operators.",
+    "position": 2,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-10-s01",
+    "topicId": "topic-10",
+    "topicSlug": "stack-and-queue",
+    "slug": "implementations",
+    "name": "Implementations & Design",
+    "description": "Build the structures before you use them. The amortised argument behind two-stack queues is worth understanding properly.",
+    "position": 1,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-10-s02",
+    "topicId": "topic-10",
+    "topicSlug": "stack-and-queue",
+    "slug": "expression-evaluation",
+    "name": "Brackets & Expression Evaluation",
+    "description": "The canonical use of a stack: matching what is open against what closes it, and evaluating expressions without building a parse tree.",
+    "position": 2,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-10-s03",
+    "topicId": "topic-10",
+    "topicSlug": "stack-and-queue",
+    "slug": "monotonic-stack",
+    "name": "Monotonic Stack",
+    "description": "One idea, nine problems. Keep the stack sorted, and the moment you pop something you have found its nearest greater or smaller neighbour.",
+    "position": 3,
+    "problemCount": 9
+  },
+  {
+    "id": "topic-10-s04",
+    "topicId": "topic-10",
+    "topicSlug": "stack-and-queue",
+    "slug": "stack-applications",
+    "name": "Stack & Queue Applications",
+    "description": "Problems that do not look like stack problems until you notice something is waiting to be resolved.",
+    "position": 4,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-11-s01",
+    "topicId": "topic-11",
+    "topicSlug": "sliding-window-and-two-pointers",
+    "slug": "two-pointers",
+    "name": "Two Pointers",
+    "description": "Sort first, then let the comparison tell you which pointer to move. The k-sum family is the best drill for this.",
+    "position": 1,
+    "problemCount": 9
+  },
+  {
+    "id": "topic-11-s02",
+    "topicId": "topic-11",
+    "topicSlug": "sliding-window-and-two-pointers",
+    "slug": "sliding-window",
+    "name": "Sliding Window",
+    "description": "Expand right greedily, shrink left only while invalid, and keep a summary so every move is constant time.",
+    "position": 2,
+    "problemCount": 11
+  },
+  {
+    "id": "topic-12-s01",
+    "topicId": "topic-12",
+    "topicSlug": "heaps",
+    "slug": "heap-basics",
+    "name": "Heap Basics",
+    "description": "Get comfortable with push, pop and the bounded-size heap before the harder combinations.",
+    "position": 1,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-12-s02",
+    "topicId": "topic-12",
+    "topicSlug": "heaps",
+    "slug": "top-k-and-frequency",
+    "name": "Top-K & Frequency",
+    "description": "Counting plus a heap, or counting plus buckets. Knowing when bucketing beats the heap is the real lesson here.",
+    "position": 2,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-12-s03",
+    "topicId": "topic-12",
+    "topicSlug": "heaps",
+    "slug": "advanced-heap",
+    "name": "Advanced Heap Problems",
+    "description": "Two heaps facing each other, heaps combined with sorting, and heaps driving a greedy schedule.",
+    "position": 3,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-13-s01",
+    "topicId": "topic-13",
+    "topicSlug": "greedy-algorithms",
+    "slug": "classic-greedy",
+    "name": "Classic Greedy",
+    "description": "Reachability, intervals and partitions — the problems where the greedy rule is provable in a sentence.",
+    "position": 1,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-13-s02",
+    "topicId": "topic-13",
+    "topicSlug": "greedy-algorithms",
+    "slug": "scheduling-and-exchange",
+    "name": "Scheduling & Exchange Arguments",
+    "description": "Resource allocation problems where sorting by the right key is the entire algorithm.",
+    "position": 2,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-14-s01",
+    "topicId": "topic-14",
+    "topicSlug": "binary-trees",
+    "slug": "traversals",
+    "name": "Traversals",
+    "description": "Depth-first in three orders, breadth-first level by level, and the views that fall out of them.",
+    "position": 1,
+    "problemCount": 9
+  },
+  {
+    "id": "topic-14-s02",
+    "topicId": "topic-14",
+    "topicSlug": "binary-trees",
+    "slug": "tree-properties",
+    "name": "Tree Properties",
+    "description": "Height, balance, symmetry and equality. All of them are one postorder pass with a carefully chosen return value.",
+    "position": 2,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-14-s03",
+    "topicId": "topic-14",
+    "topicSlug": "binary-trees",
+    "slug": "paths-and-ancestors",
+    "name": "Paths & Ancestors",
+    "description": "Where the answer bends at a node rather than running straight down. The return value and the shared best become two different things.",
+    "position": 3,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-14-s04",
+    "topicId": "topic-14",
+    "topicSlug": "binary-trees",
+    "slug": "construction-and-serialization",
+    "name": "Construction & Serialization",
+    "description": "Rebuilding a tree from traversals, flattening it, and turning it into a string and back again.",
+    "position": 4,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-15-s01",
+    "topicId": "topic-15",
+    "topicSlug": "binary-search-trees",
+    "slug": "bst-fundamentals",
+    "name": "BST Fundamentals",
+    "description": "Search, insert, delete and validate. Validation is the one people get wrong, because it is not a local check.",
+    "position": 1,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-15-s02",
+    "topicId": "topic-15",
+    "topicSlug": "binary-search-trees",
+    "slug": "bst-applications",
+    "name": "BST Applications",
+    "description": "Order statistics, iterators and repair. All of them lean on inorder producing a sorted sequence.",
+    "position": 2,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-16-s01",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "representation-and-traversal",
+    "name": "Representation & Traversal",
+    "description": "Adjacency lists, implicit grid graphs, and the two traversals everything else is built on.",
+    "position": 1,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-16-s02",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "bfs-shortest-path",
+    "name": "BFS on Grids & Unweighted Graphs",
+    "description": "When every move costs the same, breadth-first search is the shortest path. Multi-source BFS is the variant worth learning properly.",
+    "position": 2,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-16-s03",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "cycles-and-topological-sort",
+    "name": "Cycle Detection & Topological Sort",
+    "description": "Dependency problems in disguise. If the ordering cannot be completed, you have found a cycle.",
+    "position": 3,
+    "problemCount": 9
+  },
+  {
+    "id": "topic-16-s04",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "shortest-path-algorithms",
+    "name": "Shortest Path Algorithms",
+    "description": "Weighted graphs: the priority-queue algorithm, the negative-weight one, the all-pairs one, and the variants that bend the distance metric.",
+    "position": 4,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-16-s05",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "disjoint-set-and-mst",
+    "name": "Disjoint Set & Minimum Spanning Tree",
+    "description": "Merging groups and answering connectivity online — plus the two spanning-tree algorithms that both rest on the cut property.",
+    "position": 5,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-16-s06",
+    "topicId": "topic-16",
+    "topicSlug": "graphs",
+    "slug": "advanced-graph",
+    "name": "Advanced Graph Algorithms",
+    "description": "Low-link values, component condensation and Eulerian paths — the algorithms that separate a strong graph round from an average one.",
+    "position": 6,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-17-s01",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-1d",
+    "name": "1D Dynamic Programming",
+    "description": "One index, one decision. Start here and do not move on until the recursion-to-table conversion feels mechanical.",
+    "position": 1,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-17-s02",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-on-grids",
+    "name": "DP on Grids",
+    "description": "Two indices instead of one. The fill order matters more than the recurrence.",
+    "position": 2,
+    "problemCount": 7
+  },
+  {
+    "id": "topic-17-s03",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-subsequences-knapsack",
+    "name": "Subsequences & Knapsack",
+    "description": "The take-or-skip recurrence, and the capacity dimension that makes it a knapsack. This family covers an enormous share of interview DP.",
+    "position": 3,
+    "problemCount": 10
+  },
+  {
+    "id": "topic-17-s04",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-on-strings",
+    "name": "DP on Strings",
+    "description": "Aligning two sequences prefix by prefix. Once the base row and column are right, the interior is one recurrence.",
+    "position": 4,
+    "problemCount": 8
+  },
+  {
+    "id": "topic-17-s05",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-on-stocks",
+    "name": "DP on Stocks",
+    "description": "A small state machine per day. Learn the two-state version and the rest are extra dimensions.",
+    "position": 5,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-17-s06",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-lis",
+    "name": "Longest Increasing Subsequence Family",
+    "description": "Start with the quadratic version so you understand it, then learn the patience-sorting speed-up.",
+    "position": 6,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-17-s07",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-partition",
+    "name": "Partition DP",
+    "description": "The state is a range and the choice is where to cut it. Cubic time, and the hardest DP family to spot.",
+    "position": 7,
+    "problemCount": 6
+  },
+  {
+    "id": "topic-17-s08",
+    "topicId": "topic-17",
+    "topicSlug": "dynamic-programming",
+    "slug": "dp-squares-and-bitmask",
+    "name": "DP on Squares & Bitmask DP",
+    "description": "Anchoring shapes at a corner, and encoding \"which items are used\" as an integer.",
+    "position": 8,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-18-s01",
+    "topicId": "topic-18",
+    "topicSlug": "tries",
+    "slug": "trie-fundamentals",
+    "name": "Trie Fundamentals",
+    "description": "Build one from scratch, then extend it with wildcards and dictionary lookups.",
+    "position": 1,
+    "problemCount": 4
+  },
+  {
+    "id": "topic-18-s02",
+    "topicId": "topic-18",
+    "topicSlug": "tries",
+    "slug": "trie-applications",
+    "name": "Trie Applications",
+    "description": "Binary tries over bit representations, and the prefix tree behind a search box.",
+    "position": 2,
+    "problemCount": 3
+  },
+  {
+    "id": "topic-19-s01",
+    "topicId": "topic-19",
+    "topicSlug": "advanced-dsa",
+    "slug": "range-query-structures",
+    "name": "Range Query Structures",
+    "description": "Segment trees, Fenwick trees and the interval bookkeeping that hides behind calendar problems.",
+    "position": 1,
+    "problemCount": 5
+  },
+  {
+    "id": "topic-19-s02",
+    "topicId": "topic-19",
+    "topicSlug": "advanced-dsa",
+    "slug": "advanced-techniques",
+    "name": "Advanced Techniques",
+    "description": "Binary search on a value range, rolling hashes and two designs that reward careful invariants.",
+    "position": 2,
+    "problemCount": 5
+  }
+]
