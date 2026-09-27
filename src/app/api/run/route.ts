@@ -94,6 +94,61 @@ function checkLimit(userId: string): { ok: true } | { ok: false; retryAfter: num
   return { ok: true };
 }
 
+/* -------------------------------------------------------- submissions --- */
+
+type Verdict = 'accepted' | 'wrong_answer' | 'compile_error' | 'runtime_error' | 'timed_out';
+
+/**
+ * Reduce a set of case results to one verdict. Order matters: a run that never
+ * finished is reported as a timeout rather than a wrong answer, because the two
+ * call for completely different advice.
+ */
+function verdictFor(cases: CaseResult[]): Verdict {
+  if (cases.length > 0 && cases.every((c) => c.passed)) return 'accepted';
+  if (cases.some((c) => c.timedOut)) return 'timed_out';
+  if (cases.some((c) => !c.passed && c.stderr.trim())) return 'runtime_error';
+  return 'wrong_answer';
+}
+
+/**
+ * Append one row to `submissions`. Best-effort by design: a student's submit
+ * must never fail because the history write did, exactly like the draft
+ * counter above.
+ *
+ * `attempt_no` and `solved_before` are computed inside the statement so the
+ * count cannot drift between a separate SELECT and this INSERT.
+ */
+function recordSubmission(params: {
+  userId: string;
+  problemId: string;
+  language: string;
+  verdict: Verdict;
+  casesPassed: number;
+  casesTotal: number;
+  wallTimeMs: number;
+  source: string;
+}): void {
+  execute(
+    `INSERT INTO submissions
+       (user_id, problem_id, language, verdict, cases_passed, cases_total,
+        wall_time_ms, source, attempt_no, solved_before)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8,
+       (SELECT count(*) + 1 FROM submissions WHERE user_id = $1 AND problem_id = $2),
+       COALESCE((SELECT status = 'solved' FROM user_problem_progress
+                  WHERE user_id = $1 AND problem_id = $2), false))`,
+    [
+      params.userId,
+      params.problemId,
+      params.language,
+      params.verdict,
+      params.casesPassed,
+      params.casesTotal,
+      Math.round(params.wallTimeMs),
+      params.source,
+    ],
+  ).catch(() => {});
+}
+
 /* ----------------------------------------------------------------- POST --- */
 
 /**
@@ -153,6 +208,16 @@ export async function POST(request: Request) {
     const first = await run(cases[0].input);
     if (first.error) return NextResponse.json(first, { status: 502 });
     if (first.compileOutput.trim()) {
+      recordSubmission({
+        userId: user.id,
+        problemId,
+        language,
+        verdict: 'compile_error',
+        casesPassed: 0,
+        casesTotal: cases.length,
+        wallTimeMs: first.wallTimeMs,
+        source,
+      });
       return NextResponse.json(
         { mode: 'submit', compileOutput: first.compileOutput, cases: [], passed: 0, total: cases.length },
         { status: 200 },
@@ -182,6 +247,18 @@ export async function POST(request: Request) {
     });
 
     const passedCount = caseResults.filter((c) => c.passed).length;
+    const totalWallTimeMs = results.reduce((n, r) => n + (r?.wallTimeMs ?? 0), 0);
+
+    recordSubmission({
+      userId: user.id,
+      problemId,
+      language,
+      verdict: verdictFor(caseResults),
+      casesPassed: passedCount,
+      casesTotal: caseResults.length,
+      wallTimeMs: totalWallTimeMs,
+      source,
+    });
 
     if (problemId) {
       execute(
@@ -198,7 +275,7 @@ export async function POST(request: Request) {
       passed: passedCount,
       total: caseResults.length,
       compileOutput: '',
-      wallTimeMs: results.reduce((n, r) => n + (r?.wallTimeMs ?? 0), 0),
+      wallTimeMs: totalWallTimeMs,
     });
   }
 
