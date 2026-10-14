@@ -428,6 +428,10 @@ export function FilterBar({
           </fieldset>
         </div>
       ) : null}
+      <p role="status" data-testid="problem-result-count" className="border-t border-[hsl(var(--border))] px-3 py-2.5 text-xs text-[hsl(var(--text-muted))]">
+        Showing {showing} of {total} matching problems
+      </p>
     </div>
   );
 }
+
