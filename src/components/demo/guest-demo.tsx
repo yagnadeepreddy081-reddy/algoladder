@@ -74,7 +74,7 @@ export function GuestDemo({ problems, topics }: { problems: Problem[]; topics: {
       <section aria-label="Your progress" className={styles.stats}>
         {[['Solved', solved], ['Attempted', attempted], ['Bookmarked', bookmarked], ['Total problems', problems.length]].map(([label, value]) => <div key={label}><span>{label}</span><strong>{ready ? value : '—'}</strong></div>)}
       </section>
-      <div className={styles.progress}><div><span>Roadmap completion</span><strong>{Math.round(solved / problems.length * 100)}%</strong></div><progress max={problems.length} value={solved} /></div>
+      <div className={styles.progress}><div><span>Roadmap completion</span><strong>{(solved / problems.length * 100).toFixed(1)}%</strong></div><progress max={problems.length} value={solved} /></div>
       {storageWarning && <p role="status" className={styles.warning}>{storageWarning}</p>}
       <nav className={styles.mobileTabs} aria-label="Guest workspace views">{(['roadmap', 'bookmarks', 'revision', 'notes'] as View[]).map(v => <button key={v} aria-current={view === v ? 'page' : undefined} onClick={() => setView(v)}>{v === 'roadmap' ? 'Roadmap' : v === 'bookmarks' ? 'Bookmarks' : v === 'revision' ? 'Revision' : 'Notes'}</button>)}</nav>
       <div className={styles.workspace}>
