@@ -144,7 +144,7 @@ test.describe('tracking progress', () => {
     await expect(page.getByTestId('stat-completed')).toContainText('5% of this topic');
 
     await page.goto('/topics');
-    await expect(page.getByText('1 of 20 solved')).toBeVisible();
+    await expect(page.locator('a[href="/topics/basics"]')).toContainText(/1\s*\/\s*20 solved/);
 
     await page.goto('/dashboard');
     await expect(page.getByTestId('stat-solved')).toContainText('1');
@@ -166,3 +166,4 @@ test.describe('tracking progress', () => {
     await expect(solvedTile).toContainText('0');
   });
 });
+
