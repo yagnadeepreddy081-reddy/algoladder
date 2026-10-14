@@ -49,6 +49,7 @@ function problem(
     ioFormat: null,
     examples: [],
     constraints: [],
+    testCases: [],
     progress: status
       ? {
           problemId: `al-${n}`,
@@ -215,3 +216,4 @@ describe('formatDuration', () => {
     expect(formatDuration(5400)).toBe('1h 30m');
   });
 });
+

@@ -189,3 +189,15 @@ thing in one transaction.
 - [ ] You have an admin account and can reach `/admin`
 - [ ] `/admin/data` reports **PASSED — exactly 474 valid problems**
 - [ ] The originality note in the landing page footer is still there and still accurate
+
+
+
+## Guest workspace and reset email
+
+The `/demo` route renders from the bundled catalogue without a database. It offers browser-local guest tracking, a manual revision queue and progress export. Deploying the full repository still requires its normal npm dependencies and build.
+
+For account password resets, configure `EMAIL_ENABLED=true`, `RESEND_API_KEY`, and `EMAIL_FROM` from a verified sender domain. Set `ALLOW_DEV_RESET_LINKS=false` in production. The transport uses [Resend's send-email REST API](https://resend.com/docs/api-reference/emails/send-email).
+
+Set `WANDBOX_URL` only when using your own compiler service. The default service must be reachable for Run and Submit. Guest mode links to original problem platforms and does not execute code.
+
+Before sharing on LinkedIn, verify the CI workflow on the release commit and test the deployed URL. See SHOWCASE.md for the recording checklist and draft post.

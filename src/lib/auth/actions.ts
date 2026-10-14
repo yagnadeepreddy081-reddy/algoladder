@@ -19,6 +19,8 @@ import {
   getSessionUser,
 } from '@/lib/auth/session';
 import type { UserRole } from '@/lib/types';
+import { safeRedirect } from './redirect';
+import { sendResetEmail } from './email';
 
 export interface AuthFormState {
   ok: boolean;
@@ -69,13 +71,6 @@ function adminEmails(): Set<string> {
       .map((e) => e.trim().toLowerCase())
       .filter(Boolean),
   );
-}
-
-function safeNext(raw: FormDataEntryValue | null): string {
-  const value = typeof raw === 'string' ? raw : '';
-  // Only allow same-origin relative paths — never an absolute URL.
-  if (value.startsWith('/') && !value.startsWith('//')) return value;
-  return '/dashboard';
 }
 
 // ===========================================================================
@@ -172,7 +167,7 @@ export async function signUpAction(
   });
   await setSessionCookie(token);
 
-  redirect(safeNext(formData.get('next')));
+  redirect(safeRedirect(formData.get('next')));
 }
 
 // ===========================================================================
@@ -232,7 +227,7 @@ export async function signInAction(
   });
   await setSessionCookie(token);
 
-  redirect(safeNext(formData.get('next')));
+  redirect(safeRedirect(formData.get('next')));
 }
 
 // ===========================================================================
@@ -295,13 +290,16 @@ export async function requestPasswordResetAction(
   const resetUrl = `${base}/reset-password?token=${token}`;
 
   if (process.env.EMAIL_ENABLED === 'true') {
-    // Wire your provider here. Deliberately not implemented: shipping a real
-    // mail integration you have not configured would fail silently in prod.
-    console.info('[algoladder] EMAIL_ENABLED is true but no mail transport is configured.');
-    console.info(`[algoladder] Reset link for ${email}: ${resetUrl}`);
+    try { await sendResetEmail(email, resetUrl); }
+    catch (error) { console.error('[algoladder] Reset email could not be delivered:', error instanceof Error ? error.message : 'Unknown error'); }
     return SUCCESS;
   }
 
+  // A public deployment must never hand a reset credential to its requester.
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_DEV_RESET_LINKS !== 'true') {
+    console.error('[algoladder] Password-reset email is disabled. Configure the email transport.');
+    return SUCCESS;
+  }
   console.info(`\n[algoladder] Password reset link for ${email}:\n  ${resetUrl}\n`);
   return { ...SUCCESS, devResetUrl: resetUrl };
 }
@@ -354,20 +352,26 @@ export async function resetPasswordAction(
 
   const passwordHash = await hashPassword(parsed.data.password);
 
-  await transaction(async (client) => {
+  const resetApplied = await transaction(async (client) => {
+    const claimed = await client.query(
+      `UPDATE password_reset_tokens SET used_at = now()
+       WHERE id = $1 AND used_at IS NULL AND expires_at > now() RETURNING id`, [row.id]);
+    if (!claimed.rowCount) return false;
     await client.query(
       // Bumping session_version signs the account out everywhere, which is
       // what you want after a reset.
       'UPDATE users SET password_hash = $1, session_version = session_version + 1 WHERE id = $2',
       [passwordHash, row.user_id],
     );
-    await client.query('UPDATE password_reset_tokens SET used_at = now() WHERE id = $1', [row.id]);
+
     await client.query(
       `INSERT INTO activity_logs (user_id, action, metadata) VALUES ($1, 'password_reset', '{}'::jsonb)`,
       [row.user_id],
     );
+    return true;
   });
 
+  if (!resetApplied) return { ok: false, error: 'That reset link has expired or has already been used. Request a new one.' };
   await clearSessionCookie();
   redirect('/login?reset=1');
 }
@@ -413,3 +417,4 @@ export async function countUsers(): Promise<number> {
   const rows = await query<{ n: number }>('SELECT count(*)::int AS n FROM users');
   return rows[0]?.n ?? 0;
 }
+

@@ -5,6 +5,7 @@ import { getApiUser } from '@/lib/auth/session';
 import { execute } from '@/lib/db';
 import { LANGUAGE_IDS, type LanguageId } from '@/lib/runner/languages';
 import { outputMatches, runCode, type RunResult } from '@/lib/runner/sandbox';
+import { executionSucceeded } from '@/lib/runner/grading';
 import { getTestCases } from '@/lib/data/test-cases';
 
 export const runtime = 'nodejs';
@@ -207,7 +208,7 @@ export async function POST(request: Request) {
     // and bail out before spending the rest of the budget on the same failure.
     const first = await run(cases[0].input);
     if (first.error) return NextResponse.json(first, { status: 502 });
-    if (first.compileOutput.trim()) {
+    if (first.compileOutput.trim() && !first.ran) {
       recordSubmission({
         userId: user.id,
         problemId,
@@ -230,17 +231,20 @@ export async function POST(request: Request) {
       results.push(...(await Promise.all(slice.map((c) => run(c.input)))));
     }
 
+    const failedService = results.find(r => r.error);
+    if (failedService) return NextResponse.json(failedService, { status: 502 });
+
     const caseResults: CaseResult[] = cases.map((c, i) => {
       const r = results[i];
-      const passed = Boolean(r?.ran) && !r.timedOut && outputMatches(r.stdout, c.expected);
+      const passed = executionSucceeded(r) && outputMatches(r.stdout, c.expected);
       return {
         index: i + 1,
         hidden: Boolean(c.hidden),
         passed,
         input: c.hidden ? undefined : c.input,
         expected: c.hidden ? undefined : c.expected,
-        actual: c.hidden && !passed ? '' : (r?.stdout ?? ''),
-        stderr: r?.stderr ?? '',
+        actual: c.hidden ? '' : (r?.stdout ?? ''),
+        stderr: c.hidden ? '' : (r?.stderr ?? ''),
         timedOut: Boolean(r?.timedOut),
         wallTimeMs: r?.wallTimeMs ?? 0,
       };
@@ -295,3 +299,4 @@ export async function POST(request: Request) {
 
   return NextResponse.json(result, { status: result.error ? 502 : 200 });
 }
+

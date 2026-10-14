@@ -11,7 +11,7 @@ const COOKIE_NAME = 'algoladder_session';
 
 function secret(): Uint8Array {
   const value = process.env.AUTH_SECRET;
-  if (!value || value.length < 16) {
+  if (!value || value.length < 32 || value.startsWith('replace-me')) {
     throw new Error(
       'AUTH_SECRET is missing or too short. Generate one with:\n' +
         '  node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'base64url\'))"',
@@ -141,3 +141,4 @@ export async function getApiUser(): Promise<SessionUser | null> {
 }
 
 export const SESSION_COOKIE_NAME = COOKIE_NAME;
+
