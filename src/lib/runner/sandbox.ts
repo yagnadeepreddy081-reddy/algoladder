@@ -207,7 +207,9 @@ export async function runCode({
     };
   }
 
-  const body = (await res.json()) as WandboxResponse;
+  let body: WandboxResponse;
+  try { body = (await res.json()) as WandboxResponse; }
+  catch { return { ...blank(language), error: 'The compiler service returned an unreadable response.', wallTimeMs: Date.now() - started }; }
 
   const stdout = clip(body.program_output ?? '');
   const stderr = clip(body.program_error ?? '');
@@ -218,7 +220,7 @@ export async function runCode({
   const exitCode = Number.isFinite(status) ? status : null;
 
   return {
-    ran: true,
+    ran: body.program_output !== undefined || body.program_error !== undefined,
     stdout: stdout.text,
     stderr: stderr.text,
     compileOutput: compileOutput.text,
@@ -252,3 +254,4 @@ export function normalizeOutput(text: string): string {
 export function outputMatches(actual: string, expected: string): boolean {
   return normalizeOutput(actual) === normalizeOutput(expected);
 }
+

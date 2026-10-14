@@ -161,7 +161,7 @@ describe('buildOrderBy', () => {
   });
 
   it('sorts titles case-insensitively', () => {
-    expect(buildOrderBy('title')).toBe('lower(p.title) ASC');
+    expect(buildOrderBy('title')).toBe('lower(p.title) COLLATE "C" ASC, p.overall_no ASC');
   });
 
   it('puts never-solved problems last when sorting by recency', () => {
@@ -173,3 +173,4 @@ describe('buildOrderBy', () => {
     expect(sql.indexOf("'not_started'")).toBeLessThan(sql.indexOf("'in_progress'"));
   });
 });
+

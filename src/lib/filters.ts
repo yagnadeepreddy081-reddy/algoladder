@@ -200,7 +200,8 @@ export function buildOrderBy(sort: SortKey): string {
       // Easy, Medium, Hard — then recommended order inside each band.
       return `CASE p.difficulty WHEN 'Easy' THEN 0 WHEN 'Medium' THEN 1 ELSE 2 END ASC, p.recommended_order ASC`;
     case 'title':
-      return 'lower(p.title) ASC';
+      // Keep pagination and title order consistent across PostgreSQL locales.
+      return 'lower(p.title) COLLATE "C" ASC, p.overall_no ASC';
     case 'recently-completed':
       return 'pr.solved_at DESC NULLS LAST, p.recommended_order ASC';
     case 'status':
@@ -215,3 +216,4 @@ export function buildOrderBy(sort: SortKey): string {
       return 'p.recommended_order ASC';
   }
 }
+

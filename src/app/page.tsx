@@ -9,6 +9,7 @@ import { isDatabaseReachable } from '@/lib/db';
 import { listTopics, getTotalProblemCount } from '@/lib/data/problems';
 import { LANGUAGE_LIST } from '@/lib/runner/languages';
 import { PREMIUM_FEATURES } from '@/lib/premium';
+import catalogueTopics from '../../data/topics.json';
 import { TOTAL_PROBLEMS } from '@/lib/types';
 
 export const dynamic = 'force-dynamic';
@@ -145,7 +146,7 @@ export default async function LandingPage() {
   const health = await isDatabaseReachable();
   const [topics, total] = health.ok
     ? await Promise.all([listTopics(), getTotalProblemCount()])
-    : [[], 0];
+    : [catalogueTopics, 0];
 
   const problemCount = health.ok ? total : TOTAL_PROBLEMS;
 
@@ -209,8 +210,8 @@ export default async function LandingPage() {
                 <Link href="/signup" className={buttonClass('primary', 'lg')}>
                   Start the ladder — free
                 </Link>
-                <Link href="/login" className={buttonClass('outline', 'lg')}>
-                  I already have an account
+                <Link href="/demo" className={buttonClass('outline', 'lg')}>
+                  Try the guest demo
                 </Link>
               </div>
 
@@ -228,17 +229,12 @@ export default async function LandingPage() {
               className="mt-12 rounded-[var(--radius-card)] border border-amber-300 bg-amber-50 px-5 py-4 dark:border-amber-900 dark:bg-amber-950/40"
             >
               <p className="text-sm font-semibold text-amber-900 dark:text-amber-200">
-                The database is not reachable yet
+                Try AlgoLadder without an account
               </p>
               <p className="mt-1 text-sm text-amber-800 dark:text-amber-300">
-                Copy <code className="font-mono">.env.example</code> to{' '}
-                <code className="font-mono">.env.local</code>, set{' '}
-                <code className="font-mono">DATABASE_URL</code>, then run{' '}
-                <code className="font-mono">npm run db:migrate &amp;&amp; npm run db:seed</code>.
+                Account features are temporarily unavailable. You can still explore the full roadmap and save progress in the guest demo.
               </p>
-              <p className="mt-2 font-mono text-xs break-words text-amber-700 dark:text-amber-400">
-                {health.error}
-              </p>
+              <Link href="/demo" className="mt-3 inline-block text-sm font-semibold underline">Open the guest workspace →</Link>
             </div>
           ) : null}
         </section>
@@ -442,3 +438,4 @@ export default async function LandingPage() {
     </div>
   );
 }
+

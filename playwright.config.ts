@@ -45,6 +45,7 @@ export default defineConfig({
   ],
 
   webServer: {
+    env: { ALLOW_DEV_RESET_LINKS: 'true' },
     command: `npx next start -p ${PORT}`,
     url: baseURL,
     // Never reuse a server that happens to be on the port: `next build` swaps
@@ -57,3 +58,4 @@ export default defineConfig({
     stderr: 'pipe',
   },
 });
+

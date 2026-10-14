@@ -5,6 +5,7 @@ import { getApiUser } from '@/lib/auth/session';
 import { execute } from '@/lib/db';
 import { LANGUAGE_IDS, type LanguageId } from '@/lib/runner/languages';
 import { outputMatches, runCode, type RunResult } from '@/lib/runner/sandbox';
+import { executionSucceeded } from '@/lib/runner/grading';
 import { getTestCases } from '@/lib/data/test-cases';
 
 export const runtime = 'nodejs';
@@ -103,22 +104,23 @@ type Verdict = 'accepted' | 'wrong_answer' | 'compile_error' | 'runtime_error' |
  * finished is reported as a timeout rather than a wrong answer, because the two
  * call for completely different advice.
  */
-function verdictFor(cases: CaseResult[]): Verdict {
-  if (cases.length > 0 && cases.every((c) => c.passed)) return 'accepted';
-  if (cases.some((c) => c.timedOut)) return 'timed_out';
-  if (cases.some((c) => !c.passed && c.stderr.trim())) return 'runtime_error';
+function verdictFor(results: RunResult[], passedCount: number): Verdict {
+  if (results.length > 0 && passedCount === results.length) return 'accepted';
+  if (results.some(r => r.timedOut)) return 'timed_out';
+  if (results.some(r => !r.ran && r.compileOutput.trim())) return 'compile_error';
+  if (results.some(r => r.exitCode !== 0 || r.signal)) return 'runtime_error';
   return 'wrong_answer';
 }
 
 /**
  * Append one row to `submissions`. Best-effort by design: a student's submit
- * must never fail because the history write did, exactly like the draft
- * counter above.
+ * must never fail because the history write did. Await the write before
+ * responding so serverless runtimes have time to finish it.
  *
  * `attempt_no` and `solved_before` are computed inside the statement so the
  * count cannot drift between a separate SELECT and this INSERT.
  */
-function recordSubmission(params: {
+async function recordSubmission(params: {
   userId: string;
   problemId: string;
   language: string;
@@ -127,8 +129,8 @@ function recordSubmission(params: {
   casesTotal: number;
   wallTimeMs: number;
   source: string;
-}): void {
-  execute(
+}): Promise<void> {
+  await execute(
     `INSERT INTO submissions
        (user_id, problem_id, language, verdict, cases_passed, cases_total,
         wall_time_ms, source, attempt_no, solved_before)
@@ -207,8 +209,8 @@ export async function POST(request: Request) {
     // and bail out before spending the rest of the budget on the same failure.
     const first = await run(cases[0].input);
     if (first.error) return NextResponse.json(first, { status: 502 });
-    if (first.compileOutput.trim()) {
-      recordSubmission({
+    if (first.compileOutput.trim() && !first.ran) {
+      await recordSubmission({
         userId: user.id,
         problemId,
         language,
@@ -230,17 +232,20 @@ export async function POST(request: Request) {
       results.push(...(await Promise.all(slice.map((c) => run(c.input)))));
     }
 
+    const failedService = results.find(r => r.error);
+    if (failedService) return NextResponse.json(failedService, { status: 502 });
+
     const caseResults: CaseResult[] = cases.map((c, i) => {
       const r = results[i];
-      const passed = Boolean(r?.ran) && !r.timedOut && outputMatches(r.stdout, c.expected);
+      const passed = executionSucceeded(r) && outputMatches(r.stdout, c.expected);
       return {
         index: i + 1,
         hidden: Boolean(c.hidden),
         passed,
         input: c.hidden ? undefined : c.input,
         expected: c.hidden ? undefined : c.expected,
-        actual: c.hidden && !passed ? '' : (r?.stdout ?? ''),
-        stderr: r?.stderr ?? '',
+        actual: c.hidden ? '' : (r?.stdout ?? ''),
+        stderr: c.hidden ? '' : (r?.stderr ?? ''),
         timedOut: Boolean(r?.timedOut),
         wallTimeMs: r?.wallTimeMs ?? 0,
       };
@@ -249,11 +254,11 @@ export async function POST(request: Request) {
     const passedCount = caseResults.filter((c) => c.passed).length;
     const totalWallTimeMs = results.reduce((n, r) => n + (r?.wallTimeMs ?? 0), 0);
 
-    recordSubmission({
+    await recordSubmission({
       userId: user.id,
       problemId,
       language,
-      verdict: verdictFor(caseResults),
+      verdict: verdictFor(results, passedCount),
       casesPassed: passedCount,
       casesTotal: caseResults.length,
       wallTimeMs: totalWallTimeMs,
@@ -295,3 +300,4 @@ export async function POST(request: Request) {
 
   return NextResponse.json(result, { status: result.error ? 502 : 200 });
 }
+

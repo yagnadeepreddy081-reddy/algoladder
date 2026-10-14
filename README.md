@@ -9,6 +9,16 @@ are required to run or deploy it.
 
 ---
 
+## Portfolio demo and release verification
+
+Visit **`/demo`** to explore the complete bundled roadmap without a database or an account. Guest mode includes search and topic/difficulty/status filters, bookmarks, notes, a manual revision queue, browser-local progress persistence, and JSON export. Guest data is separate from account data and does not migrate on signup.
+
+For a local database, run `docker compose up -d db`, then follow Quick start below. The new GitHub Actions workflow runs schema setup, seed, type checking, unit/integration tests, production build, and browser tests on pull requests.
+
+See [SHOWCASE.md](SHOWCASE.md) for a demo walkthrough and a LinkedIn draft. Account features require PostgreSQL; code execution requires a reachable Wandbox service. Payments remain disabled and unimplemented.
+
+Password reset now supports Resend: set `EMAIL_ENABLED=true`, `RESEND_API_KEY`, and a verified `EMAIL_FROM`. Never set `ALLOW_DEV_RESET_LINKS=true` on a public deployment. That flag exists only for local production-mode browser tests. Production otherwise never exposes reset links in the UI or logs.
+
 ## Contents
 
 - [What this is — and what it deliberately is not](#what-this-is--and-what-it-deliberately-is-not)
@@ -330,8 +340,7 @@ Built in, no third-party SDK:
 - `requireUser()` and `requireAdmin()` guard server components; route handlers use `getApiUser()`.
 
 With `EMAIL_ENABLED=false` (the default) the reset link is printed to the server console **and**
-shown in the UI, so you can test the whole flow locally. Wire a real mail provider in
-`requestPasswordResetAction` before you turn that on.
+shown in the UI, so you can test the whole flow locally. Configure `RESEND_API_KEY` and a verified `EMAIL_FROM` before enabling email. Development reset links are suppressed in production.
 
 ---
 
@@ -376,8 +385,8 @@ link and all progress tracking stay free, which is the free preview.
 ## Testing
 
 ```bash
-npm test              # 133 unit + integration tests (Vitest)
-npm run test:e2e      # 60 browser tests (Playwright, desktop + mobile)
+npm test              # unit + integration tests (Vitest)
+npm run test:e2e      # browser tests (Playwright, desktop + mobile)
 npm run test:all      # everything, including the dataset gate
 ```
 
@@ -421,7 +430,7 @@ See [`DEPLOYMENT.md`](DEPLOYMENT.md) for the full walkthrough. The short version
 ## Troubleshooting
 
 **"The database is not reachable yet" on the landing page** — `DATABASE_URL` is wrong or the server
-is not running. The exact driver error is printed on that page.
+is not running. Visitors can use the guest workspace while account features are unavailable. Internal driver errors are not displayed.
 
 **`npm run build` fails at validation** — the dataset is not exactly 474 valid problems. The output
 names the problem. This is the gate working.
@@ -444,3 +453,4 @@ earlier build. Kill it; the config no longer reuses an existing server for exact
 ---
 
 Built for Surasani Yagnadeep Reddy.
+
