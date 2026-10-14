@@ -104,22 +104,23 @@ type Verdict = 'accepted' | 'wrong_answer' | 'compile_error' | 'runtime_error' |
  * finished is reported as a timeout rather than a wrong answer, because the two
  * call for completely different advice.
  */
-function verdictFor(cases: CaseResult[]): Verdict {
-  if (cases.length > 0 && cases.every((c) => c.passed)) return 'accepted';
-  if (cases.some((c) => c.timedOut)) return 'timed_out';
-  if (cases.some((c) => !c.passed && c.stderr.trim())) return 'runtime_error';
+function verdictFor(results: RunResult[], passedCount: number): Verdict {
+  if (results.length > 0 && passedCount === results.length) return 'accepted';
+  if (results.some(r => r.timedOut)) return 'timed_out';
+  if (results.some(r => !r.ran && r.compileOutput.trim())) return 'compile_error';
+  if (results.some(r => r.exitCode !== 0 || r.signal)) return 'runtime_error';
   return 'wrong_answer';
 }
 
 /**
  * Append one row to `submissions`. Best-effort by design: a student's submit
- * must never fail because the history write did, exactly like the draft
- * counter above.
+ * must never fail because the history write did. Await the write before
+ * responding so serverless runtimes have time to finish it.
  *
  * `attempt_no` and `solved_before` are computed inside the statement so the
  * count cannot drift between a separate SELECT and this INSERT.
  */
-function recordSubmission(params: {
+async function recordSubmission(params: {
   userId: string;
   problemId: string;
   language: string;
@@ -128,8 +129,8 @@ function recordSubmission(params: {
   casesTotal: number;
   wallTimeMs: number;
   source: string;
-}): void {
-  execute(
+}): Promise<void> {
+  await execute(
     `INSERT INTO submissions
        (user_id, problem_id, language, verdict, cases_passed, cases_total,
         wall_time_ms, source, attempt_no, solved_before)
@@ -209,7 +210,7 @@ export async function POST(request: Request) {
     const first = await run(cases[0].input);
     if (first.error) return NextResponse.json(first, { status: 502 });
     if (first.compileOutput.trim() && !first.ran) {
-      recordSubmission({
+      await recordSubmission({
         userId: user.id,
         problemId,
         language,
@@ -253,11 +254,11 @@ export async function POST(request: Request) {
     const passedCount = caseResults.filter((c) => c.passed).length;
     const totalWallTimeMs = results.reduce((n, r) => n + (r?.wallTimeMs ?? 0), 0);
 
-    recordSubmission({
+    await recordSubmission({
       userId: user.id,
       problemId,
       language,
-      verdict: verdictFor(caseResults),
+      verdict: verdictFor(results, passedCount),
       casesPassed: passedCount,
       casesTotal: caseResults.length,
       wallTimeMs: totalWallTimeMs,
